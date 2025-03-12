@@ -3,11 +3,31 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #006ebf;
+  --secondery: #eaa71c;
+  --primary_dash: #38444f;
+  --secondery_dash: #1f2937;
+  --thired_dash: #0f172a;
+  --fourth_dash: #606d7a;
+  --second_text: #94a3b8;
+  --success: #28a745;
+  --danger: #dc3545;
+  --warning: #ffc107;
+  --info: #17a2b8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondery: var(--secondery);
+  --color-primary_dash: var(--primary_dash);
+  --color-secondery_dash: var(--secondery_dash);
+  --color-thired_dash: var(--thired_dash);
+  --color-fourth_dash: var(--fourth_dash);
+  --color-second_text: var(--second_text);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -16,11 +36,54 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --success: var(--success);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .danger-btn {
+    @apply px-4 py-2 cursor-pointer  max-md:px-2 max-md:py-1 flex items-center gap-3 bg-red-400 rounded-md text-white  border border-transparent hover:scale-110 hover:bg-white hover:text-black hover:border-red-400 duration-200;
+  }
+
+  .cancle-btn {
+    @apply px-4 py-2 cursor-pointer  max-md:px-2 max-md:py-1 flex items-center gap-3 bg-gray-400 rounded-md text-white  border border-transparent hover:scale-110 hover:bg-white hover:text-black hover:border-gray-400 duration-200;
+  }
+
+  .info-btn {
+    @apply px-4 py-2 cursor-pointer  max-md:px-2 max-md:py-1 flex items-center gap-3 bg-primary rounded-md text-white  border border-transparent hover:scale-110 hover:bg-white hover:text-black hover:border-primary duration-200;
+  }
+
+  .close-btn {
+    @apply w-10 h-10 cursor-pointer bg-white text-primary_dash hover:scale-110  shadow-md flex items-center absolute top-2 right-2 justify-center rounded-md hover:bg-red-300 hover:text-white duration-200;
+  }
+
+  .submit-btn {
+    @apply w-1/4 max-lg:w-1/2 max-md:w-[90%] max-sm:w-[95%] rounded-md bg-primary border border-transparent text-white text-center shadow-sm py-2 hover:bg-white hover:border-primary hover:scale-110 hover:text-black cursor-pointer my-3  mx-auto duration-200;
+  }
+
+  .input-style {
+    @apply border rounded-md outline-transparent focus:outline-sky-400 duration-200 p-2 w-full border-gray-300;
+  }
+
+  .input-style.error {
+    @apply border-red-500 focus:ring-red-500 focus:border-red-500;
+  }
+
+  .input-container {
+    @apply relative w-full;
+  }
+
+  .input-label {
+    @apply my-2 text-sm text-secondery_dash pb-2   border-b border-sky-300 w-fit ml-auto;
+  }
+
+  .select-style {
+    @apply rounded-md w-full outline-none border border-gray-300 p-2;
+  }
+}
+
+.hidden-scrollbar {
+  /* لجميع المتصفحات */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
