@@ -46,9 +46,9 @@ export default function UserDropDown() {
             animate={{ y: 40, opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="w-[250px] h-[200px] absolute  right-0 shad-md  p-2 bg-fourth_dash "
+            className="w-[250px] h-[200px] absolute  right-0 shad-md  p-2 bg-primary "
           >
-            <span className=" border-[10px] border-r-transparent border-t-transparent border-l-transparent border-b-fourth_dash absolute -top-5 right-2"></span>
+            <span className=" border-[10px] border-r-transparent border-t-transparent border-l-transparent border-b-primary absolute -top-5 right-2"></span>
           </motion.div>
         )}
       </AnimatePresence>

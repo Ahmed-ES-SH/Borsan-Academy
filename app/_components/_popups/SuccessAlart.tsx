@@ -39,6 +39,7 @@ export default function SuccessAlart({ showAlart, Message, onClose }: Props) {
     <AnimatePresence>
       {showAlart && (
         <motion.div
+          style={{ direction: "ltr" }}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}

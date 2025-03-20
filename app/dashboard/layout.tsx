@@ -10,9 +10,9 @@ export default function DashboardLayout({
   return (
     <>
       <Topbar />
-      <div className="flex items-start gap-1 h-[120vh] overflow-hidden">
+      <div className="flex items-start gap-1 h-fit max-md:overflow-visible overflow-hidden">
         <Sidebar />
-        <div className="w-full h-full dark:bg-main_dash  mt-20  ">
+        <div className="w-full h-full overflow-y-auto duration-200 mt-20  ">
           {children}
         </div>
       </div>

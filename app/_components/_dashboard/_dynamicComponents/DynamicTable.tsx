@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { instance } from "@/app/_helpers/axios";
 import useFetchData from "@/app/_helpers/FetchDataWithAxios";
@@ -16,12 +17,15 @@ import ConfirmDeletePopup from "../../_popups/ConfirmDeletePopup";
 import SuccessAlart from "../../_popups/SuccessAlart";
 import ErrorAlart from "../../_popups/ErrorAlart";
 import SearchInput from "../SearchInput";
+import { useRouter } from "next/navigation";
 
 interface props {
   api: string;
   deletedApi: string;
   headers: string[];
+  itemDirect: string;
   keys: cellType[];
+  searchState?: boolean;
 }
 
 export default function DynamicTable({
@@ -29,26 +33,23 @@ export default function DynamicTable({
   deletedApi,
   headers,
   keys,
+  itemDirect,
+  searchState = true,
 }: props) {
-  const {
-    data,
-    currentPage,
-    setData,
-    setCurrentPage,
-    lastPage,
-    loading,
-    error,
-  } = useFetchData(api, true);
+  const { data, currentPage, setData, setCurrentPage, lastPage, loading } =
+    useFetchData(api, true);
   ///////////////////////////////////////////
   // Start  Stats Lines  ////////////////
   ///////////////////////////////////////////
-
+  const router = useRouter();
   const [confirmDeletePopup, setConfirmDeletePopup] = useState<boolean>(false);
   const [successPopup, setSuccessPopup] = useState<boolean>(false);
   const [errorPopup, setErrorPopup] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [successMessage, setSuccessMessage] = useState<string>("");
-  const [selectedItem, setSelectedItem] = useState<ItemDataType | null>(null);
+  const [selectedItem, setSelectedItem] = useState<any>(null);
+  const [query, setQuery] = useState<string>("");
+
   const onEdit = true;
   const onDelete = true;
 
@@ -75,15 +76,17 @@ export default function DynamicTable({
     setErrorPopup(false);
   };
 
+  const handleRoute = (direct: string) => {
+    router.push(direct);
+  };
+
   const handleDelete = async (id: number) => {
     try {
       const response = await instance.delete(`${deletedApi}/${id}`);
 
       if (response.status === 200) {
         // تحديث البيانات بعد الحذف
-        setData((prev: ItemDataType[]) =>
-          prev.filter((item) => item.id !== id)
-        );
+        setData((prev: any) => prev.filter((item: any) => item.id !== id));
 
         // إظهار إشعار الحذف الناجح
         setSuccessPopup(true);
@@ -107,13 +110,15 @@ export default function DynamicTable({
   // End  Functions Lines  ////////////////
   ///////////////////////////////////////////
 
-  console.log(error);
+  console.log(query);
 
   return (
-    <div className="w-full h-[120vh] overflow-y-auto hidden-scrollbar">
-      <SearchInput />
+    <div className="w-full h-fit  hidden-scrollbar">
+      {searchState && (
+        <SearchInput handleSearch={() => {}} setSearchContent={setQuery} />
+      )}
       <motion.div
-        className="overflow-x-auto rounded-lg w-[98%] mx-auto h-[95vh] overflow-y-auto  shadow-lg"
+        className="overflow-x-auto rounded-lg w-[98%] mx-auto h-fit   shadow-lg"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
@@ -211,15 +216,15 @@ export default function DynamicTable({
                       return (
                         <td
                           key={i}
-                          className={`px-6  py-4  text-white text-center  text-md`}
+                          className={`px-6  py-4   text-white text-center  text-md`}
                         >
                           <span
-                            className={`px-2 py-1 text-center ${
+                            className={`px-2 py-1 w-[150px] block text-center ${
                               item[cell.key] == cell.conditions?.green
                                 ? "bg-green-300"
                                 : item[cell.key] == cell.conditions?.red
                                 ? "bg-red-300"
-                                : "bg-yellow-200"
+                                : "bg-yellow-200 text-black"
                             } rounded-lg`}
                           >
                             {item[cell.key]}
@@ -236,8 +241,10 @@ export default function DynamicTable({
                       <div className="w-fit mx-auto flex items-center gap-4">
                         {onEdit && (
                           <button
-                            //   onClick={() => onEdit?.(item)}
-                            className="text-blue-500 hover:text-blue-700"
+                            onClick={() =>
+                              handleRoute(`/dashboard/${itemDirect}/${item.id}`)
+                            }
+                            className="text-blue-500 hover:text-blue-700 cursor-pointer"
                           >
                             <FaEdit size={20} />
                           </button>
@@ -274,10 +281,14 @@ export default function DynamicTable({
         onPageChange={handlePageChange}
       />
       <ConfirmDeletePopup
-        title={selectedItem && selectedItem.name}
+        title={
+          selectedItem && selectedItem.name
+            ? selectedItem.name
+            : selectedItem?.title_en || ""
+        }
         id={selectedItem?.id ?? 0}
         showConfirm={confirmDeletePopup}
-        onDelete={handleDelete}
+        onDelete={() => handleDelete(selectedItem.id)}
         onClose={handleClose}
       />
       <SuccessAlart

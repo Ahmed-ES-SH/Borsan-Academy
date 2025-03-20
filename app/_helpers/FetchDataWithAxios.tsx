@@ -3,9 +3,7 @@ import { useEffect, useState } from "react";
 import { instance } from "./axios";
 
 export default function useFetchData(api: string, paginationState: boolean) {
-  const [data, setData] = useState<
-    { id: number; cell: { key: string; cellType: string } }[]
-  >([]);
+  const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
   const [loading, setLoading] = useState(true);

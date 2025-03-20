@@ -22,9 +22,9 @@ export default function ErrorAlart({ showAlart, Message, onClose }: Props) {
           clearInterval(interval);
           return 0;
         }
-        return prev - 1;
+        return prev - 10;
       });
-    }, 400);
+    }, 600);
 
     return () => clearInterval(interval); // تنظيف `setInterval` عند إغلاق التنبيه
   }, [showAlart]);
@@ -39,6 +39,7 @@ export default function ErrorAlart({ showAlart, Message, onClose }: Props) {
     <AnimatePresence>
       {showAlart && (
         <motion.div
+          style={{ direction: "ltr" }}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}

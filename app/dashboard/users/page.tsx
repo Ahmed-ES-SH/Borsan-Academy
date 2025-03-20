@@ -31,6 +31,7 @@ export default function page() {
     <>
       <div className="w-full">
         <DynamicTable
+          itemDirect="users"
           headers={headers}
           keys={keys}
           api="/users"

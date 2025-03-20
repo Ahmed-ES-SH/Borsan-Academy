@@ -92,22 +92,22 @@ export const pages = [
       {
         title: "المقالات",
         icon: <GrArticle className={iconStyle} />,
-        to: "/dashboard/articals",
+        to: "/dashboard/articles",
       },
       {
         title: "أقسام المقالات",
         icon: <IoLayersOutline className={iconStyle} />,
-        to: "/dashboard/articalservices",
+        to: "/dashboard/articlecategories",
       },
       {
         title: "أضف قسم جديد ",
         icon: <IoAdd className={iconStyle} />,
-        to: "/dashboard/addarticalcategory",
+        to: "/dashboard/addarticlecategory",
       },
       {
         title: "أضف مقال جديدة",
         icon: <MdOutlineAddToPhotos className={iconStyle} />,
-        to: "/dashboard/addartical",
+        to: "/dashboard/addarticle",
       },
     ],
   },
@@ -119,12 +119,12 @@ export const pages = [
       {
         title: "سياسية الخصوصية",
         icon: <FaUsersViewfinder className={iconStyle} />,
-        to: "/dashboard/privacypolicyusers",
+        to: "/dashboard/privacypolicy",
       },
       {
         title: "الشروط والأحكام",
         icon: <MdOutlinePrivacyTip className={iconStyle} />,
-        to: "/dashboard/termsconditionsusers",
+        to: "/dashboard/termsconditions",
       },
     ],
   },
@@ -161,6 +161,6 @@ export const pages = [
   {
     title: "روابط نهاية الموقع",
     icon: <FaLinesLeaning className={iconStyle} />,
-    to: "/dashboard/footerdash",
+    to: "/dashboard/footerlinks",
   },
 ];

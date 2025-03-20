@@ -8,15 +8,8 @@ import { useRouter } from "next/navigation";
 import { AxiosError } from "axios";
 import SuccessAlart from "../../_popups/SuccessAlart";
 import LoadingSpin from "../../LoadingSpin";
-
-interface InputField {
-  name: string;
-  type: string;
-  fildType: string;
-  label: { ar: string; en: string };
-  placeholder?: string;
-  selectItems?: { [key: string]: string }[];
-}
+import { FaImage } from "react-icons/fa";
+import { errorType, InputField } from "@/app/types/_dashboard/GlobalTypes";
 
 interface Props {
   inputs: InputField[];
@@ -24,10 +17,6 @@ interface Props {
   direct: string;
   submitValue: string;
   successMessage: string;
-}
-
-interface errorType {
-  [key: string]: { ar: string; en: string };
 }
 
 export default function DynamicForm({
@@ -40,7 +29,7 @@ export default function DynamicForm({
   const router = useRouter();
   const openImageinput = useRef<HTMLInputElement | null>(null);
 
-  const [form, setForm] = useState<Record<string, string | File>>({});
+  const [form, setForm] = useState<any>({});
   const [errors, setErrors] = useState<errorType>({});
   const [successPopup, setSuccessPopup] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -97,12 +86,15 @@ export default function DynamicForm({
       const formData = new FormData();
 
       Object.entries(form).forEach(([key, value]) => {
-        formData.append(key, String(value)); // تأكد أن القيمة نصية
-        if (key == "image") {
-          formData.append("image", form?.image);
+        if (value !== null && value !== undefined) {
+          // إذا كانت القيمة مصفوفة، نحولها إلى JSON
+          const formattedValue = Array.isArray(value)
+            ? JSON.stringify(value)
+            : value;
+          formData.append(key, formattedValue as string | Blob);
         }
       });
-
+      formData.append("author_id", "4");
       const response = await instance.post(api, formData);
 
       if (response.status === 201) {
@@ -153,7 +145,7 @@ export default function DynamicForm({
       <form
         onSubmit={handleSubmit}
         style={{ direction: "rtl" }}
-        className="w-[98%] h-[105vh] overflow-y-auto mx-auto max-md:w-[96%] mt-2 flex flex-col gap-3"
+        className="w-[98%] h-fit overflow-y-auto mx-auto max-md:w-[96%] mt-2 flex flex-col gap-3"
       >
         {inputs.map((input, index) => {
           //////////////////////
@@ -170,9 +162,34 @@ export default function DynamicForm({
                   name={input.name}
                   placeholder={input.placeholder}
                   type={input.type}
-                  value={form[input.name] as string}
+                  value={(form[input.name] as string) || ""}
                   onChange={handleChange}
                   className="input-style"
+                />
+                {errors[input.name] && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors[input.name]["ar"]}
+                  </p>
+                )}
+              </div>
+            );
+          }
+
+          //////////////////////
+          //text area Element
+          //////////////////////
+          if (input.fildType == "long-text") {
+            return (
+              <div className="flex flex-col gap-3 " key={index}>
+                <label htmlFor={input.name} className="input-label">
+                  {input.label["ar"]}
+                </label>
+                <textarea
+                  name={input.name}
+                  placeholder={input.placeholder}
+                  value={(form[input.name] as string) || ""}
+                  onChange={handleChange}
+                  className="input-style h-24"
                 />
                 {errors[input.name] && (
                   <p className="text-red-500 text-sm mt-1">
@@ -194,9 +211,9 @@ export default function DynamicForm({
                   onClick={() => openImageinput.current?.click()}
                   className="w-60 h-60 rounded-full  hover:-translate-y-2 hover:bg-primary text-second_text hover:text-white hover:border-white duration-200 cursor-pointer  mx-auto border-2  border-second_text flex items-center justify-center "
                 >
-                  {form?.image instanceof File ? (
+                  {form[input.name] instanceof File ? (
                     <Img
-                      src={URL.createObjectURL(form?.image)}
+                      src={URL.createObjectURL(form[input.name] as Blob)}
                       className="w-60 h-60  rounded-full"
                     />
                   ) : (
@@ -219,6 +236,78 @@ export default function DynamicForm({
           }
 
           //////////////////////
+          //normal Image input
+          //////////////////////
+
+          if (input.fildType == "normal-image") {
+            return (
+              <div key={index} className="h-96">
+                <div
+                  onClick={() => openImageinput.current?.click()}
+                  className="w-72 h-60 overflow-hidden rounded-sm  hover:-translate-y-2 hover:bg-primary text-second_text hover:text-white hover:border-white duration-200 cursor-pointer  mx-auto border-2  border-second_text flex items-center justify-center "
+                >
+                  {form[input.name] instanceof File ? (
+                    <Img
+                      src={URL.createObjectURL(form[input.name] as Blob)}
+                      className="w-full h-full  object-cover"
+                    />
+                  ) : (
+                    <FaImage className="size-24 " />
+                  )}
+                  <input
+                    type="file"
+                    hidden
+                    onChange={handleFileChange}
+                    ref={openImageinput}
+                  />
+                </div>
+                {errors[input.name] && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors[input.name]["ar"]}
+                  </p>
+                )}
+              </div>
+            );
+          }
+
+          if (input.fildType == "full-image") {
+            return (
+              <div key={index} className="h-fit w-full flex flex-col gap-3">
+                <label className="input-label">{input.label.ar}</label>
+                <div
+                  onClick={() => openImageinput.current?.click()}
+                  className="w-full h-96  shadow-md border-dashed overflow-hidden rounded-sm  hover:-translate-y-2 hover:bg-primary text-second_text hover:text-white hover:border-white duration-200 cursor-pointer  mx-auto border  border-second_text flex items-center justify-center "
+                >
+                  {form?.image instanceof File ? (
+                    <Img
+                      src={URL.createObjectURL(form?.image)}
+                      className="w-full h-full  object-cover"
+                    />
+                  ) : form[input.name] ? (
+                    <Img
+                      src={form[input.name] ? form[input.name] : "/public"}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <FaImage className="size-24 " />
+                  )}
+                  <input
+                    type="file"
+                    hidden
+                    onChange={handleFileChange}
+                    ref={openImageinput}
+                  />
+                </div>
+                {errors[input.name] && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors[input.name]["ar"]}
+                  </p>
+                )}
+              </div>
+            );
+          }
+
+          //////////////////////
           //Select Eelement
           //////////////////////
 
@@ -232,8 +321,10 @@ export default function DynamicForm({
                   onChange={handleChange}
                   name={input.name}
                   className="select-style"
-                  defaultValue={
-                    form[input.name] ? (form[input.name] as string) : ""
+                  value={
+                    form[input.name]
+                      ? (form[input.name] as string)
+                      : form[input.name]?.title_en || ""
                   }
                 >
                   <option value="" disabled>
@@ -241,8 +332,11 @@ export default function DynamicForm({
                   </option>
                   {input.selectItems &&
                     input.selectItems.map((item) => (
-                      <option key={item.name} value={item.name}>
-                        {item.name}
+                      <option
+                        key={item.name ? item.name : item.id}
+                        value={item.name ? item.name : item.id}
+                      >
+                        {item.name ? item.name : item?.title_en}
                       </option>
                     ))}
                 </select>

@@ -1,3 +1,4 @@
+import { DataProvider } from "@/app/context/DataContext";
 import VariablesProvider from "@/app/context/VariablesContext";
 import React from "react";
 
@@ -8,7 +9,9 @@ type ClientLayoutProps = {
 export default function ClientLayout({ children }: ClientLayoutProps) {
   return (
     <>
-      <VariablesProvider>{children}</VariablesProvider>
+      <DataProvider>
+        <VariablesProvider>{children}</VariablesProvider>
+      </DataProvider>
     </>
   );
 }

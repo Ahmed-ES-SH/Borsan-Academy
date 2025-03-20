@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #ffffff;
@@ -40,7 +41,15 @@
   }
 }
 
+button {
+  cursor: pointer;
+}
+
 @layer components {
+  .btn-hover {
+    @apply hover:bg-white cursor-pointer hover:text-black hover:scale-110 duration-200 border border-transparent p-2 flex items-center justify-center rounded-sm text-white;
+  }
+
   .danger-btn {
     @apply px-4 py-2 cursor-pointer  max-md:px-2 max-md:py-1 flex items-center gap-3 bg-red-400 rounded-md text-white  border border-transparent hover:scale-110 hover:bg-white hover:text-black hover:border-red-400 duration-200;
   }
@@ -54,7 +63,7 @@
   }
 
   .close-btn {
-    @apply w-10 h-10 cursor-pointer bg-white text-primary_dash hover:scale-110  shadow-md flex items-center absolute top-2 right-2 justify-center rounded-md hover:bg-red-300 hover:text-white duration-200;
+    @apply w-10 h-10 cursor-pointer bg-white text-primary_dash hover:scale-110  shadow-md flex items-center absolute top-2 left-2 justify-center rounded-md hover:bg-red-300 hover:text-white duration-200;
   }
 
   .submit-btn {
@@ -79,6 +88,10 @@
 
   .select-style {
     @apply rounded-md w-full outline-none border border-gray-300 p-2;
+  }
+
+  .popup-main-bg {
+    @apply w-full h-screen flex items-center justify-center bg-black/50 fixed top-0 left-0 z-[999999] backdrop-blur-lg;
   }
 }
 

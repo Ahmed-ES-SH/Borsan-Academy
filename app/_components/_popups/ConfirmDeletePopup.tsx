@@ -6,10 +6,10 @@ import { GiTireIronCross } from "react-icons/gi";
 import { MdErrorOutline } from "react-icons/md";
 
 interface props {
-  title: string;
-  id: number;
+  title: string | undefined;
+  id: number | null | undefined;
   showConfirm: boolean;
-  onDelete: (id: number) => void;
+  onDelete: (id: number | undefined) => void;
   onClose: () => void;
 }
 
@@ -29,7 +29,7 @@ export default function ConfirmDeletePopup({
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
             exit={{ opacity: 0 }}
-            className="w-full h-screen z-[999999] flex items-center justify-center bg-black/60 fixed top-0 left-0"
+            className="popup-main-bg"
           >
             <motion.div
               initial={{ y: -500 }}
@@ -64,7 +64,10 @@ export default function ConfirmDeletePopup({
                   <FaTimes />
                   <p>إلغاء</p>
                 </button>
-                <button onClick={() => onDelete(id)} className="danger-btn">
+                <button
+                  onClick={() => onDelete(id || 0)}
+                  className="danger-btn"
+                >
                   <FaTrash />
                   <p>حذف</p>
                 </button>

@@ -40,7 +40,7 @@ export default function Sidebar() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: -300, opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className="w-[300px] bg-primary_dash xl:mt-16 h-full max-xl:z-[99999999] max-xl:fixed top-0 left-0 overflow-y-auto py-2 shadow-md"
+            className="w-[300px] bg-primary_dash xl:mt-16 pb-20 pt-2 h-screen  z-[99999999] fixed top-0 left-0 overflow-y-auto  shadow-md"
           >
             <div className="w-full px-3">
               <HiBars3BottomRight
@@ -84,17 +84,14 @@ export default function Sidebar() {
                     className="ml-8 overflow-hidden"
                   >
                     {page.minilinks?.map((link, subIndex) => (
-                      <li key={subIndex}>
-                        <Link
-                          href={link.to}
-                          className="flex items-center gap-4 px-4 py-2 hover:bg-primary  duration-200 text-white cursor-pointer"
-                        >
+                      <Link href={link.to} key={subIndex}>
+                        <div className="flex items-center gap-4 px-4 py-2 hover:bg-primary  duration-200 text-white cursor-pointer">
                           {link.icon}
                           <span className="text-sm whitespace-nowrap">
                             {link.title}
                           </span>
-                        </Link>
-                      </li>
+                        </div>
+                      </Link>
                     ))}
                   </motion.ul>
                 </li>
