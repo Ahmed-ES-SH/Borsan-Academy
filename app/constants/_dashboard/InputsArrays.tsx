@@ -58,7 +58,10 @@ export const addUserinputs = [
     fildType: "select-type",
     label: { ar: "نوع الحساب", en: "" },
     placeholder: "",
-    selectItems: [{ name: "male" }, { name: "female" }],
+    selectItems: [
+      { name: "ذكر", value: "male" },
+      { name: "أنثى", value: "female" },
+    ],
   },
   {
     name: "role",
@@ -66,7 +69,10 @@ export const addUserinputs = [
     fildType: "select-type",
     label: { ar: "نوع الحساب", en: "" },
     placeholder: "",
-    selectItems: [{ name: "admin" }, { name: "user" }],
+    selectItems: [
+      { name: "مسؤول ", value: "admin" },
+      { name: "طالب", value: "student" },
+    ],
   },
 ];
 
@@ -136,7 +142,10 @@ export const UpdateUserinputs = [
     fildType: "select-type",
     label: { ar: "الجنس", en: "" },
     placeholder: "",
-    selectItems: [{ name: "male" }, { name: "female" }],
+    selectItems: [
+      { name: "ذكر", value: "male" },
+      { name: "أنثى", value: "female" },
+    ],
   },
   {
     name: "role",
@@ -144,7 +153,22 @@ export const UpdateUserinputs = [
     fildType: "select-type",
     label: { ar: "نوع الحساب", en: "" },
     placeholder: "",
-    selectItems: [{ name: "admin" }, { name: "user" }, { name: "student" }],
+    selectItems: [
+      { name: "مسؤول ", value: "admin" },
+      { name: "طالب", value: "student" },
+    ],
+  },
+  {
+    name: "status",
+    type: "",
+    fildType: "select-type",
+    label: { ar: "حالة الحساب", en: "" },
+    placeholder: "",
+    selectItems: [
+      { value: "banned", name: "محظور" },
+      { value: "active", name: "نشط" },
+      { value: "inactive", name: "غير نشط" },
+    ],
   },
 ];
 

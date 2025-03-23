@@ -6,6 +6,7 @@ import { UseVariables } from "@/app/context/VariablesContext";
 import UserDropDown from "./_dropdowns/UserDropDown";
 import ConversationsDropDown from "./_dropdowns/ConversationsDropDown";
 import NotificationsDropDown from "./_dropdowns/NotificationsDropDown";
+import Link from "next/link";
 
 export default function Topbar() {
   const { setShowSidebar, showSidebar } = UseVariables();
@@ -25,12 +26,15 @@ export default function Topbar() {
               }`}
             />
 
-            <div className="flex items-center justify-center w-12 h-12 max-md:w-10 max-md:h-10 bg-white rounded-full">
+            <Link
+              href="/"
+              className="flex items-center justify-center w-12 h-12 max-md:w-10 max-md:h-10 bg-white rounded-full"
+            >
               <Img
                 className="w-12 h-12 rounded-full max-md:w-10 max-md:h-10"
                 src="/website/logo.png"
               />
-            </div>
+            </Link>
           </div>
           <div className="flex items-center gap-5 cursor-pointer">
             <UserDropDown />

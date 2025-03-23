@@ -66,7 +66,7 @@ export const handleUpdateItem = async ({
           }))
         );
       }
-      if (setSuccess) setSuccess("تم تعديل بيانات الرابط بنجاح.");
+      if (setSuccess) setSuccess("تم تعديل بيانات العنصر بنجاح.");
       if (onClosePopup) onClosePopup();
       onShowSuccessAlart();
     }

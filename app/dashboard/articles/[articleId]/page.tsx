@@ -53,9 +53,9 @@ export default function ArticlePage() {
       fildType: "select-type",
       label: { ar: "حالة المقال ", en: "" },
       selectItems: [
-        { name: "draft" },
-        { name: "published" },
-        { name: "archived" },
+        { value: "draft", name: "مسودة" },
+        { value: "published", name: "عام" },
+        { value: "archived", name: "أرشيف" },
       ],
     },
   ];

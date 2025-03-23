@@ -159,6 +159,7 @@ export default function CompanyDetails() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      setLoading(true);
       const formData = new FormData();
       if (Array.isArray(sections)) {
         sections.forEach((section) => {
@@ -178,6 +179,8 @@ export default function CompanyDetails() {
     } catch (error: unknown) {
       setGeneralError("حدث خطأ أثناء حفظ البيانات");
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -264,13 +267,16 @@ export default function CompanyDetails() {
         <h1 className="text-xl w-fit mx-auto font-semibold text-center pb-4 border-b-2 border-sky-400 dark:text-white">
           المحتوى الخاص بصفحة عن الشركة
         </h1>
-        <form onSubmit={handleSubmit} className="w-[90%] mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full h-full p-8 max-lg:p-4 max-md:p-2 mx-auto"
+        >
           {sections.map((section) => (
             <div
               key={section.id}
-              className="w-full pb-4 border-b-2 border-sky-500 my-2 flex items-center justify-between max-md:flex-col gap-4"
+              className="w-full h-fit pb-4 border-b-2 border-sky-500 my-2 flex items-center justify-between max-md:flex-col gap-4"
             >
-              <div className="w-1/2 max-md:w-full max-md:px-2">
+              <div className="w-1/2 h-full max-md:w-full max-md:px-2">
                 <div className="flex flex-col items-start gap-1">
                   <label className="text-[18px] py-2 dark:text-white">
                     {section.title}
@@ -280,16 +286,16 @@ export default function CompanyDetails() {
                     value={section.titleEn}
                     name="titleEn"
                     onChange={(e) => handleTextChange(e, section.id)}
-                    className="w-full  px-4 outline-none  py-2 border rounded-md"
+                    className="input-style"
                   />
                   <textarea
                     name="textEn"
                     value={section.contentEn}
                     onChange={(e) => handleTextChange(e, section.id)}
-                    className="w-full h-32 px-4 outline-none mt-2  py-2 border rounded-md"
+                    className="input-style h-32"
                   />
                 </div>
-                <div className="flex flex-col items-start gap-1">
+                <div className="flex flex-col h-full items-start gap-1">
                   <label className="text-[18px] py-2 dark:text-white">
                     {section.title} (عربى)
                   </label>
@@ -298,18 +304,18 @@ export default function CompanyDetails() {
                     value={section.titleAr}
                     name="titleAr"
                     onChange={(e) => handleTextChange(e, section.id)}
-                    className="w-full  px-4 outline-none  py-2 border rounded-md"
+                    className="input-style"
                   />
                   <textarea
                     name="textAr"
                     value={section.contentAr}
                     onChange={(e) => handleTextChange(e, section.id)}
-                    className="w-full h-32 px-4 outline-none  py-2 border rounded-md mt-2"
+                    className="input-style h-32"
                   />
                 </div>
               </div>
               <div
-                className="cursor-pointer flex justify-center w-1/2 "
+                className="cursor-pointer flex border border-gray-300 rounded-md hover:border-sky-300 hover:shadow-sky-500 duration-200  shadow-md w-1/2  h-[50vh]  items-center justify-center  "
                 onClick={() => section.ref.current?.click()}
               >
                 {section.image ? (
@@ -319,7 +325,7 @@ export default function CompanyDetails() {
                         ? section.image
                         : URL.createObjectURL(section.image)
                     }
-                    className="w-48 h-48 object-cover"
+                    className="w-full h-full object-cover rounded-md"
                   />
                 ) : (
                   <FaPlusCircle className="text-sky-400 text-4xl" />

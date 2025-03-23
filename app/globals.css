@@ -11,7 +11,9 @@
   --thired_dash: #0f172a;
   --fourth_dash: #606d7a;
   --second_text: #94a3b8;
+  --light_text: #7d8185;
   --success: #28a745;
+  --secondery-green: #01c7c4;
   --danger: #dc3545;
   --warning: #ffc107;
   --info: #17a2b8;
@@ -25,12 +27,15 @@
   --color-thired_dash: var(--thired_dash);
   --color-fourth_dash: var(--fourth_dash);
   --color-second_text: var(--second_text);
+  --color-light_text: var(--light_text);
   --color-success: var(--success);
+  --color-secondery-green: var(--secondery-green);
   --color-danger: var(--danger);
   --color-warning: var(--warning);
   --color-info: var(--info);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --breakpoint-xs: 30rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -99,4 +104,18 @@ button {
   /* لجميع المتصفحات */
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.hidden-btn-clip-path {
+  clip-path: polygon(50% 0, 50% 0, 50% 50%, 50% 100%, 50% 100%, 50% 50%);
+}
+.show-btn-clip-path {
+  clip-path: polygon(
+    25% -70%,
+    75% -70%,
+    120% 50%,
+    75% 170%,
+    25% 170%,
+    -20% 50%
+  );
 }

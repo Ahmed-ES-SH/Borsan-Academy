@@ -36,6 +36,7 @@ export default function page() {
           keys={keys}
           api="/users"
           deletedApi="/delete-user"
+          searchEndpoint="/search-for-user-by-name"
         />
       </div>
     </>

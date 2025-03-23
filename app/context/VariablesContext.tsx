@@ -1,5 +1,12 @@
 "use client";
-import { createContext, JSX, ReactNode, useContext, useState } from "react";
+import {
+  createContext,
+  JSX,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { VariablesContextType } from "../types/_website/ContextTypes";
 
 const Variables = createContext<VariablesContextType | undefined>(undefined);
@@ -14,8 +21,19 @@ export default function VariablesProvider({
   const [language, setLanguage] = useState("en");
   const [showSidebar, setShowSidebar] = useState(true);
   const [showUserButton, setShowUserButton] = useState(false);
+  const [showNavLinksDrop, setShowNavLinksDrop] = useState(false);
+  const [showLangDrop, setShowLangDrop] = useState(false);
   const [showMessagesDrop, setShowMessagesDrop] = useState(false);
   const [showNotificationDrop, setShowNotificationDrop] = useState(false);
+  const [width, setWidth] = useState(0);
+
+  useEffect(() => {
+    if (typeof window !== undefined) {
+      window.addEventListener("resize", () => {
+        setWidth(window.innerWidth);
+      });
+    }
+  }, []);
 
   return (
     <Variables.Provider
@@ -28,8 +46,13 @@ export default function VariablesProvider({
         setShowUserButton,
         language,
         setLanguage,
+        showNavLinksDrop,
+        setShowNavLinksDrop,
         showSidebar,
         setShowSidebar,
+        showLangDrop,
+        setShowLangDrop,
+        width,
       }}
     >
       {children}

@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { instance } from "@/app/_helpers/axios";
 import useFetchData from "@/app/_helpers/FetchDataWithAxios";
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaEdit, FaSort, FaTrash } from "react-icons/fa";
 import Img from "../../Img";
 import { formatDate } from "@/app/_helpers/dateHelper";
@@ -18,6 +17,7 @@ import SuccessAlart from "../../_popups/SuccessAlart";
 import ErrorAlart from "../../_popups/ErrorAlart";
 import SearchInput from "../SearchInput";
 import { useRouter } from "next/navigation";
+import useSearchData from "@/app/_helpers/FetchDataBySearch";
 
 interface props {
   api: string;
@@ -26,6 +26,7 @@ interface props {
   itemDirect: string;
   keys: cellType[];
   searchState?: boolean;
+  searchEndpoint?: string;
 }
 
 export default function DynamicTable({
@@ -35,9 +36,20 @@ export default function DynamicTable({
   keys,
   itemDirect,
   searchState = true,
+  searchEndpoint,
 }: props) {
   const { data, currentPage, setData, setCurrentPage, lastPage, loading } =
     useFetchData(api, true);
+  // بيانات البحث
+  const {
+    searchData,
+    searchCurrentPage,
+    searchLastPage,
+    loading: searchLoading,
+    setSearchCurrentPage,
+    handleSearch,
+    setQuery,
+  } = useSearchData(searchEndpoint || "");
   ///////////////////////////////////////////
   // Start  Stats Lines  ////////////////
   ///////////////////////////////////////////
@@ -48,7 +60,8 @@ export default function DynamicTable({
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [successMessage, setSuccessMessage] = useState<string>("");
   const [selectedItem, setSelectedItem] = useState<any>(null);
-  const [query, setQuery] = useState<string>("");
+  const [currentData, setCurrentData] = useState("DefaultData");
+  const [usedData, setUsedDate] = useState([]);
 
   const onEdit = true;
   const onDelete = true;
@@ -60,12 +73,6 @@ export default function DynamicTable({
   ///////////////////////////////////////////
   // Start  Functions Lines  ////////////////
   ///////////////////////////////////////////
-
-  const handlePageChange = (newPage: number) => {
-    if (newPage > 0 && newPage <= lastPage) {
-      setCurrentPage(newPage);
-    }
-  };
 
   const handleClose = () => {
     setConfirmDeletePopup(false);
@@ -106,16 +113,96 @@ export default function DynamicTable({
     setSelectedItem(item);
   };
 
+  // إعادة تعيين البحث والعودة إلى الوضع الافتراضي
+  const resetToDefaultView = () => {
+    setCurrentData("DefaultData");
+    setCurrentPage(1); // إعادة الصفحة إلى الأولى
+  };
+
+  const handleSearchwrapper = () => {
+    setCurrentData("searchData");
+    handleSearch();
+  };
+
+  const getPaginationData = () => {
+    switch (currentData) {
+      case "DefaultData":
+        return {
+          currentPage,
+          lastPage,
+          handlePageChange: (newPage: number) => {
+            if (newPage > 0 && newPage <= lastPage) {
+              setCurrentPage(newPage);
+            }
+          },
+        };
+      case "searchData":
+        return {
+          currentPage: searchCurrentPage,
+          lastPage: searchLastPage,
+          handlePageChange: (newPage: number) => {
+            if (newPage > 0 && newPage <= searchLastPage) {
+              setSearchCurrentPage(newPage);
+            }
+          },
+        };
+      default:
+        return {
+          currentPage,
+          lastPage,
+          handlePageChange: (newPage: number) => {
+            if (newPage > 0 && newPage <= lastPage) {
+              setCurrentPage(newPage);
+            }
+          },
+        };
+    }
+  };
+
   ///////////////////////////////////////////
   // End  Functions Lines  ////////////////
   ///////////////////////////////////////////
 
-  console.log(query);
+  useEffect(() => {
+    if (data || searchData) {
+      switch (currentData) {
+        case "DeafultData":
+          setUsedDate(data);
+          break;
+        case "searchData":
+          setUsedDate(searchData);
+          break;
+        default:
+          setUsedDate(data);
+      }
+    }
+  }, [currentData, data, searchData]);
+
+  // تفكيك القيم بعد التأكد من أن الدالة ترجع كائنًا دائمًا
+  const {
+    currentPage: activeCurrentPage,
+    lastPage: activeLastPage,
+    handlePageChange,
+  } = getPaginationData();
 
   return (
     <div className="w-full h-fit  hidden-scrollbar">
+      {/* زر العودة إلى الوضع الافتراضي يظهر فقط عند البحث */}
+      {currentData != "DefaultData" && (
+        <div className="text-center my-4">
+          <span
+            onClick={resetToDefaultView}
+            className="my-6 underline underline-primary text-primary cursor-pointer"
+          >
+            عرض جميع البيانات
+          </span>
+        </div>
+      )}
       {searchState && (
-        <SearchInput handleSearch={() => {}} setSearchContent={setQuery} />
+        <SearchInput
+          handleSearch={handleSearchwrapper}
+          setSearchContent={setQuery}
+        />
       )}
       <motion.div
         className="overflow-x-auto rounded-lg w-[98%] mx-auto h-fit   shadow-lg"
@@ -142,14 +229,14 @@ export default function DynamicTable({
 
           {/* محتوى الجدول */}
           <tbody>
-            {loading ? (
+            {loading || searchLoading ? (
               <tr>
                 <td colSpan={12}>
                   <LoadingSpin />
                 </td>
               </tr>
-            ) : data.length > 0 ? (
-              data.map((item: ItemDataType, index) => (
+            ) : usedData.length > 0 ? (
+              usedData.map((item: ItemDataType, index) => (
                 <motion.tr
                   key={index}
                   className="border-b transition-all hover:bg-secondery_dash"
@@ -276,8 +363,8 @@ export default function DynamicTable({
         </table>
       </motion.div>
       <Pagination
-        currentPage={currentPage}
-        totalPages={lastPage}
+        currentPage={activeCurrentPage}
+        totalPages={activeLastPage}
         onPageChange={handlePageChange}
       />
       <ConfirmDeletePopup

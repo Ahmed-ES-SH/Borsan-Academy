@@ -1,11 +1,10 @@
 import React from "react";
+import HeroSection from "./_components/_website/_Home/HeroSection";
 
 export default function Home() {
   return (
     <>
-      <div className="w-full h-screen flex items-center justify-center">
-        <p className="text-5xl  text-success"> hi</p>
-      </div>
+      <HeroSection />
     </>
   );
 }

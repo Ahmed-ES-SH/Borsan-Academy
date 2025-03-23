@@ -4,6 +4,7 @@ import { Dispatch, SetStateAction } from "react";
 
 export interface VariablesContextType {
   language: string;
+  width: number;
   setLanguage: Dispatch<SetStateAction<string>>;
   showSidebar: boolean;
   setShowSidebar: Dispatch<SetStateAction<boolean>>;
@@ -13,4 +14,8 @@ export interface VariablesContextType {
   showNotificationDrop: boolean;
   setShowMessagesDrop: Dispatch<SetStateAction<boolean>>;
   setShowNotificationDrop: Dispatch<SetStateAction<boolean>>;
+  showNavLinksDrop: boolean;
+  setShowNavLinksDrop: Dispatch<SetStateAction<boolean>>;
+  showLangDrop: boolean;
+  setShowLangDrop: Dispatch<SetStateAction<boolean>>;
 }

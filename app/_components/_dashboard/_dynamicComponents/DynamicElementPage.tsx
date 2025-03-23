@@ -332,8 +332,8 @@ export default function DynamicElementPage({
                     {input.selectItems &&
                       input.selectItems.map((item) => (
                         <option
-                          key={item.name ? item.name : item.id}
-                          value={item.name ? item.name : item.id}
+                          key={item.value ? item.value : item.id}
+                          value={item.value ? item.value : item.id}
                         >
                           {item.name ? item.name : item?.title_en}
                         </option>

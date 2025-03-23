@@ -53,9 +53,9 @@ export default function page({ params }: ParamsType) {
       label: { ar: "حالة الشكوى", en: "" },
       placeholder: "",
       selectItems: [
-        { name: "pending" },
-        { name: "under_review" },
-        { name: "resolved" },
+        { value: "pending", name: "إنتظار" },
+        { value: "under_review", name: "تحت المراجعة" },
+        { value: "resolved", name: "تم تحلها" },
       ],
     },
   ];

@@ -4,17 +4,27 @@ import React from "react";
 interface props {
   src: string;
   className: string;
+  alt?: string;
+  width?: number;
+  height?: number;
 }
 
-export default function Img({ src, className }: props) {
+export default function Img({
+  src,
+  className,
+  width = 1024,
+  height = 1280,
+  alt = "image",
+}: props) {
   return (
     <>
       <Image
         src={src}
-        alt="image"
+        alt={alt}
         className={className}
-        width={1024}
-        height={1280}
+        width={width}
+        height={height}
+        priority
       />
     </>
   );
