@@ -1,7 +1,15 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+@font-face {
+  font-family: "Reey-font";
+  src: url("/fonts/Reey-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
+  --font-Reey: "Reey-font", sans-serif;
   --background: #ffffff;
   --foreground: #171717;
   --primary: #006ebf;
@@ -16,7 +24,9 @@
   --secondery-green: #01c7c4;
   --danger: #dc3545;
   --warning: #ffc107;
+  --sec-text: #191e24;
   --info: #17a2b8;
+  --purble: #6b56f9;
 }
 
 @theme inline {
@@ -24,6 +34,7 @@
   --color-secondery: var(--secondery);
   --color-primary_dash: var(--primary_dash);
   --color-secondery_dash: var(--secondery_dash);
+  --color-sec-text: var(--sec-text);
   --color-thired_dash: var(--thired_dash);
   --color-fourth_dash: var(--fourth_dash);
   --color-second_text: var(--second_text);
@@ -33,6 +44,8 @@
   --color-danger: var(--danger);
   --color-warning: var(--warning);
   --color-info: var(--info);
+  --color-purble: var(--purble);
+  --font-Reey: var(--font-Reey);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --breakpoint-xs: 30rem;
@@ -51,6 +64,9 @@ button {
 }
 
 @layer components {
+  .btn-green-lg {
+    @apply hover:bg-white bg-secondery-green text-white hover:text-black hover:scale-110 border border-transparent duration-300 flex items-center gap-3 px-8 py-4 rounded-md shadow-md   w-fit  hover:border-secondery-green;
+  }
   .btn-hover {
     @apply hover:bg-white cursor-pointer hover:text-black hover:scale-110 duration-200 border border-transparent p-2 flex items-center justify-center rounded-sm text-white;
   }
@@ -97,6 +113,13 @@ button {
 
   .popup-main-bg {
     @apply w-full h-screen flex items-center justify-center bg-black/50 fixed top-0 left-0 z-[999999] backdrop-blur-lg;
+  }
+}
+
+@layer utilities {
+  .mask-bottom {
+    mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
   }
 }
 

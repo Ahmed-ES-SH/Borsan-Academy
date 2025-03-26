@@ -12,7 +12,7 @@ export default function HeroSection() {
   return (
     <>
       <div className=" overflow-hidden group w-full relative h-screen  flex items-center justify-center">
-        <div className="w-full h-full z-[30] bg-transparent absolute top-0 left-0 pointer-events-none"></div>
+        <div className="w-full h-full z-[20] bg-transparent absolute top-0 left-0 "></div>
         <motion.div
           initial={{ y: -1000, scale: "1000%", x: 0 }}
           animate={{ y: 0, scale: "100%", x: 0 }}
