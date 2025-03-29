@@ -7,7 +7,7 @@ export default function BlogSection() {
   const title = "directly from blog";
   return (
     <>
-      <div className="w-full flex  items-center flex-col min-h-[80vh] mt-16 mb-32 ">
+      <div className="w-full flex  items-center flex-col min-h-[80vh] mt-16 mb-52 ">
         <div className="head-title text-center">
           <h1 className="text-xl font-bold text-secondery-green">
             {title.toUpperCase()}

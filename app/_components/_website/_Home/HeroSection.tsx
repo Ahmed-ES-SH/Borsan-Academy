@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import HeroImages from "./_HeroSection/HeroImages";
 import Img from "../../Img";
 import HeroContent from "./_HeroSection/HeroContent";
@@ -9,6 +9,19 @@ export default function HeroSection() {
     initial: { x: 0, y: 1200 },
     visible: { y: 0, transition: { duration: 0.8, delay: 0.4 } },
   };
+
+  useEffect(() => {
+    // إيقاف التمرير عند تحميل الصفحة
+    document.body.style.overflow = "hidden";
+
+    // إعادة التمرير بعد 3 ثوانٍ
+    const timer = setTimeout(() => {
+      document.body.style.overflow = "auto";
+    }, 3000); // 3000 مللي ثانية = 3 ثواني
+
+    // تنظيف المؤقت عندما يغادر المستخدم الصفحة
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <>
       <div className=" overflow-hidden group w-full relative h-screen  flex items-center justify-center">

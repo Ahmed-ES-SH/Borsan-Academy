@@ -54,13 +54,19 @@ export default function Navbar() {
             ))}
           </div>
           <div className="btns flex items-center gap-2 max-lg:hidden">
-            <button className="px-8 py-2 max-lg:px-3 max-lg:py-1 rounded-md bg-primary   text-white hover:bg-secondery-green   duration-200 flex items-center gap-2">
+            <Link
+              href={"/login"}
+              className="px-8 py-2  max-lg:px-3 max-lg:py-1 rounded-md bg-primary   text-white hover:bg-secondery-green   duration-200 flex items-center gap-2"
+            >
               <p>Login</p>
               <CiLogin />
-            </button>
-            <button className="px-8 py-2 max-lg:px-3 max-lg:py-1 rounded-md bg-fourth_dash   text-white hover:bg-secondery-green   duration-200">
+            </Link>
+            <Link
+              href={"/signup"}
+              className="px-8 py-2 max-lg:px-3 max-lg:py-1 rounded-md bg-fourth_dash   text-white hover:bg-secondery-green   duration-200"
+            >
               Register
-            </button>
+            </Link>
             <LanguagesDrop />
           </div>
           <NavLinksDropdown />

@@ -19,7 +19,7 @@ export const linksNav = [
   {
     title_en: "Contact",
     title_ar: "اتصل بنا",
-    to: "/contact",
+    to: "/contactus",
     icon: <BiPhone className="size-6 text-secondery-green" />,
   },
   {

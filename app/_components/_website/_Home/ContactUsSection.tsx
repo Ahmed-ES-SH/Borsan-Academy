@@ -26,7 +26,7 @@ export default function ContactUsSection() {
 
   return (
     <>
-      <div className="text-center pt-20 my-12">
+      <div className="text-center  my-12">
         <h2 className="text-5xl font-bold text-gray-900">
           Get in <span className="text-secondery-green">Touch</span>
         </h2>
