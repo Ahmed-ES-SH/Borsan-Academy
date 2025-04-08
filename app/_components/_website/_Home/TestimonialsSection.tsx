@@ -34,6 +34,9 @@ export default function TestimonialsSection() {
               slidesPerView={2}
               spaceBetween={20}
               modules={[Autoplay]}
+              autoplay={{
+                delay: 2500,
+              }}
               breakpoints={{
                 300: {
                   slidesPerView: 1,

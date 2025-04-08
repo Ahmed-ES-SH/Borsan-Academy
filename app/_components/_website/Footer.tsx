@@ -11,7 +11,7 @@ import { socialIcons } from "@/app/constants/_website/navbar";
 export default function Footer() {
   return (
     <>
-      <div className="w-full min-h-[40vh] relative overflow-hidden mt-12">
+      <div className="w-full min-h-[40vh] relative overflow-hidden ">
         <motion.div
           animate={{ scale: [1, 1.3, 1] }}
           transition={{ duration: 20, repeat: Infinity }}

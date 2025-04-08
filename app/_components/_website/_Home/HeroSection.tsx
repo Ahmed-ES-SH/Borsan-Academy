@@ -11,6 +11,7 @@ export default function HeroSection() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     // إيقاف التمرير عند تحميل الصفحة
     document.body.style.overflow = "hidden";
 

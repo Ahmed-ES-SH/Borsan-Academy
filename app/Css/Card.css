@@ -1,0 +1,250 @@
+/* تأثير القلب */
+.flip-card {
+  width: 100%;
+  height: 550px;
+  cursor: pointer;
+  perspective: 1000px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.7s;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flip-card-back {
+  background: white;
+  border-radius: 8px;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* سعر الدورة */
+.price {
+  position: absolute;
+  top: 16px;
+  right: 0;
+  background: #f87171;
+  color: white;
+  padding: 8px 16px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-weight: bold;
+  z-index: 5;
+}
+
+/* صورة الدورة */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.course-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.image-container:hover .course-image {
+  transform: scale(1.1);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* التأثير عند الطواف */
+.hover-effect {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+  background: white;
+  transition: width 0.7s, opacity 0.3s 0.2s;
+}
+
+.image-container:hover .hover-effect {
+  width: 100%;
+  opacity: 0;
+}
+
+/* محتوى الدورة */
+.content {
+  padding: 16px;
+  flex: 1;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  color: #10b981;
+}
+
+/* عنوان الدورة */
+.title {
+  font-size: 1.25rem;
+  color: #333;
+  margin-top: 16px;
+  height: 80px;
+  overflow: hidden;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* معلومات إضافية */
+.extra-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.rating,
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* النجوم */
+.stars {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+}
+
+/* محتوى البطاقة الخلفية */
+.back-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#category {
+  background: #2563eb;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  width: fit-content;
+}
+
+.course-info {
+  margin: 16px 0;
+}
+
+.level {
+  display: flex;
+  justify-content: start;
+  gap: 8px;
+  color: #2563eb;
+  margin-top: 3px;
+}
+
+.description {
+  font-size: 15px;
+  color: #6b7280;
+}
+
+.points {
+  margin-top: 16px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.points li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.points .icon {
+  color: #2563eb;
+  font-size: 24px;
+}
+
+/* أزرار الأكشن */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.info-card-btn {
+  padding: 12px 16px;
+  background: #2563eb;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.info-card-btn:hover {
+  background: #1e40af;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.cart-btn,
+.wishlist-btn {
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.cart-btn:hover,
+.wishlist-btn:hover {
+  background: #2563eb;
+  color: white;
+}

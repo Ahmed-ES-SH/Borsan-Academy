@@ -219,100 +219,6 @@ export const testimonials = [
   },
 ];
 
-export const articles = [
-  {
-    author: {
-      name: "أحمد علي",
-      image: "/defaults/default-male.png",
-    },
-    title: "أهمية تطوير الواجهات الأمامية في 2025",
-    commentsNumber: 4,
-    publishedDate: "2025-03-10",
-    image: "/assets/article-1.jpg",
-  },
-  {
-    author: {
-      name: "نور محمد",
-      image: "",
-    },
-    title: "أفضل الممارسات في تحسين تجربة المستخدم",
-    commentsNumber: 7,
-    publishedDate: "2025-02-25",
-  },
-  {
-    author: {
-      name: "خالد حسن",
-      image: "",
-    },
-    title: "لماذا يعتبر React.js الخيار الأول للمطورين؟",
-    commentsNumber: 12,
-    publishedDate: "2025-01-18",
-  },
-  {
-    author: {
-      name: "ليلى عبد الرحمن",
-      image: "",
-    },
-    title: "كيف تبني API باستخدام Laravel بكفاءة؟",
-    commentsNumber: 9,
-    publishedDate: "2025-03-02",
-  },
-  {
-    author: {
-      name: "يوسف إبراهيم",
-      image: "",
-    },
-    title: "دليل شامل لاستخدام Tailwind CSS في المشاريع الحديثة",
-    commentsNumber: 5,
-    publishedDate: "2025-02-12",
-  },
-  {
-    author: {
-      name: "سارة محمود",
-      image: "",
-    },
-    title: "ما هو الفرق بين Next.js و Nuxt.js؟",
-    commentsNumber: 3,
-    publishedDate: "2025-01-30",
-  },
-  {
-    author: {
-      name: "عمر سعيد",
-      image: "",
-    },
-    title: "أحدث الاتجاهات في الذكاء الاصطناعي وتعلم الآلة",
-    commentsNumber: 15,
-    publishedDate: "2025-03-08",
-  },
-  {
-    author: {
-      name: "هند جمال",
-      image: "",
-    },
-    title: "كيف تحسن أداء موقعك باستخدام تحسينات SEO؟",
-    commentsNumber: 6,
-    publishedDate: "2025-02-20",
-  },
-  {
-    author: {
-      name: "ماجد ناصر",
-      image: "",
-    },
-    title: "بناء تطبيقات الموبايل باستخدام React Native",
-    commentsNumber: 8,
-    publishedDate: "2025-01-15",
-  },
-  {
-    author: {
-      name: "ريم صالح",
-      image: "",
-    },
-    title: "أهمية العمل الحر للمطورين وكيف تبدأ فيه؟",
-    commentsNumber: 10,
-    publishedDate: "2025-03-05",
-  },
-];
-
 export const StaticArticles = [
   {
     id: 1,
@@ -716,5 +622,361 @@ export const footerLinks = [
       { name: "Blog", url: "/blog" },
       { name: "Tutorials", url: "/resources/tutorials" },
     ],
+  },
+];
+
+export const Coursescategories = [
+  {
+    id: "21",
+    title_en: "All Courses",
+    title_ar: "جميع الدورات",
+    total_courses: "220",
+    image: "/assets/All-icon.png",
+  },
+  {
+    id: "1",
+    title_en: "Web Development",
+    title_ar: "تطوير الويب",
+    total_courses: "120",
+    image: "",
+  },
+  {
+    id: "2",
+    title_en: "Mobile Development",
+    title_ar: "تطوير التطبيقات",
+    total_courses: "95",
+    image: "",
+  },
+  {
+    id: "3",
+    title_en: "Data Science",
+    title_ar: "علم البيانات",
+    total_courses: "80",
+    image: "",
+  },
+  {
+    id: "4",
+    title_en: "Artificial Intelligence",
+    title_ar: "الذكاء الاصطناعي",
+    total_courses: "60",
+    image: "",
+  },
+  {
+    id: "5",
+    title_en: "Cyber Security",
+    title_ar: "الأمن السيبراني",
+    total_courses: "50",
+    image: "",
+  },
+  {
+    id: "6",
+    title_en: "Cloud Computing",
+    title_ar: "الحوسبة السحابية",
+    total_courses: "45",
+    image: "",
+  },
+  {
+    id: "7",
+    title_en: "Game Development",
+    title_ar: "تطوير الألعاب",
+    total_courses: "70",
+    image: "",
+  },
+  {
+    id: "8",
+    title_en: "UI/UX Design",
+    title_ar: "تصميم الواجهات وتجربة المستخدم",
+    total_courses: "90",
+    image: "",
+  },
+  {
+    id: "9",
+    title_en: "Digital Marketing",
+    title_ar: "التسويق الرقمي",
+    total_courses: "85",
+    image: "",
+  },
+  {
+    id: "10",
+    title_en: "Business Management",
+    title_ar: "إدارة الأعمال",
+    total_courses: "110",
+    image: "",
+  },
+  {
+    id: "11",
+    title_en: "Finance & Investment",
+    title_ar: "التمويل والاستثمار",
+    total_courses: "75",
+    image: "",
+  },
+  {
+    id: "12",
+    title_en: "Blockchain & Crypto",
+    title_ar: "البلوك تشين والعملات الرقمية",
+    total_courses: "55",
+    image: "",
+  },
+  {
+    id: "13",
+    title_en: "Networking",
+    title_ar: "الشبكات",
+    total_courses: "65",
+    image: "",
+  },
+  {
+    id: "14",
+    title_en: "Software Testing",
+    title_ar: "اختبار البرمجيات",
+    total_courses: "40",
+    image: "",
+  },
+  {
+    id: "15",
+    title_en: "Photography & Video Editing",
+    title_ar: "التصوير الفوتوغرافي وتحرير الفيديو",
+    total_courses: "50",
+    image: "",
+  },
+  {
+    id: "16",
+    title_en: "Music Production",
+    title_ar: "إنتاج الموسيقى",
+    total_courses: "30",
+    image: "",
+  },
+  {
+    id: "17",
+    title_en: "Personal Development",
+    title_ar: "التنمية الشخصية",
+    total_courses: "100",
+    image: "",
+  },
+  {
+    id: "18",
+    title_en: "Health & Fitness",
+    title_ar: "الصحة واللياقة البدنية",
+    total_courses: "90",
+    image: "",
+  },
+  {
+    id: "19",
+    title_en: "Language Learning",
+    title_ar: "تعلم اللغات",
+    total_courses: "85",
+    image: "",
+  },
+  {
+    id: "20",
+    title_en: "Cooking & Culinary Arts",
+    title_ar: "الطبخ وفنون الطهي",
+    total_courses: "60",
+    image: "",
+  },
+];
+
+////////////////////////////////////////////////////////////////////
+//////////////////// Articles Data /////////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+export const tags = [
+  "class",
+  "course",
+  "Education",
+  "Data Since",
+  "Tips",
+  "Machine Learning",
+  "App",
+  "Art & Design",
+];
+export const ArticlesCategories = [
+  { title: "class", articlesTotal: 3 },
+  { title: "course", articlesTotal: 2 },
+  { title: "Education", articlesTotal: 33 },
+  { title: "Data Since", articlesTotal: 322 },
+  { title: "Tips", articlesTotal: 23 },
+  { title: "Machine Learning", articlesTotal: 12 },
+  { title: "App", articlesTotal: 32 },
+  { title: "Art & Design", articlesTotal: 32 },
+];
+
+export const Recentposts = [
+  {
+    image: "/articles/article-2.jpg",
+    published_date: "October 15, 2021",
+    title: "The Importance Intrinsic Motivation.",
+  },
+  {
+    image: "/articles/article-1.jpg",
+    published_date: "March 26, 2021",
+    title: "A Better Alternative To Grading Student.",
+  },
+  {
+    image: "/articles/article-3.jpg",
+    published_date: "October 15, 2021",
+    title: "Strategic Social Media & Evolution of Visual",
+  },
+];
+
+export const articles = [
+  {
+    author: {
+      name: "أحمد علي",
+      image: "/defaults/default-male.png",
+    },
+    title: "أهمية تطوير الواجهات الأمامية في 2025",
+    commentsNumber: 4,
+    publishedDate: "2025-03-10",
+    image: "/assets/article-1.jpg",
+  },
+  {
+    author: {
+      name: "نور محمد",
+      image: "",
+    },
+    title: "أفضل الممارسات في تحسين تجربة المستخدم",
+    commentsNumber: 7,
+    publishedDate: "2025-02-25",
+  },
+  {
+    author: {
+      name: "خالد حسن",
+      image: "",
+    },
+    title: "لماذا يعتبر React.js الخيار الأول للمطورين؟",
+    commentsNumber: 12,
+    publishedDate: "2025-01-18",
+  },
+  {
+    author: {
+      name: "ليلى عبد الرحمن",
+      image: "",
+    },
+    title: "كيف تبني API باستخدام Laravel بكفاءة؟",
+    commentsNumber: 9,
+    publishedDate: "2025-03-02",
+  },
+  {
+    author: {
+      name: "يوسف إبراهيم",
+      image: "",
+    },
+    title: "دليل شامل لاستخدام Tailwind CSS في المشاريع الحديثة",
+    commentsNumber: 5,
+    publishedDate: "2025-02-12",
+  },
+  {
+    author: {
+      name: "سارة محمود",
+      image: "",
+    },
+    title: "ما هو الفرق بين Next.js و Nuxt.js؟",
+    commentsNumber: 3,
+    publishedDate: "2025-01-30",
+  },
+  {
+    author: {
+      name: "عمر سعيد",
+      image: "",
+    },
+    title: "أحدث الاتجاهات في الذكاء الاصطناعي وتعلم الآلة",
+    commentsNumber: 15,
+    publishedDate: "2025-03-08",
+  },
+  {
+    author: {
+      name: "هند جمال",
+      image: "",
+    },
+    title: "كيف تحسن أداء موقعك باستخدام تحسينات SEO؟",
+    commentsNumber: 6,
+    publishedDate: "2025-02-20",
+  },
+  {
+    author: {
+      name: "ماجد ناصر",
+      image: "",
+    },
+    title: "بناء تطبيقات الموبايل باستخدام React Native",
+    commentsNumber: 8,
+    publishedDate: "2025-01-15",
+  },
+  {
+    author: {
+      name: "ريم صالح",
+      image: "",
+    },
+    title: "أهمية العمل الحر للمطورين وكيف تبدأ فيه؟",
+    commentsNumber: 10,
+    publishedDate: "2025-03-05",
+  },
+];
+
+export const TopThreeArticles = [
+  {
+    id: 1,
+    title: "أهمية تطوير الواجهات الأمامية في 2025",
+    author: {
+      name: "Mohmed Ali",
+      image: "",
+    },
+    image: "/articles/article-3.jpg",
+    comments: 344,
+    date: "12 / 2 / 2025",
+    reactions: 524,
+    size: "large",
+  },
+  {
+    id: 2,
+    title: "أفضل الممارسات في تحسين تجربة المستخدم",
+    author: {
+      name: "mostafa Mohmed Ali",
+      image: "",
+    },
+    image: "/articles/article-1.jpg",
+    comments: 234,
+    date: "1 / 5 / 2025",
+    reactions: 224,
+    size: "small",
+  },
+  {
+    id: 3,
+    title: "لماذا يعتبر React.js الخيار الأول للمطورين؟",
+    author: {
+      name: "Ali Mohmed",
+      image: "",
+    },
+    image: "/articles/article-2.jpg",
+    comments: 421,
+    date: "2 / 5 / 2025",
+    reactions: 842,
+    size: "small",
+  },
+];
+
+////////////////////////////////////////////////////////////////////
+//////////////////// About Page Data ///////////////////////////////
+////////////////////////////////////////////////////////////////////
+
+export const statsData = [
+  {
+    image: "/assets/aboutPage/graduating-student.png",
+    MainNumber: "68,806",
+    title: "Students Enrolled",
+  },
+  {
+    image: "/assets/aboutPage/screen.png",
+    MainNumber: "5,740",
+    title: "Class Completed",
+  },
+  {
+    image: "/assets/aboutPage/webinar.png",
+    MainNumber: "470+",
+    title: "Premium Courses",
+  },
+  {
+    image: "/assets/aboutPage/books.png",
+    MainNumber: "6,548",
+    title: "Available resources",
   },
 ];

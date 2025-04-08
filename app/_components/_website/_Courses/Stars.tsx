@@ -12,7 +12,7 @@ export default function Stars({ size, goldStars, grayStars }: props) {
     <>
       <div className="flex items-center gap-1">
         {Array.from({ length: goldStars }).map((_, index) => (
-          <FaStar size={size} color="gold" key={index} />
+          <FaStar size={size} color="#ffb013" key={index} />
         ))}
         {Array.from({ length: grayStars }).map((_, index) => (
           <FaStar size={size} color="gray" key={index} />

@@ -52,7 +52,7 @@ export default function CoursesSlider() {
         </div>
 
         {/* السلايدر */}
-        <div className="swiper mt-6">
+        <div className="swiper w-full h-full mt-6">
           <Swiper
             modules={[Autoplay]}
             autoplay={{
@@ -71,7 +71,10 @@ export default function CoursesSlider() {
             onSwiper={(swiper) => (swiperRef.current = swiper)}
           >
             {courses.map((course, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide
+                className="w-full h-full rounded-t-md bg-transparent"
+                key={index}
+              >
                 <CourseCard course={course} />
               </SwiperSlide>
             ))}

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap");
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -8,8 +9,35 @@
   font-style: normal;
 }
 
+.raleway-regular {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.raleway-medium {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.raleway-bold {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.extra-bold {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
   --font-Reey: "Reey-font", sans-serif;
+  --font-Raleway: "Raleway", sans-serif;
   --background: #ffffff;
   --foreground: #171717;
   --primary: #006ebf;
@@ -45,6 +73,16 @@
   --color-warning: var(--warning);
   --color-info: var(--info);
   --color-purble: var(--purble);
+  --font-raleway: "Raleway", sans-serif;
+  --font-raleway-thin: 100;
+  --font-raleway-extralight: 200;
+  --font-raleway-light: 300;
+  --font-raleway-regular: 400;
+  --font-raleway-medium: 500;
+  --font-raleway-semibold: 600;
+  --font-raleway-bold: 700;
+  --font-raleway-extrabold: 800;
+  --font-raleway-black: 900;
   --font-Reey: var(--font-Reey);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -122,7 +160,7 @@ button {
     -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1100px) {
     .mask-right {
       mask-image: linear-gradient(to right, black 75%, transparent 100%);
       -webkit-mask-image: linear-gradient(
@@ -184,4 +222,18 @@ button {
   transition: all 0.3s ease-in-out;
   opacity: 1;
   z-index: 2;
+}
+
+.scrollBounce {
+  animation: scrollBounce 0.2 infinite;
+}
+
+@keyframes scrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }

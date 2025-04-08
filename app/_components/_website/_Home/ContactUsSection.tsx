@@ -35,9 +35,9 @@ export default function ContactUsSection() {
         </p>
         <div className="w-24 h-1 bg-secondery-green mx-auto mt-4 rounded-full"></div>
       </div>
-      <div className="flex items-stretch gap-3 p-4 max-md:p-2 w-[90%] mx-auto max-lg:w-full max-lg:flex-col max-lg:items-start h-[60vh] max-lg:h-fit">
-        <div className="info bg-[#fff] p-4 rounded-lg border border-gray-300 shadow-md h-full flex-1">
-          <h1 className="my-4 text-2xl  pb-3 border-b  border-primary w-fit">
+      <div className="flex items-stretch gap-3 p-4 max-md:p-2 w-[90%] mx-auto max-lg:w-full max-lg:flex-col  max-lg:items-start h-[60vh] max-lg:h-fit">
+        <div className="info flex flex-col items-start bg-[#fff] p-4 rounded-lg border border-gray-300 shadow-md h-full flex-1">
+          <h1 className="my-4 text-2xl  pb-3 border-b  border-primary w-fit mr-auto">
             <span className="text-secondery-green font-bold ">B-</span>Academy
             Information
           </h1>

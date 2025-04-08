@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { MdOutlineCastForEducation } from "react-icons/md";
 import { PiStudentThin } from "react-icons/pi";
 import { FaArrowRightLong } from "react-icons/fa6";
+import Link from "next/link";
 export default function AboutSection() {
   return (
     <div className="w-full h-screen max-xl:h-fit max-xl:p-4 relative overflow-hidden">
@@ -72,10 +73,10 @@ export default function AboutSection() {
               </div>
             </div>
           </div>
-          <button className="btn-green-lg">
+          <Link href={"/about"} className="btn-green-lg">
             <p>Discover More</p>
             <FaArrowRightLong />
-          </button>
+          </Link>
         </div>
       </div>
       <Img

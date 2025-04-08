@@ -1,11 +1,16 @@
 import React from "react";
 import Img from "../../Img";
-import { FaBook } from "react-icons/fa";
+import { FaBook, FaHeart, FaShoppingCart } from "react-icons/fa";
 import { FcClock, FcRating } from "react-icons/fc";
 import Stars from "./Stars";
+import { IoCheckmarkOutline } from "react-icons/io5";
+import Link from "next/link";
+import "../../../Css/Card.css";
+import { formatTitle } from "@/app/_helpers/helpers";
 
 interface props {
   course: {
+    id: number;
     price: number;
     title: string;
     lessons: number;
@@ -17,51 +22,100 @@ interface props {
 }
 
 export default function CourseCard({ course }: props) {
+  const powerPoints = [
+    "Scratch to HTML",
+    "Learn how to code in Python",
+    "Unlimited backend database creation",
+    "Adobe XD Tutorials",
+  ];
+
   return (
     <>
-      <div className="w-full overflow-hidden cursor-pointer group h-[500px] bg-[#fff] relative border border-gray-300 rounded-t-md shadow-md max-md:w-full flex flex-col ">
-        <div className="price absolute top-4 right-0 bg-red-400 text-white text-center z-[5] px-4 py-2 rounded-l-xl">
-          {course.price}.00 $
-        </div>
-        <div className="flex-[20%] duration-500 overflow-hidden relative  border-b border-b-gray-300">
-          <Img
-            src={course.image || ""}
-            alt="course-image"
-            className="w-full h-full object-cover duration-500 group-hover:scale-110 absolute top-0 left-0 rounded-t-md"
-          />
-          <div className="absolute left-1/2 -translate-x-1/2 h-full bg-white w-0 group-hover:w-full transition-all duration-700 group-hover:opacity-0 delay-200"></div>
-          <div className="absolute left-1/2 -translate-x-1/2 h-full bg-white w-0 group-hover:w-full transition-all duration-700 group-hover:opacity-0 delay-200"></div>
-        </div>
-        <div className="flex-1 p-4">
-          <div className="flex items-center justify-between w-full">
-            <div className="flex items-center gap-1">
-              <FaBook className="text-secondery-green" />
-              <p className="text-second_text">{course.lessons} lessons</p>
+      <div className="flip-card">
+        <div className="flip-card-inner">
+          <div className="flip-card-front">
+            <div className="price">{course.price}.00 $</div>
+            <div className="image-container">
+              <Img
+                src={course.image || ""}
+                alt="course-image"
+                className="course-image"
+              />
+              <div className="hover-effect"></div>
+              <div className="hover-effect"></div>
             </div>
-            <div className="flex items-center gap-1">
-              <FaBook className="text-secondery-green" />
-              <p className="text-second_text">{course.students} students</p>
+            <div className="content">
+              <div className="details">
+                <div className="info">
+                  <FaBook className="icon" />
+                  <p>{course.lessons} lessons</p>
+                </div>
+                <div className="info">
+                  <FaBook className="icon" />
+                  <p>{course.students} students</p>
+                </div>
+              </div>
+              <h1 className="title">{course.title}</h1>
+              <div className="extra-info">
+                <div className="rating">
+                  <FcRating />
+                  <p>({course.rating} / 5 rating)</p>
+                </div>
+                <div className="duration">
+                  <FcClock />
+                  <p>{course.courseLongbydays} day</p>
+                </div>
+              </div>
+              <div className="stars">
+                <Stars
+                  size={18}
+                  goldStars={course.rating}
+                  grayStars={5 - Math.floor(course.rating)}
+                />
+              </div>
             </div>
           </div>
-          <h1 className="text-xl text-sec-text mt-4 h-[80px] overflow-hidden pb-3 border-b border-gray-200 rtl">
-            {course.title}
-          </h1>
-          <div className="flex items-center justify-between mt-4 w-full">
-            <div className="flex items-center gap-1">
-              <FcRating />
-              <p>({course.rating} / 5 rating)</p>
+          <div className="flip-card-back">
+            <div className="back-content">
+              <span id="category">Bussiness</span>
+              <div className="course-info">
+                <h1>{course.title}</h1>
+                <div className="level">
+                  <span>Level:</span>
+                  <p>Beginner</p>
+                </div>
+              </div>
+              <p className="description">
+                Knowledge is power. Information is liberating. Education is the
+                premise of progress, in every society, in every family.
+              </p>
+              <ul className="points">
+                {powerPoints.map((point, index) => (
+                  <li key={index}>
+                    <IoCheckmarkOutline className="icon" />
+                    <p>{point}</p>
+                  </li>
+                ))}
+              </ul>
+              <div className="buttons">
+                <Link
+                  href={`/courses/${formatTitle(
+                    course?.title || ""
+                  )}?course_id=${course?.id || 1}`}
+                  className="info-btn"
+                >
+                  View Details
+                </Link>
+                <div className="action-buttons">
+                  <button className="cart-btn">
+                    <FaShoppingCart className="size-6" />
+                  </button>
+                  <button className="wishlist-btn">
+                    <FaHeart className="size-6" />
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className="flex items-center gap-1">
-              <FcClock />
-              <p>{course.courseLongbydays} day</p>
-            </div>
-          </div>
-          <div className="stars absolute bottom-2 left-1/2 -translate-x-1/2 w-fit mx-auto mt-4">
-            <Stars
-              size={18}
-              goldStars={course.rating}
-              grayStars={5 - Math.floor(course.rating)}
-            />
           </div>
         </div>
       </div>
