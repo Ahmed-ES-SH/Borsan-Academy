@@ -18,4 +18,8 @@ export interface VariablesContextType {
   setShowNavLinksDrop: Dispatch<SetStateAction<boolean>>;
   showLangDrop: boolean;
   setShowLangDrop: Dispatch<SetStateAction<boolean>>;
+  showSideCart: boolean;
+  setShowSideCart: Dispatch<SetStateAction<boolean>>;
+  toggleCart: () => void;
+  locale: string;
 }

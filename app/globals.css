@@ -170,6 +170,12 @@ button {
       );
     }
   }
+  @media (min-width: 1100px) {
+    .mask-left {
+      mask-image: linear-gradient(to right, black 75%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, black 75%, transparent 100%);
+    }
+  }
 }
 
 .hidden-scrollbar {

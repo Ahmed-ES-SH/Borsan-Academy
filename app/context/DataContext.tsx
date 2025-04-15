@@ -1,19 +1,15 @@
 "use client";
-import {
-  useContext,
-  createContext,
-  useState,
-  useEffect,
-  ReactNode,
-} from "react";
-import FetchData from "../_helpers/FetchData";
-import { main_api } from "../_helpers/axios";
+import { useContext, createContext, ReactNode, useState } from "react";
+// import FetchData from "../_helpers/FetchData";
+// import { main_api } from "../_helpers/axios";
 
 interface DataContextType {
   categories: {
     data: { [key: string]: string }[];
   };
   loading: boolean;
+  setLoading: any;
+  setCategories: any;
 }
 
 // إنشاء السياق مع القيم الافتراضية
@@ -29,26 +25,28 @@ export const DataProvider: React.FC<DataProviderProps> = ({ children }) => {
   });
   const [loading, setLoading] = useState<boolean>(true);
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const data = await FetchData(
-          `${main_api}/article-categories?page=1`,
-          true
-        );
-        setCategories(data);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchCategories = async () => {
+  //     try {
+  //       const data = await FetchData(
+  //         `${main_api}/article-categories?page=1`,
+  //         true
+  //       );
+  //       setCategories(data);
+  //     } catch (error) {
+  //       console.error("Error fetching categories:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
 
-    fetchCategories();
-  }, []);
+  //   fetchCategories();
+  // }, []);
 
   return (
-    <DataContext.Provider value={{ categories, loading }}>
+    <DataContext.Provider
+      value={{ loading, setLoading, categories, setCategories }}
+    >
       {children}
     </DataContext.Provider>
   );

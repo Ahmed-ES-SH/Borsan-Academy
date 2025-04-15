@@ -36,7 +36,7 @@ export interface ArticleType {
   content_ar: string;
   views: number;
   image: string;
-  status: boolean;
+  status: boolean | string;
   created_at: string;
   comments_count: number;
   interactions: [{ totalReactions: number }];

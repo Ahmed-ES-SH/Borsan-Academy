@@ -1,8 +1,12 @@
-/* eslint-disable react/no-unescaped-entities */
+"use client";
 import React from "react";
 import Img from "../../Img";
+import { UseVariables } from "@/app/context/VariablesContext";
+import { getTranslations } from "@/app/_helpers/helpers";
 
 export default function PartnersSection() {
+  const { locale } = UseVariables();
+  const { trustedSection } = getTranslations(locale);
   const PartnersImages = [
     "/website/about/partner-01.png",
     "/website/about/partner-02.png",
@@ -20,12 +24,10 @@ export default function PartnersSection() {
     <section className="w-full  py-16">
       <div className="w-[80%] mx-auto max-md:w-full max-md:px-4 max-lg:w-[95%] text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-          Trusted by Leading Organizations
+          {trustedSection.title}
         </h2>
         <p className="text-gray-600 text-base md:text-lg mb-10 max-w-3xl mx-auto">
-          We're proud to collaborate with world-class companies and
-          institutions. Our partners help us deliver exceptional quality and
-          value to our community.
+          {trustedSection.description}
         </p>
       </div>
 

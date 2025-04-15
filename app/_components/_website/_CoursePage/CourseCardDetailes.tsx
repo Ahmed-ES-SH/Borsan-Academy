@@ -11,49 +11,68 @@ import { TfiWorld } from "react-icons/tfi";
 import { GoTrophy } from "react-icons/go";
 import { FaRegFileAlt } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
+import { UseVariables } from "@/app/context/VariablesContext";
+import { getTranslations } from "@/app/_helpers/helpers";
+import { Cartcontext } from "@/app/context/CartContent";
+import {
+  courses,
+  ErrorMessage,
+  SuccessMessage,
+} from "@/app/constants/_website/data";
+import SuccessAlart from "../../_popups/SuccessAlart";
+import ErrorAlart from "../../_popups/ErrorAlart";
 
 export default function CourseCardDetailes() {
+  const { locale } = UseVariables();
+  const {
+    addToCart,
+    showErrorAlart,
+    showSuccessAlart,
+    setShowErrorAlart,
+    setShowSuccessAlart,
+  } = Cartcontext();
+  const { CourseCardDetailes } = getTranslations(locale);
   const containerRef = useRef<HTMLDivElement>(null);
   const courseDetailes = [
     {
       icon: <GiSettingsKnobs className="size-4 text-light_text" />,
-      title: "level",
-      value: "Beginners",
+      title: { ar: "المستوى", en: "Level" },
+      value: { ar: "مبتدئين", en: "Beginners" },
     },
     {
       icon: <MdOutlineScreenshotMonitor className="size-4 text-light_text" />,
-      title: "Lectures",
-      value: "8 Lectures",
+      title: { ar: "عدد المحاضرات", en: "Lectures" },
+      value: { ar: "8 محاضرات", en: "8 Lectures" },
     },
     {
       icon: <CiClock2 className="size-4 text-light_text" />,
-      title: "Duration",
-      value: "1h 30m 12s",
+      title: { ar: "المدة", en: "Duration" },
+      value: { ar: "1h 30m 12s", en: "1h 30m 12s" },
     },
     {
       icon: <TbCategory2 className="size-4 text-light_text" />,
-      title: "Category",
-      value: "Data Science",
+      title: { ar: "الفئة", en: "Category" },
+      value: { ar: "علوم البيانات", en: "Data Science" },
     },
     {
       icon: <TfiWorld className="size-4 text-light_text" />,
-      title: "Laguage",
-      value: "English",
+      title: { ar: "اللغة", en: "Language" },
+      value: { ar: "English", en: "English" },
     },
     {
       icon: <CiBookmark className="size-4 text-light_text" />,
-      title: "Access",
-      value: "Full Lifetime",
+      title: { ar: "مدة الوصول", en: "Access" },
+      value: { ar: "مدى الحياة", en: "Full Lifetime" },
     },
     {
       icon: <GoTrophy className="size-4 text-light_text" />,
-      title: "Certificate",
-      value: "Yes",
+      title: { ar: "شهادة", en: "Certificate" },
+      value: { ar: "نعم", en: "Yes" },
     },
     {
       icon: <FaRegFileAlt className="size-4 text-light_text" />,
-      title: "Recourse",
-      value: "5 Downloadable Files",
+      title: { ar: "الموارد", en: "Resources" },
+      value: { ar: "5 ملفات قابلة للتحميل", en: "5 Downloadable Files" },
     },
   ];
 
@@ -111,7 +130,7 @@ export default function CourseCardDetailes() {
           />
         </div>
         <div className="flex items-center justify-between w-full mt-3 p-3">
-          <p className="font-raleway">Ticket Costs : </p>
+          <p className="font-raleway">{CourseCardDetailes.ticket_costs}</p>
           <div className="flex items-center gap-3">
             <div className="current-price font-bold text-3xl ">$24.00</div>
             <del className="price-before text-gray-300 text-xl">$48.00</del>
@@ -125,35 +144,52 @@ export default function CourseCardDetailes() {
             >
               <div className="flex items-center gap-2 ">
                 {line.icon}
-                <p className="text-sec-text">{line.title}</p>
+                <p className="text-sec-text">{line.title[locale]}</p>
               </div>
-              <span className="">{line.value}</span>
+              <span className="">{line.value[locale]}</span>
             </div>
           ))}
         </div>
         <div className="btns mt-4 flex items-center justify-between w-[90%] max-md:w-full max-md:p-1 max-md:flex-col gap-3 mx-auto">
           <div className="flex-1 max-md:w-full p-1 cursor-pointer py-4 bg-blue-500 hover:bg-blue-600 duration-200 rounded-sm border border-transparent flex items-center justify-center">
-            <div className="flex items-center gap-2 text-white">
+            <div
+              onClick={() => addToCart(courses[2])}
+              className="flex items-center gap-2 text-white"
+            >
               <FaCartShopping className="size-5" />
-              <p className="whitespace-nowrap">Add to Cart</p>
+              <p className="whitespace-nowrap">
+                {CourseCardDetailes.add_to_cart}
+              </p>
             </div>
           </div>
           <div className="flex-1 max-md:w-full p-1 cursor-pointer bg-gray-50 hover:text-white hover:bg-blue-500 duration-300 py-4   border border-gray-200 rounded-sm flex items-center justify-center">
             <div className="flex items-center gap-2 ">
               <CiHeart className="size-5" />
-              <p className="whitespace-nowrap">Add to WishList</p>
+              <p className="whitespace-nowrap">
+                {CourseCardDetailes.add_to_wishlist}
+              </p>
             </div>
           </div>
         </div>
         <div className="my-4 flex items-center  gap-6 w-fit  mx-auto">
           <div className="pb-2 border-b border-blue-500 text-blue-500 hover:text-blue-600 hover:border-blue-600 cursor-pointer font-bold duration-300">
-            Apply Coupon
+            {CourseCardDetailes.apply_coupon}
           </div>
           <div className="pb-2 border-b hover:border-blue-500 hover:text-blue-500 cursor-pointer font-bold duration-300">
-            Gift Courses
+            {CourseCardDetailes.gift_courses}
           </div>
         </div>
       </div>
+      <SuccessAlart
+        showAlart={showSuccessAlart}
+        Message={SuccessMessage[locale]}
+        onClose={() => setShowSuccessAlart(false)}
+      />
+      <ErrorAlart
+        showAlart={showErrorAlart}
+        Message={ErrorMessage[locale]}
+        onClose={() => setShowErrorAlart(false)}
+      />
     </>
   );
 }

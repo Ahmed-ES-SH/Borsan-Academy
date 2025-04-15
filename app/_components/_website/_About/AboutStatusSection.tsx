@@ -1,11 +1,17 @@
-import { statsData } from "@/app/constants/_website/data";
+"use client";
+import { directionMap, statsData } from "@/app/constants/_website/data";
 import React from "react";
 import Img from "../../Img";
+import { UseVariables } from "@/app/context/VariablesContext";
 
 export default function AboutStatusSection() {
+  const { locale } = UseVariables();
   return (
     <>
-      <div className="mt-[20rem] mb-2 border-b border-gray-300 w-[80%] mx-auto min-h-[50vh] flex items-center justify-center ">
+      <div
+        dir={directionMap[locale]}
+        className="mt-[20rem] mb-2 border-b border-gray-300 w-[80%] mx-auto min-h-[50vh] flex items-center justify-center "
+      >
         <div className="w-full my-12 grid grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 max-lg:gap-12">
           {statsData.map((item, index) => (
             <div
@@ -16,7 +22,9 @@ export default function AboutStatusSection() {
               <h3 className="font-bold text-4xl max-lg:text-2xl max-md:text-xl">
                 {item.MainNumber}
               </h3>
-              <p className="text-light_text font-medium">{item.title}</p>
+              <p className="text-light_text font-medium">
+                {item.title[locale]}
+              </p>
             </div>
           ))}
         </div>

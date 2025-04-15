@@ -1,0 +1,329 @@
+{
+  "mainMetaData": {
+    "title": "Borsan Academy",
+    "description": "Join Borsan Academy and discover a wide range of high-quality courses. Gain new skills in programming, design, marketing, and more!"
+  },
+
+  "blogMeta": {
+    "title": "Borsan Academy - Articles Page",
+    "description": "Explore high-quality courses and insightful articles designed to empower your learning journey at Borsan Academy."
+  },
+
+  "coursePageMeta": {
+    "title": "MySQL Database : Beginner SQL Database Design"
+  },
+
+  "_comment-0": "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
+
+  "courses": {
+    "title": "Borsan Academy Courses | Learn the Skills You Need to Succeed",
+    "description": "Join Borsan Academy and explore a wide range of high-quality courses. Gain new skills in programming, design, marketing, and more!"
+  },
+
+  "_comment-1": "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
+
+  "checkout": {
+    "total": "Total",
+    "originalPrice": "Original Price",
+    "includesTaxes": "Includes discounts and taxes",
+    "button": "Checkout Now",
+    "promotions": "Promotions & Discounts",
+    "couponApplied": "Coupon applied",
+    "enterCoupon": "Enter your coupon code here",
+    "apply": "Apply",
+    "contactInfo": "Have a question? You can contact us via email"
+  },
+
+  "_comment-2": "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
+
+  "signUp": {
+    "metaTitle": "Sign Up Page",
+    "metaDescription": "Create your account to gain access to all our features, including exclusive content, courses, and personalized settings. Register now for a seamless experience.",
+    "title": "Create an Account",
+    "longText": "Join us today! Sign up to access exclusive courses and start yourlearning journey.",
+    "mainTitle": "Start your journey"
+  },
+
+  "_comment-3": "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
+
+  "formlabels": {
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "phone_number": "Phone Number",
+    "male": "Male",
+    "femele": "Femele",
+    "selectCountry": "Select Your Country"
+  },
+
+  "_comment-4": "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
+
+  "defaultData": {
+    "signupbtn": "Sign Up",
+    "loginbtn": "Login"
+  },
+
+  "footer": {
+    "longText": "Empowering learners worldwide with high-quality courses designed by industry experts. Join us and take your skills to the next level!",
+    "descsubscribe": "Get ready to work together for the better solution for your business",
+    "titlesubscribe": "Subscribe Our Newsletter",
+    "enterEmail": "Enter your Email",
+    "subscribeBtn": "Subscribe"
+  },
+
+  "_comment-5": "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
+
+  "login": {
+    "metaTitle": "Login Page",
+    "metaDescription": "Log in to your account to access all the exclusive content, updates, and your personalized dashboard. Safe and secure login.",
+    "welcomeTitle": "Welcome Back",
+    "breadcrumbHome": "Home",
+    "breadcrumbLogin": "Login",
+    "helloTitle": "Hello Again !",
+    "helloText": "Welcome back! Log in to access your account and continue your learning journey with us.",
+    "email": "Email",
+    "password": "Password",
+    "forgetPassword": "Forget Your Password ?",
+    "submit": "Login",
+    "or": "Or",
+    "google": "Sign in With Google",
+    "noAccount": "You don't have an account ?",
+    "signup": "Signup"
+  },
+
+  "hero": {
+    "startTitle": "START TO NEW JOURNEY",
+    "best": "Best",
+    "online": "online",
+    "from": "courses from",
+    "trainingText": "World-class training and development programs developed by top teachers",
+    "findCourse": "Find Course"
+  },
+
+  "about": {
+    "title": "About Us",
+    "mainTitle": "Creating a Lifelong Learning Best Community",
+    "description": "It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks...",
+    "flexibleClasses": {
+      "title": "Flexible Classes",
+      "description": "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+    },
+    "liveClasses": {
+      "title": "Live Class From anywhere",
+      "description": "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+    },
+    "discoverMore": "Discover More"
+  },
+
+  "popularCourses": {
+    "title": "Popular Courses",
+    "subtitle": "Pick a course to get started your study"
+  },
+
+  "courseCard": {
+    "powerPoint1": "Scratch to HTML",
+    "powerPoint2": "Learn how to code in Python",
+    "powerPoint3": "Unlimited backend database creation",
+    "powerPoint4": "Adobe XD Tutorials",
+    "lessons": "lessons",
+    "students": "students",
+    "rating": "rating",
+    "days": "day",
+    "category": "Business",
+    "level": "Level",
+    "beginner": "Beginner",
+    "description": "Knowledge is power. Information is liberating. Education is the premise of progress, in every society, in every family.",
+    "viewDetails": "View Details"
+  },
+
+  "coursesButton": {
+    "moreSkillfulCourses": "More skillful courses you can explore",
+    "exploreAllCourses": "Explore All Courses"
+  },
+
+  "certificateBanner": {
+    "heading1": "Get your quality",
+    "heading2": "Skills certificate\nfrom the B-Academy",
+    "button": "Get Start Now"
+  },
+  "testimonials": {
+    "title": "Our testimonials",
+    "heading": "What they’re saying about our courses",
+    "description": "We're proud to offer exceptional courses, and our students frequently praise the quality of the content and teaching methods."
+  },
+
+  "blog_section": {
+    "title": "Directly from blog",
+    "heading": "Our latest news &\n upcoming blog posts",
+    "readMore": "Read More"
+  },
+
+  "contact_us_section": {
+    "get_in_touch": "Get in Touch",
+    "have_questions": "Have questions? We're here to help! Contact us for any inquiries.",
+    "info_paragraph": "Have questions about our courses or need assistance? Our team is here to help you with enrollment, course details, and any inquiries. Feel free to reach out—we’d love to hear from you!",
+    "call_anytime": "Call anytime",
+    "email_address": "Email address",
+    "leave_a_reply": "Leave A Reply",
+    "fill_up_the_form": "Fill-up The Form and Message us of your amazing question",
+    "placeholder_name": "Your Name ....",
+    "placeholder_email": "Your Email ....",
+    "placeholder_phone_number": "Your Phone Number ....",
+    "placeholder_message": "Message Here ....",
+    "send_message": "Send Message"
+  },
+
+  "courses_page": {
+    "discover_knowledge": "Discover the world of knowledge",
+    "learning_journey": "Embark on an endless learning journey with our premium courses designed just for you.",
+    "search_button": "Search"
+  },
+
+  "categories": "Categories",
+
+  "questions_section": {
+    "questions_label": "Questions",
+    "heading": "Looking For Answers?",
+    "description_part_1": "They are bought and sold online, frequently with cryptocurrency, and",
+    "description_part_2": "they are generally encoded with the same underlying."
+  },
+
+  "article_categories_section": {
+    "title": "Explore Our Article Categories",
+    "description": "Discover diverse topics and insights from our curated articles. Choose a category that inspires you and dive into a world of knowledge."
+  },
+
+  "search_articles": {
+    "search_title": "Search for Articles",
+    "search_description": "Use the search bar to find articles that interest you quickly and easily.",
+    "search_placeholder": "Enter the article title",
+    "search_button": "Search"
+  },
+
+  "ArticlePage": {
+    "home": "Home",
+    "blog": "Blog",
+    "how_to_teach_web_design": "How to teach web design to the new students",
+    "published_date": "23 Jan 2024",
+    "author": "Eduman",
+    "quote": "Tosser argy-bargy mush loo at public school Elizabeth up the duff buggered chinwag on your bike mate don’t get shirty with me super, Jeffrey bobby Richard cheesed off spend a penny a load of old tosh blag horse.",
+    "post_tags": "Post Tags :",
+    "comments_title": "5 Comments",
+    "add_comment": "Add Comment",
+    "write_comment": "Write your comment here...",
+    "send_comment": "Send Comment",
+    "search_placeholder": "Search For Articles ...",
+    "recent_posts": "Recent posts",
+    "category": "Category",
+    "tags": "Tags"
+  },
+
+  "review_form": {
+    "write_review": "Write a Review",
+    "title_label": "Review Title",
+    "title_placeholder": "Enter the review title",
+    "content_label": "Review Content",
+    "content_placeholder": "Enter the review content",
+    "rating_label": "Rating",
+    "submit_button": "Submit Review"
+  },
+
+  "CoursePage": {
+    "course_title": "MySQL Database : Beginner SQL Database Design",
+    "created_by": "Created by",
+    "total_enrolled": "Total Enrolled",
+    "last_update": "Last Update",
+    "category": "Category",
+    "description_title": "Description",
+    "description_content": "This course has been designed by two professional Data Scientists so that we can share our knowledge and help you learn complex theory, algorithms, and coding libraries in a simple way. We will walk you step-by-step into the World of Machine Learning. With every tutorial, you will develop new skills and improve your understanding of this challenging yet lucrative sub-field of Data Science.",
+    "what_you_will_learn": "What you'll learn",
+    "requirements": "Requirements",
+    "curriculum": "Curriculum",
+    "curriculum_info": "15 lectures • 2h 29m 12s total length",
+    "data_tool": "Data Manipulation Tool",
+    "student_feedback": "Student Feedback",
+    "rating": "5785 Rating",
+    "reviews": "Reviews",
+    "review_author": "Sotapdi Kunda",
+    "review_time": "55 min ago",
+    "review_content": "Very clean and organized with easy to follow tutorials, Exercises, and solutions. This course does start from the beginning with very little knowledge and gives a great overview of common tools used for data science and progresses into more complex concepts and ideas.",
+    "lectures": "lectures",
+    "min": "min",
+    "category_value": "Data Science",
+    "date": "01 January 2024"
+  },
+
+  "CourseCardDetailes": {
+    "ticket_costs": "Ticket Costs :",
+    "add_to_cart": "Add to Cart",
+    "add_to_wishlist": "Add to WishList",
+    "apply_coupon": "Apply Coupon",
+    "gift_courses": "Gift Courses"
+  },
+
+  "sideCart": {
+    "shoppingCart": "Shopping Cart",
+    "yourCartIsEmpty": "Your cart is empty",
+    "looksLikeEmpty": "Looks like you haven't added anything to your cart yet.",
+    "startShopping": "Start Shopping",
+    "subtotal": "Subtotal",
+    "viewCart": "View Cart",
+    "checkout": "Checkout"
+  },
+
+  "cartItem": {
+    "courseDetails": "days",
+    "lectures": "lectures",
+    "beginner": "Beginner",
+    "discountedPrice": "Discounted Price",
+    "price": "Price"
+  },
+
+  "about_mainPage": {
+    "firsthalfheroTitle": "Why Students",
+    "Choose": "Choose",
+    "secondhalfheroTitle": "Us for Gain Their Knowledge\n",
+    "heroSubtitle": "Helping employees gain skills and providing career development often take a back seat to business priorities but workplace better right now. Seventy percent of workers think that.",
+    "listData": [
+      "Free for physically handcraft",
+      "Easy to enroll courses",
+      "Course certificate for particular course"
+    ],
+    "checkCourses": "Check Courses"
+  },
+
+  "about_SectionTwo": {
+    "sectionTitle": "Global Online\n Education",
+    "categoryTitle": "Categories",
+    "staticData": [
+      {
+        "h1": "Grow Your Network",
+        "paragraph": "Expand your professional network, build your expertise, and earn money on each paid enrollment and find the university",
+        "icon": "LuBookMarked"
+      },
+      {
+        "h1": "Publish Your Courses",
+        "paragraph": "Publish the course you want, in the way you want, and always have control of your own content. If you are passionate",
+        "icon": "SiSololearn"
+      },
+      {
+        "h1": "Earn from Your Passion",
+        "paragraph": "Earn money from Law is a career-oriented course after your 12th or graduation. We have jotted some of the instructors.",
+        "icon": "TbPigMoney"
+      }
+    ],
+    "videoHelp": "Get help from this video",
+    "number": "65k+",
+    "viewsText": "views daily",
+    "watchVideoIntro": "Watch Video Intro"
+  },
+
+  "trustedSection": {
+    "title": "Trusted by Leading Organizations",
+    "description": "We're proud to collaborate with world-class companies and institutions. Our partners help us deliver exceptional quality and value to our community."
+  },
+
+  "operationFailure": "Operation failure",
+  "closeWord": "Close",
+  "success": "Success"
+}

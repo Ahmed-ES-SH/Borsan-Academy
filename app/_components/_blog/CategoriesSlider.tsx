@@ -5,9 +5,14 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import Img from "../Img";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { articleCategories } from "@/app/constants/_website/data";
+import { articleCategories, directionMap } from "@/app/constants/_website/data";
+import { UseVariables } from "@/app/context/VariablesContext";
+import { getTranslations } from "@/app/_helpers/helpers";
 
 export default function CategoriesSlider() {
+  const { locale } = UseVariables();
+  const translations = getTranslations(locale);
+  const texts = translations.article_categories_section;
   const swiperRef = useRef<any>(null);
 
   // تحريك السلايدر للخلف
@@ -21,25 +26,25 @@ export default function CategoriesSlider() {
   };
 
   return (
-    <div className="w-[90%] mx-auto mt-12 mb-6">
+    <div dir={directionMap[locale]} className="w-[90%] mx-auto mt-12 mb-6">
       {/* قسم المقدمة الخاص بالأقسام */}
       <div className="text-center mb-6 relative pb-4">
         <h2 className="text-3xl max-md:text-xl font-bold text-primary">
-          Explore Our Article Categories
+          {texts.title}
         </h2>
         <p className="mt-2 max-md:text-[15px] text-light_text">
-          Discover diverse topics and insights from our curated articles. Choose
-          a category that inspires you and dive into a world of knowledge.
+          {texts.description}
         </p>
         <span className="w-1/4 max-lg:w-1/2 max-md:w-3/4 absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-secondery-green "></span>
       </div>
 
       <div className="bg-white border border-gray-200 shadow-md rounded-xl relative py-2 max-md:w-[95%] mx-auto ">
         <Swiper
+          style={{ direction: "ltr" }}
           slidesPerView={7}
           spaceBetween={20}
           modules={[Autoplay]}
-          autoplay={{ delay: 2500 }}
+          autoplay={{ delay: 2500, pauseOnMouseEnter: true }}
           breakpoints={{
             300: {
               slidesPerView: 2,
@@ -70,7 +75,7 @@ export default function CategoriesSlider() {
                   />
                 </div>
                 <p className="group-hover:text-secondery-green duration-300">
-                  {category.title_en}
+                  {locale == "ar" ? category.title_ar : category.title_en}
                 </p>
               </div>
             </SwiperSlide>

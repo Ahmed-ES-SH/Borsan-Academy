@@ -1,12 +1,14 @@
 "use client";
-import { StaticArticles } from "@/app/constants/_website/data";
+import { realStaticArticles } from "@/app/constants/_website/data";
 import React, { useState } from "react";
 import ArticleCard from "../_dashboard/_articles/ArticleCard";
 import Pagination from "../PaginationComponent";
 import { motion } from "framer-motion";
 import { HiDocumentSearch } from "react-icons/hi";
 import SearchArticles from "./SearchArticles";
+import { UseVariables } from "@/app/context/VariablesContext";
 export default function ArticlesComponent() {
+  const { locale } = UseVariables();
   const [openSearch, setOpenSearch] = useState(false);
 
   const handleCloseSearch = () => {
@@ -15,7 +17,7 @@ export default function ArticlesComponent() {
   return (
     <>
       <div className="w-full grid grid-cols-2  max-md:grid-cols-1 gap-x-4 gap-y-8 overflow-hidden p-6 max-md:p-2 ">
-        {StaticArticles.map((article, index) => (
+        {realStaticArticles.map((article, index) => (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -23,7 +25,12 @@ export default function ArticlesComponent() {
             key={index}
             className="w-full"
           >
-            <ArticleCard Article={article} key={index} />
+            <ArticleCard
+              Article={article}
+              key={index}
+              direct={"/blog"}
+              locale={locale}
+            />
           </motion.div>
         ))}
       </div>

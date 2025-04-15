@@ -4,7 +4,10 @@ import HeroImages from "./_HeroSection/HeroImages";
 import Img from "../../Img";
 import HeroContent from "./_HeroSection/HeroContent";
 import { motion } from "framer-motion";
+import { directionMap } from "@/app/constants/_website/data";
+import { UseVariables } from "@/app/context/VariablesContext";
 export default function HeroSection() {
+  const { locale } = UseVariables();
   const manVariants = {
     initial: { x: 0, y: 1200 },
     visible: { y: 0, transition: { duration: 0.8, delay: 0.4 } },
@@ -25,7 +28,10 @@ export default function HeroSection() {
   }, []);
   return (
     <>
-      <div className=" overflow-hidden group w-full relative h-screen  flex items-center justify-center">
+      <div
+        dir={directionMap[locale]}
+        className=" overflow-hidden group w-full relative h-screen  flex items-center justify-center"
+      >
         <div className="w-full h-full z-[20] bg-transparent absolute top-0 left-0 "></div>
         <motion.div
           initial={{ y: -1000, scale: "1000%", x: 0 }}

@@ -1,6 +1,9 @@
+import { getTranslations } from "@/app/_helpers/helpers";
+import { UseVariables } from "@/app/context/VariablesContext";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { BiSolidError } from "react-icons/bi";
+import { GiTireIronCross } from "react-icons/gi";
 
 interface Props {
   showAlart: boolean;
@@ -10,7 +13,8 @@ interface Props {
 
 export default function ErrorAlart({ showAlart, Message, onClose }: Props) {
   const [barWidth, setBarWidth] = useState(100);
-
+  const { locale } = UseVariables();
+  const { operationFailure } = getTranslations(locale);
   useEffect(() => {
     if (!showAlart) return; // لا تفعل شيء إذا لم يكن التنبيه ظاهراً
 
@@ -43,29 +47,29 @@ export default function ErrorAlart({ showAlart, Message, onClose }: Props) {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="w-[80%] h-[70px] fixed top-4 left-1/2 -translate-x-1/2 rounded-t-md shadow-xl bg-white z-[9999999]"
+          className="w-[80%] max-md:w-[98%] h-[100px] max-md:h-[120px] fixed top-28 left-1/2 -translate-x-1/2 rounded-t-md shadow-xl bg-white z-[99999999]"
         >
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <div className="w-24 h-[70px] bg-red-400 text-white flex items-center justify-center rounded-tl-md">
+          <div className="flex items-center justify-between   h-full">
+            <div className="flex items-center gap-2 h-full">
+              <div className="w-24 h-full bg-red-400 text-white flex items-center justify-center rounded-tl-md">
                 <BiSolidError className="size-8" />
               </div>
               <div className="flex flex-col gap-2 ">
-                <h1>فشل العملية</h1>
+                <h1>{operationFailure}</h1>
                 <p className="text-second_text">{Message}</p>
               </div>
             </div>
-            <p
-              onClick={onClose}
-              className="text-second_text text-lg cursor-pointer mr-6"
-            >
-              إغلاق
-            </p>
           </div>
           <div
             className="h-[4px] bg-red-400 duration-200"
             style={{ width: `${barWidth}%` }}
           ></div>
+          <div
+            onClick={onClose}
+            className="w-8 h-8 cursor-pointer flex bg-red-300  items-center justify-center rounded-bl-md absolute right-0 top-0"
+          >
+            <GiTireIronCross className="size-4 text-white" />
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

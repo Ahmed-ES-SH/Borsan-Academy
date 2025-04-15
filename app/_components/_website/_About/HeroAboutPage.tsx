@@ -4,33 +4,36 @@ import React from "react";
 import { FaCheck } from "react-icons/fa";
 import Img from "../../Img";
 import { motion } from "framer-motion";
+import { directionMap } from "@/app/constants/_website/data";
+import { UseVariables } from "@/app/context/VariablesContext";
+import { getTranslations } from "@/app/_helpers/helpers";
 
 export default function HeroAboutPage() {
-  const listData = [
-    "Free for physically handcraft",
-    "Easy to enroll courses",
-    "Course certificate for particular course",
-  ];
+  const { locale } = UseVariables();
+  const { about_mainPage } = getTranslations(locale);
   return (
     <>
-      <div className="w-full min-h-screen flex items-center justify-center max-xl:mt-12 max-xl:h-fit py-4">
+      <div
+        dir={directionMap[locale]}
+        className="w-full min-h-screen flex items-center justify-center max-xl:mt-12 max-xl:h-fit py-4"
+      >
         <div className="w-[80%] max-xl:w-[90%]  max-md:w-full max-md:p-2 flex items-center justify-between max-xl:flex-col max-xl:items-start max-xl:gap-12">
           <div
             id="content"
             className="flex-1 max-xl:w-full flex flex-col gap-8"
           >
             <h1 className="text-5xl max-md:text-3xl max-md:leading-12 font-bold font-raleway ">
-              Why Students{" "}
-              <span className="text-4xl text-yellow-300 font-Reey">Choose</span>{" "}
-              Us for <br className="max-md:hidden" /> Gain Their Knowledge
+              {about_mainPage.firsthalfheroTitle}
+              <span className="text-4xl mr-4 text-yellow-300 font-Reey">
+                {about_mainPage.Choose}
+              </span>{" "}
+              {about_mainPage.secondhalfheroTitle}
             </h1>
             <p className="text-light_text text-lg w-3/4 max-xl:w-full leading-8">
-              Helping employees gain skills and providing career development
-              often take a back seat to business priorities but workplace better
-              right now. Seventy percent of workers think that.
+              {about_mainPage.heroSubtitle}
             </p>
             <ul className="flex flex-col gap-4">
-              {listData.map((line, index) => (
+              {about_mainPage.listData.map((line, index) => (
                 <div key={index} className="flex items-center gap-2">
                   <div className="w-6 h-6 flex items-center justify-center rounded-full bg-gray-300 border border-gray-300">
                     <FaCheck className="size-4 text-white" />
@@ -40,7 +43,7 @@ export default function HeroAboutPage() {
               ))}
             </ul>
             <Link href={"/courses"} className="btn-green-lg">
-              Check Courses
+              {about_mainPage.checkCourses}
             </Link>
           </div>
           <div

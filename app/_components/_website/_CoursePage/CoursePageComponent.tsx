@@ -10,70 +10,103 @@ import { AnimatePresence, motion } from "framer-motion";
 import { LuYoutube } from "react-icons/lu";
 import PaginationWithoutNumbers from "../../PaginationWithoutNumbers";
 import CourseCardDetailes from "./CourseCardDetailes";
+import { UseVariables } from "@/app/context/VariablesContext";
+import { getTranslations } from "@/app/_helpers/helpers";
+import { directionMap } from "@/app/constants/_website/data";
 
 export default function CoursePageComponent() {
-  const links = [
-    {
-      title_en: "Home",
-      href: "/",
-    },
-    {
-      title_en: "Courses",
-      href: "/courses",
-    },
-    {
-      title_en: "MySQL Database : Beginner SQL Database Design",
-      href: "/",
-    },
-  ];
+  const { locale } = UseVariables();
+  const { review_form, CoursePage } = getTranslations(locale);
 
   const requirements = [
-    "High School Mathematics Level",
-    "Basic Python Knowledge Require",
-    "Broadband Internet",
+    {
+      en: "High School Mathematics Level",
+      ar: "مستوى الرياضيات في المرحلة الثانوية",
+    },
+    {
+      en: "Basic Python Knowledge Require",
+      ar: "يتطلب معرفة أساسية بلغة بايثون",
+    },
+    {
+      en: "Broadband Internet",
+      ar: "اتصال إنترنت عالي السرعة",
+    },
   ];
 
   const learnedPoints = [
-    "Handle advanced techniques like Dimensionality Reduction",
-    "Handle specific topics like Reinforcement Learning best",
-    "Know which Machine Learning model to choose for each type of problem",
-    "Reinforcement learning upper confidence bound Thompson sampling",
-    "Model Selection & Boosting fold cross validation parameter",
-    "Use Machine Learning for personal purpose of machine",
+    {
+      en: "Handle advanced techniques like Dimensionality Reduction",
+      ar: "التعامل مع تقنيات متقدمة مثل تقليل الأبعاد",
+    },
+    {
+      en: "Handle specific topics like Reinforcement Learning best",
+      ar: "إتقان مواضيع محددة مثل التعلم المعزز",
+    },
+    {
+      en: "Know which Machine Learning model to choose for each type of problem",
+      ar: "معرفة نموذج التعلم الآلي المناسب لكل نوع من المشكلات",
+    },
+    {
+      en: "Reinforcement learning upper confidence bound Thompson sampling",
+      ar: "التعلم المعزز باستخدام حد الثقة الأعلى وعيّنة طومسون",
+    },
+    {
+      en: "Model Selection & Boosting fold cross validation parameter",
+      ar: "اختيار النموذج وتحسين الأداء باستخدام التحقق المتقاطع",
+    },
+    {
+      en: "Use Machine Learning for personal purpose of machine",
+      ar: "استخدام التعلم الآلي للأغراض الشخصية المتعلقة بالآلة",
+    },
   ];
 
   const CurriculumSummary = [
     {
       id: 1,
-      title: "Welcome to the Course & Overview",
+      title: {
+        en: "Welcome to the Course & Overview",
+        ar: "مرحبًا بك في الدورة ونظرة عامة",
+      },
       total_lectures: 8,
       total_minute: 47,
       details: "asdasdasds",
     },
     {
       id: 2,
-      title: "Introduction to Fundamental Concepts",
+      title: {
+        en: "Introduction to Fundamental Concepts",
+        ar: "مقدمة إلى المفاهيم الأساسية",
+      },
       total_lectures: 10,
       total_minute: 60,
       details: "asdasdasds",
     },
     {
       id: 3,
-      title: "Deep Dive into Advanced Topics",
+      title: {
+        en: "Deep Dive into Advanced Topics",
+        ar: "التعمق في المواضيع المتقدمة",
+      },
       total_lectures: 12,
       total_minute: 75,
       details: "asdasdasds",
     },
     {
       id: 4,
-      title: "Hands-on Projects & Case Studies",
+      title: {
+        en: "Hands-on Projects & Case Studies",
+        ar: "مشاريع تطبيقية ودراسات حالة",
+      },
       total_lectures: 6,
       total_minute: 50,
       details: "asdasdasds",
     },
     {
       id: 5,
-      title: "Final Review & Course Completion",
+      title: {
+        en: "Final Review & Course Completion",
+        ar: "مراجعة نهائية وإكمال الدورة",
+      },
       total_lectures: 5,
       total_minute: 30,
       details: "asdasdasds",
@@ -108,8 +141,6 @@ export default function CoursePageComponent() {
     setRating(stars);
   };
 
-  const language = "EN";
-
   const handleSubmit = () => {};
 
   const renderStars = (): JSX.Element[] => {
@@ -136,25 +167,49 @@ export default function CoursePageComponent() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const mainTitle = {
+    en: "MySQL Database : Beginner SQL Database Design",
+    ar: "قاعدة بيانات MySQL: تصميم قاعدة بيانات للمبتدئين",
+  };
+
+  const links = [
+    {
+      title_en: "Home",
+      title_ar: "الرئيسية",
+      href: "/",
+    },
+    {
+      title_en: "Courses",
+      title_ar: "الدورات",
+      href: "/courses",
+    },
+    {
+      title_en: "MySQL Database : Beginner SQL Database Design",
+      title_ar: "قاعدة بيانات MySQL: تصميم قاعدة بيانات للمبتدئين",
+      href: "/",
+    },
+  ];
+
   return (
     <>
       <HeroBanner
-        mainTitle={"MySQL Database : Beginner SQL Database Design"}
+        mainTitle={mainTitle}
         titleSize="text-3xl"
         links={links}
         imagesrc={"/website/courses-bg-banner.jpg"}
       />
-      <div className="w-full h-fit py-6 relative">
+      <div dir={directionMap[locale]} className="w-full h-fit py-6 relative">
         <div className="max-xl:flex-col-reverse flex items-start justify-between gap-20 w-[95%]  mx-auto -mt-20 relative max-xl:w-full max-xl:gap-6 max-xl:p-0 h-fit  bg-transparent z-[9999]">
           <div className="flex-1/2 max-lg:w-full max-lg:p-4 max-md:p-2 bg-white  xl:rounded-md h-fit p-12 xl:border border-gray-300 shadow-lg flex flex-col gap-6">
             <h1 className="text-5xl leading-16 max-md:text-2xl max-lg:text-3xl max-xl:text-4xl max-xl:leading-normal raleway-bold">
-              MySQL Database : Beginner SQL Database Design
+              {CoursePage.course_title}
             </h1>
             <div className="flex items-center gap-2">
               <Stars goldStars={4} grayStars={1} size={14} />
               <p>(254 reviews)</p>
             </div>
             <div
+              dir="ltr"
               id="second-section"
               className="flex items-center max-md:items-start justify-between max-md:flex-wrap max-lg:gap-3 w-full py-10 border-t-gray-200 border-b-gray-200 border-t border-b"
             >
@@ -167,7 +222,9 @@ export default function CoursePageComponent() {
                   src="/assets/course-meta.png"
                 />
                 <div className="flex flex-col gap-1 ">
-                  <p className="text-light_text text-[15px]">Created by</p>
+                  <p className="text-light_text text-[15px]">
+                    {CoursePage.created_by}
+                  </p>
                   <h3 className="font-bold ">David Allberto</h3>
                 </div>
               </div>
@@ -176,7 +233,9 @@ export default function CoursePageComponent() {
                 className="flex-1 max-md:justify-start max-md:items-start max-lg:flex-auto flex items-center justify-center gap-3 lg:border-r border-gray-200"
               >
                 <div className="flex flex-col gap-1">
-                  <p className="text-light_text text-[15px]">Total Enrolled</p>
+                  <p className="text-light_text text-[15px]">
+                    {CoursePage.total_enrolled}
+                  </p>
                   <h3 className="font-bold ">5,420</h3>
                 </div>
               </div>
@@ -185,8 +244,12 @@ export default function CoursePageComponent() {
                 className="flex-1 max-md:justify-start max-md:items-start max-md:flex-auto flex items-center justify-center gap-3 lg:border-r border-gray-200"
               >
                 <div className="flex flex-col gap-1">
-                  <p className="text-light_text text-[15px]">Last Update</p>
-                  <h3 className="font-bold ">01 January 2024</h3>
+                  <p className="text-light_text text-[15px]">
+                    {CoursePage.last_update}
+                  </p>
+                  <h3 dir={directionMap[locale]} className="font-bold ">
+                    {CoursePage.date}
+                  </h3>
                 </div>
               </div>
               <div
@@ -194,36 +257,32 @@ export default function CoursePageComponent() {
                 className="flex-1 max-md:justify-start max-md:items-start max-md:flex-auto flex items-center justify-center gap-3"
               >
                 <div className="flex flex-col gap-1">
-                  <p className="text-light_text text-[15px]">Category</p>
-                  <h3 className="font-bold ">Data Science</h3>
+                  <p className="text-light_text text-[15px]">
+                    {CoursePage.category}
+                  </p>
+                  <h3 className="font-bold ">{CoursePage.category_value}</h3>
                 </div>
               </div>
             </div>
             <div id="section-three" className="">
               <h1 className="text-4xl font-raleway font-semibold">
-                Description
+                {CoursePage.description_title}
               </h1>
               <p className="my-4 text-light_text">
-                This course has been designed by two professional Data
-                Scientists so that we can share our knowledge and help you learn
-                complex theory, algorithms, and coding libraries in a simple
-                way. We will walk you step-by-step into the World of Machine
-                Learning. With every tutorial, you will develop new skills and
-                improve your understanding of this challenging yet lucrative
-                sub-field of Data Science.
+                {CoursePage.description_content}
               </p>
             </div>
             <div id="section-four">
               <div className="w-full bg-[#f5f8ff] p-4 rounded-md">
                 <h1 className="text-3xl font-raleway font-medium mt-4 mb-6">
-                  What you'll learn
+                  {CoursePage.what_you_will_learn}
                 </h1>
                 <div className="w-full grid grid-cols-2 max-md:grid-cols-1 max-md:gap-4 gap-8">
                   {learnedPoints.map((point, index) => (
                     <div className="w-full flex items-center gap-2" key={index}>
                       <FaCheck className="size-4 text-primary" />
                       <p className="leading-10 text-[17px]  font-raleway font-medium">
-                        {point}
+                        {point[locale]}
                       </p>
                     </div>
                   ))}
@@ -232,19 +291,19 @@ export default function CoursePageComponent() {
             </div>
             <div id="section-five" className="w-full">
               <h1 className="text-3xl font-raleway font-semibold mt-4 mb-6">
-                Requirements
+                {CoursePage.requirements}
               </h1>
               <ul className="list-disc ml-6  flex flex-col gap-3">
                 {requirements.map((line, index) => (
-                  <li key={index}>{line}</li>
+                  <li key={index}>{line[locale]}</li>
                 ))}
               </ul>
             </div>
             <div id="section-six">
-              <h1 className="my-6 font-raleway font-semibold">Curriculum</h1>
-              <h3 className="text-light_text">
-                15 lectures • 2h 29m 12s total length
-              </h3>
+              <h1 className="my-6 font-raleway font-semibold">
+                {CoursePage.curriculum}
+              </h1>
+              <h3 className="text-light_text">{CoursePage.curriculum_info}</h3>
               <div className="w-full rounded-md shadow-md p-4 max-md:p-2 border border-gray-200 mt-4">
                 {CurriculumSummary.map((line, index) => (
                   <div key={index} className="w-full">
@@ -259,13 +318,16 @@ export default function CoursePageComponent() {
                         ) : (
                           <FaPlus className="size-3 text-light_text transition-transform duration-300" />
                         )}
-                        <p className="select-none">{line.title}</p>
+                        <p className="select-none">{line.title[locale]}</p>
                       </div>
                       <div className="flex items-center gap-2">
-                        <h4 className="text-[15px] font-raleway font-medium">{`${line.total_lectures} lectures`}</h4>
+                        <h4 className="text-[15px] font-raleway font-medium">{`${line.total_lectures} ${CoursePage.lectures}`}</h4>
                         <span className="flex items-center gap-1">
                           <MdCircle className="size-2 text-gray-200" />
-                          {line.total_minute}
+                          {line.total_minute}{" "}
+                          <p className="text-light_text text-[14px]">
+                            {CoursePage.min}
+                          </p>
                         </span>
                       </div>
                     </div>
@@ -288,7 +350,7 @@ export default function CoursePageComponent() {
                               <div className="flex items-center gap-2 ">
                                 <LuYoutube className="size-4 text-[#c1c7d2]" />
                                 <p className="text-[#141517] hover:text-sky-400 duration-200 cursor-pointer text-[15px]">
-                                  Data Manipulation Tool
+                                  {CoursePage.data_tool}
                                 </p>
                               </div>
                               <div className="flex items-center gap-2">
@@ -307,7 +369,10 @@ export default function CoursePageComponent() {
               </div>
             </div>
             <div id="section-seven">
-              <h3 className="text-xl font-bold">Student Feedback</h3>
+              <h3 className="text-xl font-bold">
+                {" "}
+                {CoursePage.student_feedback}
+              </h3>
               <div className="mt-4 flex items-start gap-8 w-full max-lg:flex-col max-lg:items-center">
                 <div className="rating flex-1 max-lg:flex-auto border border-gray-200 rounded-sm flex items-center justify-center max-lg:w-full max-lg:h-fit max-lg:py-7  h-[200px]">
                   <div className="flex flex-col items-center  gap-3 w-full">
@@ -315,7 +380,9 @@ export default function CoursePageComponent() {
                       4.7
                     </h2>
                     <Stars goldStars={5} grayStars={0} size={18} />
-                    <p className="text-sec-text px-12 py-2">5785 Rating</p>
+                    <p className="text-sec-text px-12 py-2">
+                      5785 {CoursePage.rating}
+                    </p>
                   </div>
                 </div>
                 <div className="rating-percent flex-1/2  max-lg:flex-auto max-lg:w-full flex flex-col gap-5">
@@ -342,7 +409,9 @@ export default function CoursePageComponent() {
               </div>
             </div>
             <div id="section-eight">
-              <h3 className="font-bold text-3xl font-raleway">Reviews</h3>
+              <h3 className="font-bold text-3xl font-raleway">
+                {CoursePage.reviews}
+              </h3>
               <div className="mt-12 max-md:mt-5 flex flex-col gap-12 w-full">
                 {Array.from({ length: 5 }).map((_, index) => (
                   <div
@@ -354,19 +423,15 @@ export default function CoursePageComponent() {
                       className="w-14 h-14 rounded-full"
                     />
                     <div className="flex flex-col gap-2">
-                      <h4>Sotapdi Kunda</h4>
+                      <h4>{CoursePage.review_author}</h4>
                       <div className="flex w-full items-center gap-2">
                         <Stars goldStars={5} grayStars={0} size={14} />
                         <p className="text-[12px] whitespace-nowrap">
-                          55 min ago
+                          {CoursePage.review_time}
                         </p>
                       </div>
                       <p className="text-sec-text leading-8">
-                        Very clean and organized with easy to follow tutorials,
-                        Exercises, and solutions. This course does start from
-                        the beginning with very little knowledge and gives a
-                        great overview of common tools used for data science and
-                        progresses into more complex concepts and ideas.
+                        {CoursePage.review_content}
                       </p>
                     </div>
                   </div>
@@ -381,7 +446,7 @@ export default function CoursePageComponent() {
                 onClick={() => setShowReviewForm((prev) => !prev)}
                 className=" max-lg:mx-auto text-white select-none bg-sky-500 hover:bg-white hover:border-sky-500 hover:scale-110 hover:text-black border border-transparent duration-300 cursor-pointer w-[200px] h-[60px] rounded-md shadow-md flex items-center justify-center"
               >
-                Write a Review
+                {review_form.write_review}
               </div>
               <AnimatePresence>
                 {showReviewForm && (
@@ -399,19 +464,13 @@ export default function CoursePageComponent() {
                           htmlFor="title"
                           className="block pb-2 border-b border-sky-300 w-fit text-sm font-semibold"
                         >
-                          {language !== "EN"
-                            ? "عنوان المراجعة"
-                            : "Review Title"}
+                          {review_form.title_label}
                         </label>
                         <input
                           type="text"
                           id="title"
                           className="input-style"
-                          placeholder={
-                            language !== "EN"
-                              ? "أدخل عنوان المراجعة"
-                              : "Enter the review title"
-                          }
+                          placeholder={review_form.title_placeholder}
                         />
                       </div>
 
@@ -421,18 +480,12 @@ export default function CoursePageComponent() {
                           htmlFor="content"
                           className="block pb-2 border-b border-sky-300 w-fit  text-sm font-semibold"
                         >
-                          {language !== "EN"
-                            ? "محتوى المراجعة"
-                            : "Review Content"}
+                          {review_form.content_label}
                         </label>
                         <textarea
                           id="content"
                           className="input-style h-32"
-                          placeholder={
-                            language !== "EN"
-                              ? "أدخل محتوى المراجعة"
-                              : "Enter the review content"
-                          }
+                          placeholder={review_form.content_placeholder}
                           rows={4}
                         />
                       </div>
@@ -440,7 +493,7 @@ export default function CoursePageComponent() {
                       {/* اختيار النجوم */}
                       <div>
                         <label className="block pb-2 border-b border-sky-300 w-fit text-sm font-semibold">
-                          {language !== "EN" ? "التقييم" : "Rating"}
+                          {review_form.rating_label}
                         </label>
                         <div className="flex mt-2 gap-2">{renderStars()}</div>
                       </div>
@@ -450,7 +503,7 @@ export default function CoursePageComponent() {
                         type="submit"
                         className="w-full p-2 bg-primary text-white rounded-md hover:bg-blue-500 duration-150"
                       >
-                        {language !== "EN" ? "إرسال المراجعة" : "Submit Review"}
+                        {review_form.submit_button}
                       </button>
                     </form>
                   </motion.div>

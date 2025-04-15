@@ -1,20 +1,27 @@
-import { articles } from "@/app/constants/_website/data";
+"use client";
+import { articles, directionMap } from "@/app/constants/_website/data";
 import React from "react";
 import Img from "../../Img";
 import { FaArrowRight, FaComments, FaUser } from "react-icons/fa";
+import { UseVariables } from "@/app/context/VariablesContext";
+import { getTranslations } from "@/app/_helpers/helpers";
 
 export default function BlogSection() {
-  const title = "directly from blog";
+  const { locale } = UseVariables();
+  const translations = getTranslations(locale);
+  const texts = translations.blog_section;
   return (
     <>
-      <div className="w-full flex  items-center flex-col min-h-[80vh] mt-16 mb-52 ">
+      <div
+        dir={directionMap[locale]}
+        className="w-full flex  items-center flex-col min-h-[80vh] mt-16 mb-52 "
+      >
         <div className="head-title text-center">
           <h1 className="text-xl font-bold text-secondery-green">
-            {title.toUpperCase()}
+            {texts.title.toUpperCase()}
           </h1>
           <h2 className="text-[45px] max-md:text-[24px] text-sec-text mt-4 font-mono font-bold">
-            Our latest news & <br />
-            upcoming blog posts
+            {texts.heading}
           </h2>
         </div>
         <div className="w-[90%] mx-auto grid grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1  gap-x-8 gap-y-32 mt-6">
@@ -45,7 +52,7 @@ export default function BlogSection() {
                 </h1>
                 <div className="pt-5 border-t border-gray-300 w-full px-3 pb-2 cursor-pointer group/arrow">
                   <div className="flex items-center justify-between w-full duration-300 group-hover/arrow:text-secondery-green">
-                    <p>Read More</p>
+                    <p>{texts.readMore}</p>
                     <FaArrowRight className="text-sec-text size-4 group-hover/arrow:translate-x-2 duration-300" />
                   </div>
                 </div>

@@ -1,22 +1,5 @@
-import React from "react";
-import AboutSection from "./_components/_website/_Home/AboutSection";
-import HeroSection from "./_components/_website/_Home/HeroSection";
-import CoursesSection from "./_components/_website/_Home/_coursesSection/CoursesSection";
-import CertificateBanner from "./_components/_website/_Home/CertificateBanner";
-import TestimonialsSection from "./_components/_website/_Home/TestimonialsSection";
-import BlogSection from "./_components/_website/_Home/BlogSection";
-import ContactUsSection from "./_components/_website/_Home/ContactUsSection";
+import { redirect } from "next/navigation";
 
 export default function Home() {
-  return (
-    <>
-      <HeroSection />
-      <AboutSection />
-      <CoursesSection />
-      <CertificateBanner />
-      <TestimonialsSection />
-      <BlogSection />
-      <ContactUsSection />
-    </>
-  );
+  redirect("/en");
 }

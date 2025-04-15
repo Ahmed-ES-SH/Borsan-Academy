@@ -4,17 +4,21 @@ import CoursesCategoriesSidebar from "./CoursesCategoriesSidebar";
 import Courses from "./Courses";
 
 export default function CoursesComponent() {
-  const mainTitle_en = "Courses";
-  //   const mainTitle_ar = "الدورات التعليمية ";
+  const mainTitle = {
+    ar: "الكورسات",
+    en: "Courses",
+  };
 
   const links = [
     {
       title_en: "Home",
+      title_ar: "الرئيسية",
       href: "/",
     },
     {
       title_en: "Courses",
-      href: "/",
+      title_ar: "الدورات",
+      href: "/courses",
     },
   ];
 
@@ -22,7 +26,7 @@ export default function CoursesComponent() {
     <div className="w-full bg-gray-100">
       <HeroBanner
         imagesrc="/website/courses-bg-banner.jpg"
-        mainTitle={mainTitle_en}
+        mainTitle={mainTitle}
         titleSize="text-6xl"
         links={links}
       />

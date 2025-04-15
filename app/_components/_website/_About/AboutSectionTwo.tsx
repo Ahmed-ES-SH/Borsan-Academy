@@ -6,28 +6,13 @@ import { TbPigMoney } from "react-icons/tb";
 import Img from "../../Img";
 import { motion } from "framer-motion";
 import { PiTriangleFill } from "react-icons/pi";
+import { UseVariables } from "@/app/context/VariablesContext";
+import { getTranslations } from "@/app/_helpers/helpers";
 
 export default function AboutSectionTwo() {
-  const staticData = [
-    {
-      h1: "Expand Yourself",
-      paragraph:
-        "Expand your professional network, build your expertise, and earn money on each paid enrollment and find the university",
-      icon: <LuBookMarked className="size-20 text-secondery-green" />,
-    },
-    {
-      h1: "Expand Yourself",
-      paragraph:
-        "Publish the course you want, in the way you want, and always have of control your own content. If you are passionate",
-      icon: <SiSololearn className="size-20 text-secondery-green" />,
-    },
-    {
-      h1: "Expand Yourself",
-      paragraph:
-        "Earn money from Law is a career-oriented course after your 12th or graduation. We have jotted some of the instructors.",
-      icon: <TbPigMoney className="size-20 text-secondery-green" />,
-    },
-  ];
+  const { locale } = UseVariables();
+  const { about_SectionTwo } = getTranslations(locale);
+
   return (
     <>
       <div
@@ -35,21 +20,26 @@ export default function AboutSectionTwo() {
         className="w-full relative bg-gray-100 max-md:pb-[20vh] max-lg:pb-[30vh] pb-[50vh]"
       >
         <div className="w-[80%] max-md:w-full max-md:p-2 max-lg:w-[95%] mx-auto pt-12">
-          <h1 className="text-5xl font-bold text-center">
-            Global Online <br />
-            Education{" "}
-            <span className="text-3xl text-yellow-300 font-Reey">
-              Categories
+          <h1 className="text-5xl max-md:text-3xl font-bold text-center">
+            {about_SectionTwo.sectionTitle}
+            <span className="text-3xl max-md:text-xl text-yellow-300 font-Reey">
+              {about_SectionTwo.categoryTitle}
             </span>
           </h1>
           <div className="grid md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 max-md:gap-16 gap-32 mt-24">
-            {staticData.map((line, index) => (
+            {about_SectionTwo.staticData.map((line, index) => (
               <div
                 className="w-full flex items-center flex-col gap-4 group"
                 key={index}
               >
                 <div className="w-fit group-hover:-translate-y-8 duration-200">
-                  {line.icon}
+                  {index == 0 ? (
+                    <LuBookMarked className="size-20 text-secondery-green" />
+                  ) : index == 1 ? (
+                    <SiSololearn className="size-20 text-secondery-green" />
+                  ) : (
+                    <TbPigMoney className="size-20 text-secondery-green" />
+                  )}
                 </div>
                 <h2 className="text-3xl font-semibold">{line.h1}</h2>
                 <p className="text-light_text leading-7 text-[16px]">
@@ -62,10 +52,10 @@ export default function AboutSectionTwo() {
         <div className="w-[60%] max-lg:w-[95%] max-xl:w-[85%]  max-md:w-full shadow-lg bg-white h-[65vh] max-lg:h-[50vh]   absolute -bottom-1/4 left-1/2 -translate-x-1/2  flex items-center justify-center p-4 max-md:p-2 rounded-md">
           <div className="shap-right hidden xl:flex absolute -right-32 top-1/2 -translate-y-1/2  flex-col gap-8">
             <h4 className="text-lg font-bold">
-              65k+
+              {about_SectionTwo.number}
               <br />{" "}
               <span className="text-light_text font-light text-[15px]">
-                views daily
+                {about_SectionTwo.viewsText}
               </span>
             </h4>
             <Img
@@ -79,7 +69,7 @@ export default function AboutSectionTwo() {
               className="w-11 object-contain"
             />
             <h4 className="text-lg font-semibold text-sahdow w-1/2">
-              Get help from this video
+              {about_SectionTwo.videoHelp}
             </h4>
           </div>
           <div className="w-full h-full relative">
@@ -97,7 +87,7 @@ export default function AboutSectionTwo() {
                 ></motion.div>
               </div>
               <h1 className="text-xl font-semibold text-white font-raleway">
-                Watch Video Intro
+                {about_SectionTwo.watchVideoIntro}
               </h1>
             </div>
             <div className="w-full h-full absolute top-0 left-0 bg-black/50"></div>

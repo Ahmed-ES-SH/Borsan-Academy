@@ -1,5 +1,7 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
+import { getTranslations } from "@/app/_helpers/helpers";
+import { directionMap } from "@/app/constants/_website/data";
+import { UseVariables } from "@/app/context/VariablesContext";
 import React, { useState } from "react";
 import { FaPhone } from "react-icons/fa";
 import { TfiEmail } from "react-icons/tfi";
@@ -12,6 +14,9 @@ interface formType {
 }
 
 export default function ContactUsSection() {
+  const { locale } = UseVariables(); // للحصول على اللغة الحالية
+  const translations = getTranslations(locale); // استرجاع النصوص بناءً على اللغة
+  const texts = translations.contact_us_section; // النصوص الخاصة بقسم "اتصل بنا"
   const [form, setForm] = useState<formType>({
     name: "",
     email: "",
@@ -25,36 +30,38 @@ export default function ContactUsSection() {
   };
 
   return (
-    <>
-      <div className="text-center  my-12">
+    <div dir={directionMap[locale]}>
+      <div className="text-center my-12">
         <h2 className="text-5xl font-bold text-gray-900">
-          Get in <span className="text-secondery-green">Touch</span>
+          {texts.get_in_touch}
         </h2>
-        <p className="text-gray-600 text-lg mt-3">
-          Have questions? We're here to help! Contact us for any inquiries.
-        </p>
+        <p className="text-gray-600 text-lg mt-3">{texts.have_questions}</p>
         <div className="w-24 h-1 bg-secondery-green mx-auto mt-4 rounded-full"></div>
       </div>
-      <div className="flex items-stretch gap-3 p-4 max-md:p-2 w-[90%] mx-auto max-lg:w-full max-lg:flex-col  max-lg:items-start h-[60vh] max-lg:h-fit">
+      <div className="flex items-stretch gap-3 p-4 max-md:p-2 w-[90%] mx-auto max-lg:w-full max-lg:flex-col max-lg:items-start h-[60vh] max-lg:h-fit">
         <div className="info flex flex-col items-start bg-[#fff] p-4 rounded-lg border border-gray-300 shadow-md h-full flex-1">
-          <h1 className="my-4 text-2xl  pb-3 border-b  border-primary w-fit mr-auto">
-            <span className="text-secondery-green font-bold ">B-</span>Academy
-            Information
-          </h1>
-          <p className="text-[14px] text-light_text">
-            Have questions about our courses or need assistance? Our team is
-            here to help you with enrollment, course details, and any inquiries.
-            Feel free to reach out—we’d love to hear from you!
-          </p>
+          {locale == "ar" ? (
+            <h1 className="my-4 text-2xl pb-3 border-b border-primary">
+              معلومات التواصل
+            </h1>
+          ) : (
+            <h1 className="my-4 text-2xl pb-3 border-b border-primary w-fit mr-auto">
+              <span className="text-secondery-green font-bold ">B-</span>
+              Academy Information
+            </h1>
+          )}
+          <p className="text-[14px] text-light_text">{texts.info_paragraph}</p>
 
           <div className="info-information flex flex-col gap-4 mt-8">
-            <div className="bg-white rounded-md  ">
+            <div className="bg-white rounded-md ">
               <div className="flex items-center gap-6 w-full">
-                <div className="w-16 h-16  rounded-md bg-secondery-green flex items-center justify-center">
+                <div className="w-16 h-16 rounded-md bg-secondery-green flex items-center justify-center">
                   <FaPhone className="size-6 text-white" />
                 </div>
                 <div className="flex flex-col items-start flex-1/2">
-                  <h1 className="text-sec-text font-light">Call anytime</h1>
+                  <h1 className="text-sec-text font-light">
+                    {texts.call_anytime}
+                  </h1>
                   <h2 className="text-2xl font-bold text-indigo-800">
                     518 564 3200
                   </h2>
@@ -63,11 +70,13 @@ export default function ContactUsSection() {
             </div>
             <div className="bg-white rounded-md ">
               <div className="flex items-center gap-6 w-full">
-                <div className="w-16 h-16  rounded-md bg-secondery-green flex items-center justify-center">
+                <div className="w-16 h-16 rounded-md bg-secondery-green flex items-center justify-center">
                   <TfiEmail className="size-6 text-white" />
                 </div>
                 <div className="flex flex-col items-start">
-                  <h1 className="text-sec-text font-light">Email address</h1>
+                  <h1 className="text-sec-text font-light">
+                    {texts.email_address}
+                  </h1>
                   <h2 className="text-xl font-bold text-indigo-800">
                     BorsanAcademy@info.com
                   </h2>
@@ -78,9 +87,9 @@ export default function ContactUsSection() {
         </div>
 
         <div className="form max-lg:w-full shadow-md bg-[#fff] p-4 rounded-lg border border-gray-300 h-full flex-1/2">
-          <h1 className="my-4 text-4xl font-bold">Leave A Reply</h1>
+          <h1 className="my-4 text-4xl font-bold">{texts.leave_a_reply}</h1>
           <p className="text-light_text my-3 text-[14px]">
-            Fill-up The Form and Message us of your amazing question
+            {texts.fill_up_the_form}
           </p>
           <form className="flex flex-col gap-4 items-center w-full">
             <div className="flex items-center max-lg:flex-col gap-3 w-full justify-between">
@@ -88,14 +97,14 @@ export default function ContactUsSection() {
                 className="input-style"
                 type="text"
                 name="name"
-                placeholder="Your Name .... "
+                placeholder={texts.placeholder_name}
                 onChange={handleChange}
               />
               <input
                 className="input-style"
                 type="text"
                 name="email"
-                placeholder="Your Email .... "
+                placeholder={texts.placeholder_email}
                 onChange={handleChange}
               />
             </div>
@@ -103,23 +112,23 @@ export default function ContactUsSection() {
               className="input-style"
               type="text"
               name="phone_number"
-              placeholder="Your Phone Number .... "
+              placeholder={texts.placeholder_phone_number}
               onChange={handleChange}
             />
             <textarea
               className="input-style h-40"
               name="message"
-              placeholder="Message Here .... "
+              placeholder={texts.placeholder_message}
               onChange={handleChange}
             />
             <input
               type="submit"
-              value={"Send Message"}
+              value={texts.send_message}
               className="submit-btn"
             />
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 }

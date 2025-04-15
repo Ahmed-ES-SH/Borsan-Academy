@@ -3,26 +3,34 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import { testimonials } from "@/app/constants/_website/data";
+import { directionMap, testimonials } from "@/app/constants/_website/data";
 import Img from "../../Img";
 import Stars from "../_Courses/Stars";
 import { IoMdQuote } from "react-icons/io";
+import { UseVariables } from "@/app/context/VariablesContext";
+import { getTranslations } from "@/app/_helpers/helpers";
 
 export default function TestimonialsSection() {
+  const { locale } = UseVariables();
+  const translations = getTranslations(locale);
+  const texts = translations.testimonials;
   return (
     <>
-      <div className="w-full min-h-[70vh] flex  items-center justify-center max-md:p-2 p-6 bg-[url('/assets/main-gray-bg.jpg')] bg-cover bg-center">
-        <div className="w-[85%] max-xl:w-full ml-auto flex max-xl:flex-col items-center justify-between ">
+      <div
+        dir={directionMap[locale]}
+        className="w-full min-h-[70vh] flex  items-center justify-center max-md:p-2 p-6 bg-[url('/assets/main-gray-bg.jpg')] bg-cover bg-center"
+      >
+        <div className="w-[95%] max-xl:w-full mx-auto flex max-xl:flex-col items-center justify-between ">
           <div className="content w-[30%] max-xl:w-full flex flex-col gap-4">
-            <h1 className="text-xl text-secondery-green">Our testimonials</h1>
+            <h1 className="text-xl text-secondery-green">{texts.title}</h1>
             <h2 className=" font-bold font-mono text-[55px] max-md:text-[35px] text-sec-text">
-              What they’re saying about our courses
+              {texts.heading}
             </h2>
             <p className="text-[15px] max-md:text-[20px] text-light_text w-1/2 max-md:w-full">
-              Quisque commodo, magna nec accu man euismod tellus mi ornare enim
+              {texts.description}
             </p>
           </div>
-          <div className="slider-Testimonials w-[70%] max-xl:w-full ">
+          <div dir="ltr" className="slider-Testimonials w-[70%] max-xl:w-full ">
             <Swiper
               style={{
                 display: "flex",

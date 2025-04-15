@@ -1,28 +1,22 @@
 "use client";
 import { Coursescategories } from "@/app/constants/_website/data";
 import React, { useState, useEffect } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
 import { GiTireIronCross } from "react-icons/gi";
 import { motion } from "framer-motion";
 import { FaFilter } from "react-icons/fa";
 import { UseVariables } from "@/app/context/VariablesContext";
+import { getTranslations } from "@/app/_helpers/helpers";
 
 export default function CoursesCategoriesSidebar() {
-  const { width } = UseVariables();
-  const searchParams = useSearchParams();
-  const router = useRouter();
-
+  const { width, locale } = UseVariables();
+  const translations = getTranslations(locale);
   const [showSidebar, setShowSidebar] = useState(true);
 
   // تحويل `currentCategory` إلى مصفوفة عند التحميل
-  const currentCategory = searchParams.get("currentCategory")?.split(",") || [];
 
-  const [selectedCategories, setSelectedCategories] = useState(currentCategory);
-
-  // تحديث الفئات المختارة عند تغيير `currentCategory`
-  useEffect(() => {
-    setSelectedCategories(currentCategory);
-  }, []);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([
+    "21",
+  ]);
 
   const handleCategoryClick = (categoryId) => {
     setSelectedCategories((prev) => {
@@ -39,12 +33,6 @@ export default function CoursesCategoriesSidebar() {
       // ⚠️ تصفية الفئة ذات `id === 21`
       updatedCategories = updatedCategories.filter((id) => id !== "21");
 
-      // تحديث الـ URL في المتصفح
-      const queryString = updatedCategories.length
-        ? `?currentCategory=${updatedCategories.join(",")}`
-        : "";
-      router.push(`/courses${queryString}`, { scroll: false });
-
       return updatedCategories;
     });
   };
@@ -57,7 +45,9 @@ export default function CoursesCategoriesSidebar() {
     if (width > 900) {
       setShowSidebar(true);
     }
-  }, [width]);
+
+    if (selectedCategories.length == 0) handleSelectAll();
+  }, [width, selectedCategories]);
 
   return (
     <>
@@ -68,7 +58,7 @@ export default function CoursesCategoriesSidebar() {
       >
         <div className="w-full ">
           <h1 className="text-xl my-3 font-bold ml-4 pb-2 border-b border-secondery-green w-fit">
-            Categories
+            {translations.categories}
           </h1>
         </div>
         <div
@@ -101,7 +91,7 @@ export default function CoursesCategoriesSidebar() {
                     readOnly
                   />
                   <p className="text-light_text group-hover:text-secondery-green duration-300">
-                    {category.title_en}
+                    {locale == "ar" ? category.title_ar : category.title_en}
                   </p>
                 </div>
                 <span className="flex items-center">
