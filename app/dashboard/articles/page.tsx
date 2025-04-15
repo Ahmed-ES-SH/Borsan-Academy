@@ -6,10 +6,12 @@ import LoadingSpin from "@/app/_components/LoadingSpin";
 import Pagination from "@/app/_components/PaginationComponent";
 import useSearchData from "@/app/_helpers/FetchDataBySearch";
 import useFetchData from "@/app/_helpers/FetchDataWithAxios";
+import { UseVariables } from "@/app/context/VariablesContext";
 import { ArticleType } from "@/app/types/_dashboard/GlobalTypes";
 import React, { useEffect, useState } from "react";
 
 export default function Articles() {
+  const { locale } = UseVariables();
   const [articles, setArticles] = useState<ArticleType[]>([]);
   const [currentData, setCurrentData] = useState("DefaultData");
 
@@ -125,6 +127,7 @@ export default function Articles() {
               direct="/dashboard/articles"
               Article={article}
               key={index}
+              locale={locale}
             />
           ))}
         </div>
