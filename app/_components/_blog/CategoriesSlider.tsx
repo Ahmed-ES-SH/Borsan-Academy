@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -8,12 +8,15 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { articleCategories, directionMap } from "@/app/constants/_website/data";
 import { UseVariables } from "@/app/context/VariablesContext";
 import { getTranslations } from "@/app/_helpers/helpers";
+import Loading from "../Loading";
 
 export default function CategoriesSlider() {
   const { locale } = UseVariables();
   const translations = getTranslations(locale);
   const texts = translations.article_categories_section;
   const swiperRef = useRef<any>(null);
+
+  const [loading, setLoading] = useState(true);
 
   // تحريك السلايدر للخلف
   const goPrev = () => {
@@ -24,6 +27,23 @@ export default function CategoriesSlider() {
   const goNext = () => {
     if (swiperRef.current) swiperRef.current.slideNext();
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // إيقاف التمرير عند تحميل الصفحة
+    document.body.style.overflow = "hidden";
+
+    // إعادة التمرير بعد 3 ثوانٍ
+    const timer = setTimeout(() => {
+      document.body.style.overflow = "auto";
+      setLoading(false);
+    }, 2000); // 3000 مللي ثانية = 3 ثواني
+
+    // تنظيف المؤقت عندما يغادر المستخدم الصفحة
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Loading />;
 
   return (
     <div dir={directionMap[locale]} className="w-[90%] mx-auto mt-12 mb-6">

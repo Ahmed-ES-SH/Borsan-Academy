@@ -7,6 +7,7 @@ import { VscReactions } from "react-icons/vsc";
 import { formatDate } from "@/app/_helpers/dateHelper";
 import { directionMap } from "@/app/constants/_website/data";
 import LocaleLink from "../../localeLink";
+import { formatTitle } from "@/app/_helpers/helpers";
 
 interface props {
   Article: any;
@@ -18,12 +19,15 @@ export default function ArticleCard({ Article, direct, locale = "en" }: props) {
   const date = formatDate(Article.created_at);
   return (
     <div dir={directionMap[locale]} className="w-full">
-      <LocaleLink className="block w-full" href={`${direct}/${Article.id}`}>
+      <LocaleLink
+        className="block w-full"
+        href={`${direct}/${formatTitle(Article.title_en)}`}
+      >
         <div className=" group w-[97%] max-xl:w-full h-[300px] max-md:h-[500px] max-lg:h-[480px] max-xl:h-[450px] overflow-hidden rounded-md hover:scale-110 hover:bg-primary hover:text-white duration-200 cursor-pointer shadow-lg bg-white border border-gray-300 flex gap-2 items-start max-xl:flex-col">
           <div className="img flex-1/5 max-xl:h-1/2 h-full  max-xl:w-full">
             <Img
               className="w-full h-full object-cover"
-              src="/assorted-mixed-fruits.jpg"
+              src={Article.image ? Article.image : "/assorted-mixed-fruits.jpg"}
             />
           </div>
           <div className="content p-2 flex-1  max-xl:h-1/2 h-full  max-xl:w-full">
@@ -58,11 +62,7 @@ export default function ArticleCard({ Article, direct, locale = "en" }: props) {
               <div className="flex items-center max-md:flex-col max-md:gap-2 w-full px-2 justify-between mt-4">
                 <div className="user-info flex items-center gap-2">
                   <Img
-                    src={
-                      Article.author.image
-                        ? Article.author.image
-                        : "/defaults/default-male.png"
-                    }
+                    src={"/defaults/default-male.png"}
                     className="w-8 h-8 rounded-full object-cover"
                   />
                   <p className="text-[14px]">{Article.author.name}</p>

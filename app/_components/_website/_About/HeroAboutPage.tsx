@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import React from "react";
 import { FaCheck } from "react-icons/fa";
 import Img from "../../Img";
@@ -7,6 +6,7 @@ import { motion } from "framer-motion";
 import { directionMap } from "@/app/constants/_website/data";
 import { UseVariables } from "@/app/context/VariablesContext";
 import { getTranslations } from "@/app/_helpers/helpers";
+import LocaleLink from "../../localeLink";
 
 export default function HeroAboutPage() {
   const { locale } = UseVariables();
@@ -42,9 +42,9 @@ export default function HeroAboutPage() {
                 </div>
               ))}
             </ul>
-            <Link href={"/courses"} className="btn-green-lg">
+            <LocaleLink href={"/courses"} className="btn-green-lg">
               {about_mainPage.checkCourses}
-            </Link>
+            </LocaleLink>
           </div>
           <div
             id="images"

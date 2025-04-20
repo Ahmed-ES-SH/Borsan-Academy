@@ -14,7 +14,7 @@ import CourseCard from "./CourseCard";
 import { UseVariables } from "@/app/context/VariablesContext";
 import SuccessAlart from "../../_popups/SuccessAlart";
 import ErrorAlart from "../../_popups/ErrorAlart";
-import { Cartcontext } from "@/app/context/CartContent";
+import { Cartcontext } from "@/app/context/CartContext";
 
 export default function SuggestedCoursesSlider() {
   const {

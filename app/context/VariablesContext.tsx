@@ -8,7 +8,7 @@ import {
   useState,
 } from "react";
 import { VariablesContextType } from "../types/_website/ContextTypes";
-import { useParams } from "next/navigation";
+import { useParams, usePathname, useSearchParams } from "next/navigation";
 
 const Variables = createContext<VariablesContextType | undefined>(undefined);
 
@@ -20,6 +20,8 @@ export default function VariablesProvider({
   children,
 }: VariablesProviderProps): JSX.Element {
   const params = useParams();
+  const pathName = usePathname();
+  const SearchParams = useSearchParams();
   const locale = (params.local as string) || "en";
   const [language, setLanguage] = useState("en");
   const [showSidebar, setShowSidebar] = useState(true);
@@ -29,6 +31,7 @@ export default function VariablesProvider({
   const [showMessagesDrop, setShowMessagesDrop] = useState(false);
   const [showNotificationDrop, setShowNotificationDrop] = useState(false);
   const [showSideCart, setShowSideCart] = useState(false);
+  const [showDropWishList, setShowDropWishList] = useState(false);
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
@@ -41,6 +44,10 @@ export default function VariablesProvider({
 
   const toggleCart = () => {
     setShowSideCart((prev) => !prev);
+  };
+
+  const toggleDropWishList = () => {
+    setShowDropWishList((prev) => !prev);
   };
 
   return (
@@ -65,6 +72,11 @@ export default function VariablesProvider({
         width,
         toggleCart,
         locale,
+        pathName,
+        SearchParams,
+        showDropWishList,
+        setShowDropWishList,
+        toggleDropWishList,
       }}
     >
       {children}

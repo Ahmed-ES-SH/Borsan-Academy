@@ -7,7 +7,7 @@ import Stars from "./Stars";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import "../../../Css/Card.css";
 import { formatTitle, getTranslations } from "@/app/_helpers/helpers";
-import { Cartcontext } from "@/app/context/CartContent";
+import { Cartcontext } from "@/app/context/CartContext";
 import { UseVariables } from "@/app/context/VariablesContext";
 import LocaleLink from "../../localeLink";
 import { directionMap } from "@/app/constants/_website/data";
@@ -29,13 +29,17 @@ interface props {
 }
 
 export default function CourseCard({ course }: props) {
-  const { addToCart, cartitems } = Cartcontext();
+  const { addToCart, cartitems, addToWishlist, wishListItems } = Cartcontext();
   const { locale } = UseVariables();
   const translations = getTranslations(locale);
 
   const isSelected = useMemo(() => {
     return cartitems.some((item) => item.id === course.id);
   }, [cartitems, course.id]);
+
+  const isSelectedFotWishlist = useMemo(() => {
+    return wishListItems.some((item) => item.id === course.id);
+  }, [wishListItems, course.id]);
 
   const powerPoints = [
     translations.courseCard.powerPoint1,
@@ -137,9 +141,14 @@ export default function CourseCard({ course }: props) {
                       <FaShoppingCart className="size-6" />
                     </button>
                   )}
-                  <button className="wishlist-btn">
-                    <FaHeart className="size-6" />
-                  </button>
+                  {!isSelectedFotWishlist && (
+                    <button
+                      onClick={() => addToWishlist(course)}
+                      className="wishlist-btn"
+                    >
+                      <FaHeart className="size-6" />
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

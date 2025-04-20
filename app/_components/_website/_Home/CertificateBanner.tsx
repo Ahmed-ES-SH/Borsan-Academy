@@ -13,7 +13,7 @@ export default function CertificateBanner() {
     <>
       <div
         dir={directionMap[locale]}
-        className="w-full mt-20 min-h-[50vh]  relative bg-purble"
+        className="w-full 2xl:mt-20 xl:mt-36 max-md:mt-20 min-h-[55vh] max-lg:h-fit max-xl:h-[80vh]  relative bg-purble"
       >
         <div className="w-[80%] max-md:w-full max-md:p-3 h-full mx-auto ">
           <div className="content max-lg:h-[50vh] max-lg:flex max-lg:items-center justify-center z-[30] relative ">
@@ -35,14 +35,14 @@ export default function CertificateBanner() {
         </div>
         <Img
           src="/assets/cta.webp"
-          className={`w-[700px] max-md:w-[400px]  max-lg:w-[500px] mask-bottom absolute max-md:relative bottom-0 z-[5]  object-contain ${
+          className={`w-[700px] max-sm:w-[400px]  max-md:w-[450px] max-md:left-1/2 max-md:-translate-x-1/2 mask-bottom absolute max-md:relative bottom-0 z-[5]  object-contain ${
             locale == "ar" ? "left-0" : "right-0"
           }`}
         />
         <div
           className={`${
             locale == "ar" ? "left-0 rotate-180" : "right-0"
-          } w-[45%] h-full rounded-l-full max-md:w-[1200px]  mask-bottom bg-black/20 absolute top-0`}
+          } w-[45%] h-full rounded-l-full max-md:w-[1200px]  mask-bottom bg-black/20 max-lg:hidden absolute top-0`}
         ></div>
         <div
           className={`flex items-center justify-between flex-col h-full  absolute ${

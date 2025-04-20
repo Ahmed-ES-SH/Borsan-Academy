@@ -9,16 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^6.15.0",
+    "@stripe/stripe-js": "^7.1.0",
     "@tailwindcss/forms": "^0.3.4",
     "axios": "^1.8.2",
     "cookie-universal": "^2.2.2",
     "framer-motion": "^12.4.10",
-    "next": "15.2.1",
+    "next": "^15.2.3",
     "pusher-js": "^8.4.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "sharp": "^0.33.5",
+    "stripe": "^18.0.0",
     "swiper": "^11.2.5"
   },
   "devDependencies": {

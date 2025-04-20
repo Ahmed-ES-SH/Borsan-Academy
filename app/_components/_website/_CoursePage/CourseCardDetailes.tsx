@@ -13,7 +13,7 @@ import { FaRegFileAlt } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { UseVariables } from "@/app/context/VariablesContext";
 import { getTranslations } from "@/app/_helpers/helpers";
-import { Cartcontext } from "@/app/context/CartContent";
+import { Cartcontext } from "@/app/context/CartContext";
 import {
   courses,
   ErrorMessage,

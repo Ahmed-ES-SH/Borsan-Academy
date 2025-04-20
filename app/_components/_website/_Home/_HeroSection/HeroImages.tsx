@@ -72,6 +72,7 @@ export default function HeroImages() {
               src="/assets/man.png"
               alt="hero-image"
               className="w-full max-xs:w-[85%] xl:w-[600px]  z-20 object-cover"
+              loading="eager"
             />
           </motion.div>
           {imageData.map((item, index) => (
@@ -91,6 +92,14 @@ export default function HeroImages() {
           ))}
         </div>
       </div>
+      <motion.div
+        variants={manVariants}
+        initial="initial"
+        animate="visible"
+        className="xl:hidden absolute -bottom-[15%] md:-right-1/3 max-md:-right-1/2 max-sm:-right-[80%]   w-fit h-full z-[1]"
+      >
+        <Img src="/assets/man.png" className="w-[550px] h-full" />
+      </motion.div>
     </>
   );
 }

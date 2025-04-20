@@ -5,13 +5,36 @@ import Img from "@/app/_components/Img";
 import { getTranslations } from "@/app/_helpers/helpers";
 import LocaleLink from "@/app/_components/localeLink";
 import { UseVariables } from "@/app/context/VariablesContext";
+import { useSignIn } from "@clerk/nextjs";
+import { OAuthStrategy } from "@clerk/types";
 
 export default function LoginPageComponent() {
   const { locale } = UseVariables();
+  const { signIn } = useSignIn();
   const { login } = getTranslations(locale);
 
   const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+  };
+
+  if (!signIn) return null;
+
+  const signInWith = (strategy: OAuthStrategy) => {
+    return signIn
+      .authenticateWithRedirect({
+        strategy,
+        redirectUrl: `/${locale}`,
+        redirectUrlComplete: "/",
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err: any) => {
+        // See https://clerk.com/docs/custom-flows/error-handling
+        // for more info on error handling
+        console.log(err.errors);
+        console.error(err, null, 2);
+      });
   };
 
   return (
@@ -67,7 +90,10 @@ export default function LoginPageComponent() {
             <span className="block w-full h-[2px] bg-gray-200 rounded-lg"></span>
           </div>
           <div className="my-8 w-1/2 max-lg:w-3/4 max-md:w-[95%] mx-auto flex flex-col items-center justify-center gap-4">
-            <div className="flex w-full items-center justify-center gap-4 rounded-full p-3 border cursor-pointer bg-gray-50 hover:bg-secondery-green hover:text-white hover:border-secondery-green duration-300">
+            <div
+              onClick={() => signInWith("oauth_google")}
+              className="flex w-full items-center justify-center gap-4 rounded-full p-3 border cursor-pointer bg-gray-50 hover:bg-secondery-green hover:text-white hover:border-secondery-green duration-300"
+            >
               <Img src="/assets/google.png" className="w-8 object-contain" />
               <p>{login.google}</p>
             </div>

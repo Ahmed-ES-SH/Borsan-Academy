@@ -8,22 +8,73 @@ import { motion } from "framer-motion";
 import { BsCartX } from "react-icons/bs";
 import { GiTireIronCross } from "react-icons/gi";
 import { getTranslations } from "@/app/_helpers/helpers";
-import { Cartcontext } from "@/app/context/CartContent";
+import { Cartcontext } from "@/app/context/CartContext";
 import SuggestedCoursesSlider from "@/app/_components/_website/_Courses/SuggestedCoursesSlider";
 import Img from "@/app/_components/Img";
 import HeroBanner from "@/app/_components/_website/HeroBanner";
 import LocaleLink from "@/app/_components/localeLink";
 import { directionMap } from "@/app/constants/_website/data";
 import { UseVariables } from "@/app/context/VariablesContext";
+import { loadStripe } from "@stripe/stripe-js";
 
 export default function CartPage() {
   const { cartitems, removefromcard } = Cartcontext();
-  const { locale } = UseVariables();
+  const { locale, pathName } = UseVariables();
   const translations = getTranslations(locale);
+  const isNotEmpty = cartitems.length > 0;
+  const subtotal = cartitems.reduce(
+    (sum: number, item: any) => sum + item.price * item.quantity,
+    0
+  );
+
+  console.log(pathName);
 
   const sideCart = translations.sideCart;
   const cartItem = translations.cartItem;
   const [promoCode, setPromoCode] = useState("A234ZFDD");
+
+  const formatFirstTwoCharFromEveryCourse = () => {
+    if (cartitems && cartitems.length > 0) {
+      const courseShortTitles = cartitems.map((course) => {
+        return course.title.slice(0, 2).toUpperCase(); // أخذ أول حرفين من اسم الكورس
+      });
+      return courseShortTitles.join(" "); // دمج الأحرف مع فاصل بينهما
+    }
+    return ""; // إرجاع نص فارغ إذا كانت cartitems غير موجودة
+  };
+
+  const CoursesText = formatFirstTwoCharFromEveryCourse();
+
+  const productDetails = {
+    productName: CoursesText,
+    amount: subtotal, // المبلغ بالدولار
+    currency: "usd",
+    quantity: cartitems && cartitems.length,
+    locale: locale,
+  };
+
+  const handleCheckout = async () => {
+    const res = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(productDetails),
+    });
+    const data = await res.json();
+
+    if (data.sessionId) {
+      const stripe = await loadStripe(
+        process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+      );
+      await stripe?.redirectToCheckout({ sessionId: data.sessionId });
+    }
+  };
+
+  const mainTitle = {
+    ar: "سلة المشتريات",
+    en: "Shopping Cart",
+  };
 
   const links = [
     {
@@ -38,18 +89,6 @@ export default function CartPage() {
     },
   ];
 
-  const mainTitle = {
-    ar: "سلة المشتريات",
-    en: "Shopping Cart",
-  };
-
-  const subtotal = cartitems.reduce(
-    (sum: number, item: any) => sum + item.price * item.quantity,
-    0
-  );
-
-  const isNotEmpty = cartitems.length > 0;
-
   return (
     <>
       <HeroBanner
@@ -62,20 +101,20 @@ export default function CartPage() {
       {/* Itmes & Checkout Box */}
       <div
         dir={directionMap[locale]}
-        className="flex  justify-between min-h-[80vh] items-start  max-lg:flex-col mt-6 gap-3 p-2"
+        className="flex  justify-between min-h-[80vh] items-start  max-lg:flex-col-reverse mt-6 gap-3 p-2"
       >
         <div
           className={` ${
             !isNotEmpty && "items-center justify-center"
-          }  h-fit flex flex-col  gap-5  flex-1/2 max-lg:w-full min-h-[70vh]  border bg-gray-50 rounded-md border-gray-200 p-2 `}
+          }  h-fit flex flex-col max-lg:items-center max-lg:justify-center max-lg:flex-row flex-wrap  gap-5  flex-1/2 max-lg:w-full min-h-[70vh]  border bg-gray-50 rounded-md border-gray-200 p-2 `}
         >
           {cartitems && isNotEmpty ? (
             cartitems.map((item, index) => (
               <div
-                className="w-full h-fit items-center justify-center relative"
+                className="lg:w-full max-md:w-full max-lg:h-[450px] lg:h-fit max-md:h-fit items-center justify-center relative max-lg:w-[48%] last:self-end"
                 key={index}
               >
-                <div className="w-full  bg-white rounded-md shadow-sm p-4 max-md:p-2">
+                <div className="w-full h-full  bg-white rounded-md shadow-sm p-4 max-md:p-2">
                   <button
                     onClick={() => removefromcard(item)}
                     className=" absolute top-0 right-0 z-[99] bg-red-300 text-white p-2 rounded-b-md border  border-gray-200 shadow-sm hover:bg-red-400 duration-300"
@@ -85,7 +124,7 @@ export default function CartPage() {
                   <div className="max-lg:flex-col flex  items-start gap-10">
                     <Img
                       src={item.image}
-                      className="w-40 max-lg:w-full shadow-md rounded-md flex-1 object-contain"
+                      className="w-40 max-lg:w-1/2 max-lg:mx-auto max-md:w-full shadow-md rounded-md flex-1 object-contain"
                     />
                     <div
                       id="content"
@@ -182,7 +221,10 @@ export default function CartPage() {
           </div>
 
           {/* زر الدفع */}
-          <button className="w-[90%] pb-4 mx-auto hover:bg-white hover:text-black duration-300 hover:border-primary border border-transparent py-4 text-center bg-primary text-white flex items-center justify-center rounded-md shadow-md mt-5">
+          <button
+            onClick={handleCheckout}
+            className="w-[90%] pb-4 mx-auto hover:bg-white hover:text-black duration-300 hover:border-primary border border-transparent py-4 text-center bg-primary text-white flex items-center justify-center rounded-md shadow-md mt-5"
+          >
             {translations.checkout.button}
           </button>
 

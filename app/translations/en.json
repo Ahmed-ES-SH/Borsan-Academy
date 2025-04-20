@@ -103,14 +103,14 @@
   "about": {
     "title": "About Us",
     "mainTitle": "Creating a Lifelong Learning Best Community",
-    "description": "It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks...",
+    "description": "We are committed to creating an innovative and open learning environment where students can continuously learn and grow. We provide advanced learning tools that help enhance skills and knowledge throughout life.",
     "flexibleClasses": {
       "title": "Flexible Classes",
       "description": "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
     },
     "liveClasses": {
       "title": "Live Class From anywhere",
-      "description": "The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+      "description": "We give you the opportunity to participate in live online classes, providing an interactive and real-time learning experience ."
     },
     "discoverMore": "Discover More"
   },
@@ -323,7 +323,27 @@
     "description": "We're proud to collaborate with world-class companies and institutions. Our partners help us deliver exceptional quality and value to our community."
   },
 
+  "wishlist": {
+    "title": "Your Wishlist",
+    "emptyTitle": "Your wishlist is empty",
+    "emptyDescription": "Browse courses to add to your wishlist.",
+    "browseButton": "Browse Courses"
+  },
+
+  "successPage": {
+    "title": "Success!",
+    "description": "The operation was completed successfully. You can now continue using the application.",
+    "backToHome": "Back to Home"
+  },
+
+  "errorPage": {
+    "title": "Payment Failed",
+    "description": "Something went wrong while processing your payment. Please try again or contact support.",
+    "backToHome": "Back to Home"
+  },
+
   "operationFailure": "Operation failure",
   "closeWord": "Close",
-  "success": "Success"
+  "success": "Success",
+  "forbidden": "We are still in the development stage"
 }

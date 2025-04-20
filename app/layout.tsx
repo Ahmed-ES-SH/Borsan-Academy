@@ -1,21 +1,17 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import ClientLayout from "./_components/_website/ClientLayout";
-import "./globals.css";
 import Navbar from "./_components/_website/Navbar";
 import Footer from "./_components/_website/Footer";
 import SideCart from "./_components/_website/SideCart";
-import CartProvider from "./context/CartContent";
+import CartProvider from "./context/CartContext";
 import { getSharedMetadata, getTranslations } from "./_helpers/helpers";
 import { directionMap } from "./constants/_website/data";
+import { ClerkProvider } from "@clerk/nextjs";
+import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const geistRoboto = Roboto({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["200", "400", "500", "700", "900"],
 });
 
 export async function generateMetadata({ params }) {
@@ -40,19 +36,19 @@ interface Props {
 export default function RootLayout({ params, children }: Props) {
   const locale = params.locale || "en"; // اللغة الافتراضية هي الإنجليزية
   return (
-    <html dir={directionMap[locale]} lang={locale}>
-      <body
-        className={` ${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ClientLayout>
-          <CartProvider>
-            <Navbar />
-            <div className="w-full mt-16">{children}</div>
-            <Footer />
-            <SideCart />
-          </CartProvider>
-        </ClientLayout>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html dir={directionMap[locale]} lang={locale}>
+        <body className={` ${geistRoboto.className}  antialiased`}>
+          <ClientLayout>
+            <CartProvider>
+              <Navbar />
+              <div className="w-full mt-16">{children}</div>
+              <Footer />
+              <SideCart />
+            </CartProvider>
+          </ClientLayout>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

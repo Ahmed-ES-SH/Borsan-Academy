@@ -16,7 +16,7 @@ import { UseVariables } from "@/app/context/VariablesContext";
 import { getTranslations } from "@/app/_helpers/helpers";
 import SuccessAlart from "@/app/_components/_popups/SuccessAlart";
 import ErrorAlart from "@/app/_components/_popups/ErrorAlart";
-import { Cartcontext } from "@/app/context/CartContent";
+import { Cartcontext } from "@/app/context/CartContext";
 
 export default function CoursesSlider() {
   const {
@@ -88,9 +88,9 @@ export default function CoursesSlider() {
               breakpoints={{
                 320: { spaceBetween: 20, slidesPerView: 1 },
                 640: { spaceBetween: 20, slidesPerView: 2 },
-                768: { spaceBetween: 30, slidesPerView: 2 },
-                900: { spaceBetween: 20, slidesPerView: 3 },
-                1200: { spaceBetween: 20, slidesPerView: 4 },
+                900: { spaceBetween: 20, slidesPerView: 2 },
+                1200: { spaceBetween: 20, slidesPerView: 3 },
+                1400: { spaceBetween: 20, slidesPerView: 4 },
                 1600: { spaceBetween: 20, slidesPerView: 5 },
               }}
               onSwiper={(swiper) => (swiperRef.current = swiper)}

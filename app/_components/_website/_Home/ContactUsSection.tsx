@@ -30,7 +30,7 @@ export default function ContactUsSection() {
   };
 
   return (
-    <div dir={directionMap[locale]}>
+    <div className="" dir={directionMap[locale]}>
       <div className="text-center my-12">
         <h2 className="text-5xl font-bold text-gray-900">
           {texts.get_in_touch}
@@ -38,7 +38,7 @@ export default function ContactUsSection() {
         <p className="text-gray-600 text-lg mt-3">{texts.have_questions}</p>
         <div className="w-24 h-1 bg-secondery-green mx-auto mt-4 rounded-full"></div>
       </div>
-      <div className="flex items-stretch gap-3 p-4 max-md:p-2 w-[90%] mx-auto max-lg:w-full max-lg:flex-col max-lg:items-start h-[60vh] max-lg:h-fit">
+      <div className="flex items-stretch gap-3 p-4 max-md:p-2 w-[90%] mx-auto max-xl:w-full max-lg:flex-col max-lg:items-start h-[65vh] max-xl:h-fit">
         <div className="info flex flex-col items-start bg-[#fff] p-4 rounded-lg border border-gray-300 shadow-md h-full flex-1">
           {locale == "ar" ? (
             <h1 className="my-4 text-2xl pb-3 border-b border-primary">
@@ -52,17 +52,21 @@ export default function ContactUsSection() {
           )}
           <p className="text-[14px] text-light_text">{texts.info_paragraph}</p>
 
-          <div className="info-information flex flex-col gap-4 mt-8">
+          <div
+            className={`info-information flex flex-col gap-4 mt-8 ${
+              locale == "ar" ? "ml-auto" : "mr-auto"
+            }`}
+          >
             <div className="bg-white rounded-md ">
               <div className="flex items-center gap-6 w-full">
-                <div className="w-16 h-16 rounded-md bg-secondery-green flex items-center justify-center">
-                  <FaPhone className="size-6 text-white" />
+                <div className="w-16 h-16 max-md:w-12 max-md:h-12 rounded-md bg-secondery-green flex items-center justify-center">
+                  <FaPhone className="size-6 max-md:size-5 text-white" />
                 </div>
                 <div className="flex flex-col items-start flex-1/2">
                   <h1 className="text-sec-text font-light">
                     {texts.call_anytime}
                   </h1>
-                  <h2 className="text-2xl font-bold text-indigo-800">
+                  <h2 className="text-2xl max-md:text-[16px] font-bold text-indigo-800">
                     518 564 3200
                   </h2>
                 </div>
@@ -70,14 +74,14 @@ export default function ContactUsSection() {
             </div>
             <div className="bg-white rounded-md ">
               <div className="flex items-center gap-6 w-full">
-                <div className="w-16 h-16 rounded-md bg-secondery-green flex items-center justify-center">
-                  <TfiEmail className="size-6 text-white" />
+                <div className="w-16 h-16 max-md:w-12 max-md:h-12 rounded-md bg-secondery-green flex items-center justify-center">
+                  <TfiEmail className="size-6 max-md:size-5 text-white" />
                 </div>
                 <div className="flex flex-col items-start">
                   <h1 className="text-sec-text font-light">
                     {texts.email_address}
                   </h1>
-                  <h2 className="text-xl font-bold text-indigo-800">
+                  <h2 className="text-xl max-md:text-[14px] font-bold text-indigo-800">
                     BorsanAcademy@info.com
                   </h2>
                 </div>

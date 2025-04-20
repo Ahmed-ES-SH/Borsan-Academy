@@ -1,6 +1,11 @@
 import { BiHome, BiBook, BiPhone, BiNews } from "react-icons/bi";
 import { BsTwitterX } from "react-icons/bs";
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInfoCircle,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
 
 export const linksNav = [
   {
@@ -21,6 +26,14 @@ export const linksNav = [
     title_ar: "اتصل بنا",
     to: "/contactus",
     icon: <BiPhone className="size-6 max-md:size-4 text-secondery-green" />,
+  },
+  {
+    title_en: "About",
+    title_ar: "عن المنصة",
+    to: "/about",
+    icon: (
+      <FaInfoCircle className="size-6 max-md:size-4 text-secondery-green" />
+    ),
   },
   {
     title_en: "Blog",

@@ -2,7 +2,7 @@
 import { realStaticArticles } from "@/app/constants/_website/data";
 import React, { useState } from "react";
 import ArticleCard from "../_dashboard/_articles/ArticleCard";
-import Pagination from "../PaginationComponent";
+// import Pagination from "../PaginationComponent";
 import { motion } from "framer-motion";
 import { HiDocumentSearch } from "react-icons/hi";
 import SearchArticles from "./SearchArticles";
@@ -41,7 +41,7 @@ export default function ArticlesComponent() {
         <HiDocumentSearch className="size-8" />
       </div>
       <SearchArticles isOpen={openSearch} onClose={handleCloseSearch} />
-      <Pagination currentPage={1} totalPages={4} onPageChange={() => {}} />
+      {/* <Pagination currentPage={1} totalPages={4} onPageChange={() => {}} /> */}
     </>
   );
 }

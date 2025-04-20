@@ -10,7 +10,7 @@ import CourseCard from "../../_Courses/CourseCard";
 import CoursesButton from "./CoursesButton";
 import { UseVariables } from "@/app/context/VariablesContext";
 import { getTranslations } from "@/app/_helpers/helpers";
-import { Cartcontext } from "@/app/context/CartContent";
+import { Cartcontext } from "@/app/context/CartContext";
 import SuccessAlart from "@/app/_components/_popups/SuccessAlart";
 import ErrorAlart from "@/app/_components/_popups/ErrorAlart";
 

@@ -7,6 +7,7 @@ interface props {
   alt?: string;
   width?: number;
   height?: number;
+  loading?: "lazy" | "eager" | undefined;
 }
 
 export default function Img({
@@ -15,6 +16,7 @@ export default function Img({
   width = 1024,
   height = 1280,
   alt = "image",
+  loading = "lazy",
 }: props) {
   return (
     <>
@@ -24,7 +26,7 @@ export default function Img({
         className={className}
         width={width}
         height={height}
-        priority
+        loading={loading}
       />
     </>
   );

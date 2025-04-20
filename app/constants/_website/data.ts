@@ -299,7 +299,7 @@ export const realStaticArticles = [
     comments_count: 45,
     interactions: [{ totalReactions: 300 }],
     views: 1500, // إضافة المشاهدات
-    image: "/articles/front-end-development.jpg", // إضافة صورة المقال
+    image: "/website/blog/blog-1.webp", // إضافة صورة المقال
     status: "published", // إضافة حالة المقال
     category: "Web Development", // إضافة التصنيف
   },
@@ -319,172 +319,172 @@ export const realStaticArticles = [
     comments_count: 32,
     interactions: [{ totalReactions: 250 }],
     views: 1300, // إضافة المشاهدات
-    image: "/articles/user-experience.jpg", // إضافة صورة المقال
-    status: "published", // إضافة حالة المقال
-    category: "User Experience", // إضافة التصنيف
-  },
-  {
-    id: 1,
-    title_en: "The Importance of Front-End Development in 2025",
-    content_en:
-      "Front-end development plays a crucial role in user experience and interaction on websites and applications. With the increasing demand for interactive and responsive interfaces, it's important for developers to stay updated with the latest technologies like React, Vue, and Angular.",
-    title_ar: "أهمية تطوير الواجهات الأمامية في 2025",
-    content_ar:
-      "تطوير الواجهات الأمامية يلعب دورًا حيويًا في تجربة المستخدم والتفاعل على المواقع الإلكترونية والتطبيقات. مع الطلب المتزايد على الواجهات التفاعلية والمتجاوبة، من المهم للمطورين البقاء على اطلاع بأحدث التقنيات مثل React و Vue و Angular.",
-    created_at: "2025-03-01T10:00:00Z",
-    author: {
-      name: "Mohamed Ali",
-      image: "/authors/mohamed-ali.jpg",
-    },
-    comments_count: 45,
-    interactions: [{ totalReactions: 300 }],
-    views: 1500, // إضافة المشاهدات
-    image: "/articles/front-end-development.jpg", // إضافة صورة المقال
-    status: "published", // إضافة حالة المقال
-    category: "Web Development", // إضافة التصنيف
-  },
-  {
-    id: 2,
-    title_en: "Best Practices for Improving User Experience",
-    content_en:
-      "User experience (UX) is vital for any digital product. It affects how users perceive and interact with websites or applications. By following best practices in UX design, such as user-centered design, testing, and continuous improvements, developers can create more effective and engaging user interfaces.",
-    title_ar: "أفضل الممارسات لتحسين تجربة المستخدم",
-    content_ar:
-      "تجربة المستخدم (UX) أمر بالغ الأهمية لأي منتج رقمي. فهي تؤثر على كيفية إدراك المستخدمين وتفاعلهم مع المواقع أو التطبيقات. من خلال اتباع أفضل الممارسات في تصميم تجربة المستخدم، مثل التصميم الموجه نحو المستخدم، والاختبار، والتحسينات المستمرة، يمكن للمطورين إنشاء واجهات أكثر فاعلية وجذبًا للمستخدمين.",
-    created_at: "202",
-    author: {
-      name: "Mostafa Mohamed Ali",
-      image: "/authors/mostafa-ali.jpg",
-    },
-    comments_count: 32,
-    interactions: [{ totalReactions: 250 }],
-    views: 1300, // إضافة المشاهدات
-    image: "/articles/user-experience.jpg", // إضافة صورة المقال
-    status: "published", // إضافة حالة المقال
-    category: "User Experience", // إضافة التصنيف
-  },
-  {
-    id: 1,
-    title_en: "The Importance of Front-End Development in 2025",
-    content_en:
-      "Front-end development plays a crucial role in user experience and interaction on websites and applications. With the increasing demand for interactive and responsive interfaces, it's important for developers to stay updated with the latest technologies like React, Vue, and Angular.",
-    title_ar: "أهمية تطوير الواجهات الأمامية في 2025",
-    content_ar:
-      "تطوير الواجهات الأمامية يلعب دورًا حيويًا في تجربة المستخدم والتفاعل على المواقع الإلكترونية والتطبيقات. مع الطلب المتزايد على الواجهات التفاعلية والمتجاوبة، من المهم للمطورين البقاء على اطلاع بأحدث التقنيات مثل React و Vue و Angular.",
-    created_at: "2025-03-01T10:00:00Z",
-    author: {
-      name: "Mohamed Ali",
-      image: "/authors/mohamed-ali.jpg",
-    },
-    comments_count: 45,
-    interactions: [{ totalReactions: 300 }],
-    views: 1500, // إضافة المشاهدات
-    image: "/articles/front-end-development.jpg", // إضافة صورة المقال
-    status: "published", // إضافة حالة المقال
-    category: "Web Development", // إضافة التصنيف
-  },
-  {
-    id: 2,
-    title_en: "Best Practices for Improving User Experience",
-    content_en:
-      "User experience (UX) is vital for any digital product. It affects how users perceive and interact with websites or applications. By following best practices in UX design, such as user-centered design, testing, and continuous improvements, developers can create more effective and engaging user interfaces.",
-    title_ar: "أفضل الممارسات لتحسين تجربة المستخدم",
-    content_ar:
-      "تجربة المستخدم (UX) أمر بالغ الأهمية لأي منتج رقمي. فهي تؤثر على كيفية إدراك المستخدمين وتفاعلهم مع المواقع أو التطبيقات. من خلال اتباع أفضل الممارسات في تصميم تجربة المستخدم، مثل التصميم الموجه نحو المستخدم، والاختبار، والتحسينات المستمرة، يمكن للمطورين إنشاء واجهات أكثر فاعلية وجذبًا للمستخدمين.",
-    created_at: "202",
-    author: {
-      name: "Mostafa Mohamed Ali",
-      image: "/authors/mostafa-ali.jpg",
-    },
-    comments_count: 32,
-    interactions: [{ totalReactions: 250 }],
-    views: 1300, // إضافة المشاهدات
-    image: "/articles/user-experience.jpg", // إضافة صورة المقال
-    status: "published", // إضافة حالة المقال
-    category: "User Experience", // إضافة التصنيف
-  },
-  {
-    id: 1,
-    title_en: "The Importance of Front-End Development in 2025",
-    content_en:
-      "Front-end development plays a crucial role in user experience and interaction on websites and applications. With the increasing demand for interactive and responsive interfaces, it's important for developers to stay updated with the latest technologies like React, Vue, and Angular.",
-    title_ar: "أهمية تطوير الواجهات الأمامية في 2025",
-    content_ar:
-      "تطوير الواجهات الأمامية يلعب دورًا حيويًا في تجربة المستخدم والتفاعل على المواقع الإلكترونية والتطبيقات. مع الطلب المتزايد على الواجهات التفاعلية والمتجاوبة، من المهم للمطورين البقاء على اطلاع بأحدث التقنيات مثل React و Vue و Angular.",
-    created_at: "2025-03-01T10:00:00Z",
-    author: {
-      name: "Mohamed Ali",
-      image: "/authors/mohamed-ali.jpg",
-    },
-    comments_count: 45,
-    interactions: [{ totalReactions: 300 }],
-    views: 1500, // إضافة المشاهدات
-    image: "/articles/front-end-development.jpg", // إضافة صورة المقال
-    status: "published", // إضافة حالة المقال
-    category: "Web Development", // إضافة التصنيف
-  },
-  {
-    id: 2,
-    title_en: "Best Practices for Improving User Experience",
-    content_en:
-      "User experience (UX) is vital for any digital product. It affects how users perceive and interact with websites or applications. By following best practices in UX design, such as user-centered design, testing, and continuous improvements, developers can create more effective and engaging user interfaces.",
-    title_ar: "أفضل الممارسات لتحسين تجربة المستخدم",
-    content_ar:
-      "تجربة المستخدم (UX) أمر بالغ الأهمية لأي منتج رقمي. فهي تؤثر على كيفية إدراك المستخدمين وتفاعلهم مع المواقع أو التطبيقات. من خلال اتباع أفضل الممارسات في تصميم تجربة المستخدم، مثل التصميم الموجه نحو المستخدم، والاختبار، والتحسينات المستمرة، يمكن للمطورين إنشاء واجهات أكثر فاعلية وجذبًا للمستخدمين.",
-    created_at: "202",
-    author: {
-      name: "Mostafa Mohamed Ali",
-      image: "/authors/mostafa-ali.jpg",
-    },
-    comments_count: 32,
-    interactions: [{ totalReactions: 250 }],
-    views: 1300, // إضافة المشاهدات
-    image: "/articles/user-experience.jpg", // إضافة صورة المقال
-    status: "published", // إضافة حالة المقال
-    category: "User Experience", // إضافة التصنيف
-  },
-  {
-    id: 1,
-    title_en: "The Importance of Front-End Development in 2025",
-    content_en:
-      "Front-end development plays a crucial role in user experience and interaction on websites and applications. With the increasing demand for interactive and responsive interfaces, it's important for developers to stay updated with the latest technologies like React, Vue, and Angular.",
-    title_ar: "أهمية تطوير الواجهات الأمامية في 2025",
-    content_ar:
-      "تطوير الواجهات الأمامية يلعب دورًا حيويًا في تجربة المستخدم والتفاعل على المواقع الإلكترونية والتطبيقات. مع الطلب المتزايد على الواجهات التفاعلية والمتجاوبة، من المهم للمطورين البقاء على اطلاع بأحدث التقنيات مثل React و Vue و Angular.",
-    created_at: "2025-03-01T10:00:00Z",
-    author: {
-      name: "Mohamed Ali",
-      image: "/authors/mohamed-ali.jpg",
-    },
-    comments_count: 45,
-    interactions: [{ totalReactions: 300 }],
-    views: 1500, // إضافة المشاهدات
-    image: "/articles/front-end-development.jpg", // إضافة صورة المقال
-    status: "published", // إضافة حالة المقال
-    category: "Web Development", // إضافة التصنيف
-  },
-  {
-    id: 2,
-    title_en: "Best Practices for Improving User Experience",
-    content_en:
-      "User experience (UX) is vital for any digital product. It affects how users perceive and interact with websites or applications. By following best practices in UX design, such as user-centered design, testing, and continuous improvements, developers can create more effective and engaging user interfaces.",
-    title_ar: "أفضل الممارسات لتحسين تجربة المستخدم",
-    content_ar:
-      "تجربة المستخدم (UX) أمر بالغ الأهمية لأي منتج رقمي. فهي تؤثر على كيفية إدراك المستخدمين وتفاعلهم مع المواقع أو التطبيقات. من خلال اتباع أفضل الممارسات في تصميم تجربة المستخدم، مثل التصميم الموجه نحو المستخدم، والاختبار، والتحسينات المستمرة، يمكن للمطورين إنشاء واجهات أكثر فاعلية وجذبًا للمستخدمين.",
-    created_at: "202",
-    author: {
-      name: "Mostafa Mohamed Ali",
-      image: "/authors/mostafa-ali.jpg",
-    },
-    comments_count: 32,
-    interactions: [{ totalReactions: 250 }],
-    views: 1300, // إضافة المشاهدات
-    image: "/articles/user-experience.jpg", // إضافة صورة المقال
+    image: "/website/blog/blog-2.webp", // إضافة صورة المقال
     status: "published", // إضافة حالة المقال
     category: "User Experience", // إضافة التصنيف
   },
   {
     id: 3,
+    title_en: "The Importance of Front-End Development in 2025",
+    content_en:
+      "Front-end development plays a crucial role in user experience and interaction on websites and applications. With the increasing demand for interactive and responsive interfaces, it's important for developers to stay updated with the latest technologies like React, Vue, and Angular.",
+    title_ar: "أهمية تطوير الواجهات الأمامية في 2025",
+    content_ar:
+      "تطوير الواجهات الأمامية يلعب دورًا حيويًا في تجربة المستخدم والتفاعل على المواقع الإلكترونية والتطبيقات. مع الطلب المتزايد على الواجهات التفاعلية والمتجاوبة، من المهم للمطورين البقاء على اطلاع بأحدث التقنيات مثل React و Vue و Angular.",
+    created_at: "2025-03-01T10:00:00Z",
+    author: {
+      name: "Mohamed Ali",
+      image: "/authors/mohamed-ali.jpg",
+    },
+    comments_count: 45,
+    interactions: [{ totalReactions: 300 }],
+    views: 1500, // إضافة المشاهدات
+    image: "/website/blog/blog-3.webp", // إضافة صورة المقال
+    status: "published", // إضافة حالة المقال
+    category: "Web Development", // إضافة التصنيف
+  },
+  {
+    id: 4,
+    title_en: "Best Practices for Improving User Experience",
+    content_en:
+      "User experience (UX) is vital for any digital product. It affects how users perceive and interact with websites or applications. By following best practices in UX design, such as user-centered design, testing, and continuous improvements, developers can create more effective and engaging user interfaces.",
+    title_ar: "أفضل الممارسات لتحسين تجربة المستخدم",
+    content_ar:
+      "تجربة المستخدم (UX) أمر بالغ الأهمية لأي منتج رقمي. فهي تؤثر على كيفية إدراك المستخدمين وتفاعلهم مع المواقع أو التطبيقات. من خلال اتباع أفضل الممارسات في تصميم تجربة المستخدم، مثل التصميم الموجه نحو المستخدم، والاختبار، والتحسينات المستمرة، يمكن للمطورين إنشاء واجهات أكثر فاعلية وجذبًا للمستخدمين.",
+    created_at: "202",
+    author: {
+      name: "Mostafa Mohamed Ali",
+      image: "/authors/mostafa-ali.jpg",
+    },
+    comments_count: 32,
+    interactions: [{ totalReactions: 250 }],
+    views: 1300, // إضافة المشاهدات
+    image: "/website/blog/blog-4.webp", // إضافة صورة المقال
+    status: "published", // إضافة حالة المقال
+    category: "User Experience", // إضافة التصنيف
+  },
+  {
+    id: 5,
+    title_en: "The Importance of Front-End Development in 2025",
+    content_en:
+      "Front-end development plays a crucial role in user experience and interaction on websites and applications. With the increasing demand for interactive and responsive interfaces, it's important for developers to stay updated with the latest technologies like React, Vue, and Angular.",
+    title_ar: "أهمية تطوير الواجهات الأمامية في 2025",
+    content_ar:
+      "تطوير الواجهات الأمامية يلعب دورًا حيويًا في تجربة المستخدم والتفاعل على المواقع الإلكترونية والتطبيقات. مع الطلب المتزايد على الواجهات التفاعلية والمتجاوبة، من المهم للمطورين البقاء على اطلاع بأحدث التقنيات مثل React و Vue و Angular.",
+    created_at: "2025-03-01T10:00:00Z",
+    author: {
+      name: "Mohamed Ali",
+      image: "/authors/mohamed-ali.jpg",
+    },
+    comments_count: 45,
+    interactions: [{ totalReactions: 300 }],
+    views: 1500, // إضافة المشاهدات
+    image: "/website/blog/blog-5.webp", // إضافة صورة المقال
+    status: "published", // إضافة حالة المقال
+    category: "Web Development", // إضافة التصنيف
+  },
+  {
+    id: 6,
+    title_en: "Best Practices for Improving User Experience",
+    content_en:
+      "User experience (UX) is vital for any digital product. It affects how users perceive and interact with websites or applications. By following best practices in UX design, such as user-centered design, testing, and continuous improvements, developers can create more effective and engaging user interfaces.",
+    title_ar: "أفضل الممارسات لتحسين تجربة المستخدم",
+    content_ar:
+      "تجربة المستخدم (UX) أمر بالغ الأهمية لأي منتج رقمي. فهي تؤثر على كيفية إدراك المستخدمين وتفاعلهم مع المواقع أو التطبيقات. من خلال اتباع أفضل الممارسات في تصميم تجربة المستخدم، مثل التصميم الموجه نحو المستخدم، والاختبار، والتحسينات المستمرة، يمكن للمطورين إنشاء واجهات أكثر فاعلية وجذبًا للمستخدمين.",
+    created_at: "202",
+    author: {
+      name: "Mostafa Mohamed Ali",
+      image: "/authors/mostafa-ali.jpg",
+    },
+    comments_count: 32,
+    interactions: [{ totalReactions: 250 }],
+    views: 1300, // إضافة المشاهدات
+    image: "/website/blog/blog-6.webp", // إضافة صورة المقال
+    status: "published", // إضافة حالة المقال
+    category: "User Experience", // إضافة التصنيف
+  },
+  {
+    id: 7,
+    title_en: "The Importance of Front-End Development in 2025",
+    content_en:
+      "Front-end development plays a crucial role in user experience and interaction on websites and applications. With the increasing demand for interactive and responsive interfaces, it's important for developers to stay updated with the latest technologies like React, Vue, and Angular.",
+    title_ar: "أهمية تطوير الواجهات الأمامية في 2025",
+    content_ar:
+      "تطوير الواجهات الأمامية يلعب دورًا حيويًا في تجربة المستخدم والتفاعل على المواقع الإلكترونية والتطبيقات. مع الطلب المتزايد على الواجهات التفاعلية والمتجاوبة، من المهم للمطورين البقاء على اطلاع بأحدث التقنيات مثل React و Vue و Angular.",
+    created_at: "2025-03-01T10:00:00Z",
+    author: {
+      name: "Mohamed Ali",
+      image: "/authors/mohamed-ali.jpg",
+    },
+    comments_count: 45,
+    interactions: [{ totalReactions: 300 }],
+    views: 1500, // إضافة المشاهدات
+    image: "/website/blog/blog-7.webp", // إضافة صورة المقال
+    status: "published", // إضافة حالة المقال
+    category: "Web Development", // إضافة التصنيف
+  },
+  {
+    id: 8,
+    title_en: "Best Practices for Improving User Experience",
+    content_en:
+      "User experience (UX) is vital for any digital product. It affects how users perceive and interact with websites or applications. By following best practices in UX design, such as user-centered design, testing, and continuous improvements, developers can create more effective and engaging user interfaces.",
+    title_ar: "أفضل الممارسات لتحسين تجربة المستخدم",
+    content_ar:
+      "تجربة المستخدم (UX) أمر بالغ الأهمية لأي منتج رقمي. فهي تؤثر على كيفية إدراك المستخدمين وتفاعلهم مع المواقع أو التطبيقات. من خلال اتباع أفضل الممارسات في تصميم تجربة المستخدم، مثل التصميم الموجه نحو المستخدم، والاختبار، والتحسينات المستمرة، يمكن للمطورين إنشاء واجهات أكثر فاعلية وجذبًا للمستخدمين.",
+    created_at: "202",
+    author: {
+      name: "Mostafa Mohamed Ali",
+      image: "/authors/mostafa-ali.jpg",
+    },
+    comments_count: 32,
+    interactions: [{ totalReactions: 250 }],
+    views: 1300, // إضافة المشاهدات
+    image: "/website/blog/blog-8.webp", // إضافة صورة المقال
+    status: "published", // إضافة حالة المقال
+    category: "User Experience", // إضافة التصنيف
+  },
+  {
+    id: 9,
+    title_en: "The Importance of Front-End Development in 2025",
+    content_en:
+      "Front-end development plays a crucial role in user experience and interaction on websites and applications. With the increasing demand for interactive and responsive interfaces, it's important for developers to stay updated with the latest technologies like React, Vue, and Angular.",
+    title_ar: "أهمية تطوير الواجهات الأمامية في 2025",
+    content_ar:
+      "تطوير الواجهات الأمامية يلعب دورًا حيويًا في تجربة المستخدم والتفاعل على المواقع الإلكترونية والتطبيقات. مع الطلب المتزايد على الواجهات التفاعلية والمتجاوبة، من المهم للمطورين البقاء على اطلاع بأحدث التقنيات مثل React و Vue و Angular.",
+    created_at: "2025-03-01T10:00:00Z",
+    author: {
+      name: "Mohamed Ali",
+      image: "/authors/mohamed-ali.jpg",
+    },
+    comments_count: 45,
+    interactions: [{ totalReactions: 300 }],
+    views: 1500, // إضافة المشاهدات
+    image: "/website/blog/blog-9.jpg", // إضافة صورة المقال
+    status: "published", // إضافة حالة المقال
+    category: "Web Development", // إضافة التصنيف
+  },
+  {
+    id: 10,
+    title_en: "Best Practices for Improving User Experience",
+    content_en:
+      "User experience (UX) is vital for any digital product. It affects how users perceive and interact with websites or applications. By following best practices in UX design, such as user-centered design, testing, and continuous improvements, developers can create more effective and engaging user interfaces.",
+    title_ar: "أفضل الممارسات لتحسين تجربة المستخدم",
+    content_ar:
+      "تجربة المستخدم (UX) أمر بالغ الأهمية لأي منتج رقمي. فهي تؤثر على كيفية إدراك المستخدمين وتفاعلهم مع المواقع أو التطبيقات. من خلال اتباع أفضل الممارسات في تصميم تجربة المستخدم، مثل التصميم الموجه نحو المستخدم، والاختبار، والتحسينات المستمرة، يمكن للمطورين إنشاء واجهات أكثر فاعلية وجذبًا للمستخدمين.",
+    created_at: "202",
+    author: {
+      name: "Mostafa Mohamed Ali",
+      image: "/authors/mostafa-ali.jpg",
+    },
+    comments_count: 32,
+    interactions: [{ totalReactions: 250 }],
+    views: 1300, // إضافة المشاهدات
+    image: "/website/blog/blog-10.jpg", // إضافة صورة المقال
+    status: "published", // إضافة حالة المقال
+    category: "User Experience", // إضافة التصنيف
+  },
+  {
+    id: 11,
     title_en: "Why React.js is the Top Choice for Developers",
     content_en:
       "React.js has become one of the most popular front-end libraries due to its simplicity, efficiency, and component-based architecture. Developers can create reusable components, making it easier to scale applications. Its large community and rich ecosystem of libraries also contribute to its widespread adoption.",
@@ -499,12 +499,12 @@ export const realStaticArticles = [
     comments_count: 56,
     interactions: [{ totalReactions: 420 }],
     views: 2000, // إضافة المشاهدات
-    image: "/articles/reactjs-development.jpg", // إضافة صورة المقال
+    image: "/website/blog/blog-11.jpg", // إضافة صورة المقال
     status: "draft", // إضافة حالة المقال
     category: "JavaScript Frameworks", // إضافة التصنيف
   },
   {
-    id: 4,
+    id: 12,
     title_en: "Exploring the Beauty of Nature and its Impact on Mental Health",
     content_en:
       "Nature offers a multitude of benefits for mental health, from reducing stress to improving mood. Studies have shown that spending time in nature helps lower cortisol levels, boost creativity, and promote overall well-being.",
@@ -519,12 +519,12 @@ export const realStaticArticles = [
     comments_count: 22,
     interactions: [{ totalReactions: 180 }],
     views: 1100, // إضافة المشاهدات
-    image: "/articles/nature-and-mental-health.jpg", // إضافة صورة المقال
+    image: "/website/blog/blog-12.jpg", // إضافة صورة المقال
     status: "published", // إضافة حالة المقال
     category: "Health & Wellness", // إضافة التصنيف
   },
   {
-    id: 5,
+    id: 13,
     title_en: "A Deep Dive into Space Exploration and Its Future",
     content_en:
       "Space exploration has been one of humanity's most exciting and challenging endeavors. With advancements in technology and the growing interest in Mars exploration, the future of space travel holds great promise. Discover the latest developments in this exciting field.",
@@ -539,7 +539,7 @@ export const realStaticArticles = [
     comments_count: 43,
     interactions: [{ totalReactions: 300 }],
     views: 2500, // إضافة المشاهدات
-    image: "/articles/space-exploration.jpg", // إضافة صورة المقال
+    image: "/website/blog/blog-13.jpg", // إضافة صورة المقال
     status: "published", // إضافة حالة المقال
     category: "Space & Technology", // إضافة التصنيف
   },
@@ -549,65 +549,77 @@ export const articleCategories = [
   {
     title_ar: "التكنولوجيا",
     title_en: "Technology",
-    imageUrl: "/dashboard/imagebank.png",
+    imageUrl: "/website/ArticleCategories/Technology.png",
   },
-  { title_ar: "الصحة", title_en: "Health", imageUrl: "/dashboard/layers.png" },
+  {
+    title_ar: "الصحة",
+    title_en: "Health",
+    imageUrl: "/website/ArticleCategories/Health.png",
+  },
   {
     title_ar: "التعليم",
     title_en: "Education",
-    imageUrl: "/dashboard/layers.png",
+    imageUrl: "/website/ArticleCategories/Education.png",
   },
   {
     title_ar: "الأعمال",
     title_en: "Business",
-    imageUrl: "/dashboard/imagebank.png",
+    imageUrl: "/website/ArticleCategories/Business.png",
   },
   {
     title_ar: "الترفيه",
     title_en: "Entertainment",
-    imageUrl: "/dashboard/layers.png",
+    imageUrl: "/website/ArticleCategories/Entertainment.png",
   },
   {
     title_ar: "الرياضة",
     title_en: "Sports",
-    imageUrl: "/dashboard/imagebank.png",
+    imageUrl: "/website/ArticleCategories/Sports.png",
   },
   {
     title_ar: "الثقافة",
     title_en: "Culture",
-    imageUrl: "/dashboard/layers.png",
+    imageUrl: "/website/ArticleCategories/Culture.png",
   },
-  { title_ar: "السفر", title_en: "Travel", imageUrl: "/dashboard/layers.png" },
+  {
+    title_ar: "السفر",
+    title_en: "Travel",
+    imageUrl: "/website/ArticleCategories/Travel.png",
+  },
   {
     title_ar: "العلوم",
     title_en: "Science",
-    imageUrl: "/dashboard/imagebank.png",
+    imageUrl: "/website/ArticleCategories/Science.png",
   },
   {
     title_ar: "الاقتصاد",
     title_en: "Economy",
-    imageUrl: "/dashboard/layers.png",
+    imageUrl: "/website/ArticleCategories/Economy.png",
   },
   {
     title_ar: "السياسة",
     title_en: "Politics",
-    imageUrl: "/dashboard/imagebank.png",
+    imageUrl: "/website/ArticleCategories/Politics.png",
   },
   {
     title_ar: "البيئة",
     title_en: "Environment",
-    imageUrl: "/dashboard/layers.png",
+    imageUrl: "/website/ArticleCategories/Environment.png",
   },
-  { title_ar: "الفن", title_en: "Art", imageUrl: "/dashboard/imagebank.png" },
+  {
+    title_ar: "الفن",
+    title_en: "Art",
+    imageUrl: "/website/ArticleCategories/Art.png",
+  },
   {
     title_ar: "التاريخ",
     title_en: "History",
-    imageUrl: "/dashboard/layers.png",
+    imageUrl: "/website/ArticleCategories/History.png",
   },
   {
     title_ar: "الفلسفة",
     title_en: "Philosophy",
-    imageUrl: "/dashboard/imagebank.png",
+    imageUrl: "/website/ArticleCategories/Philosophy.png",
   },
 ];
 
@@ -972,7 +984,7 @@ export const courses = [
     rating: 4.5,
     courseLongbydays: 32,
     quantity: 0,
-    image: "/assets/course-5.jpg",
+    image: "/website/courses/front-end.jpg",
   },
   {
     id: 2,
@@ -983,7 +995,7 @@ export const courses = [
     rating: 4.7,
     courseLongbydays: 45,
     quantity: 0,
-    image: "/assets/course-1.jpg",
+    image: "/website/courses/JavaScript-logo.png",
   },
   {
     id: 3,
@@ -994,7 +1006,7 @@ export const courses = [
     rating: 4.6,
     courseLongbydays: 28,
     quantity: 0,
-    image: "/assets/course-2.jpg",
+    image: "/website/courses/python.jpg",
   },
   {
     id: 4,
@@ -1005,7 +1017,7 @@ export const courses = [
     rating: 4.8,
     courseLongbydays: 40,
     quantity: 0,
-    image: "/assets/course-3.jpg",
+    image: "/website/courses/figma-course.jpg",
   },
   {
     id: 5,
@@ -1016,7 +1028,7 @@ export const courses = [
     rating: 4.3,
     courseLongbydays: 35,
     quantity: 0,
-    image: "/assets/course-4.jpg",
+    image: "/website/courses/mysql-course.jpg",
   },
   {
     id: 6,
@@ -1027,7 +1039,7 @@ export const courses = [
     rating: 4.9,
     courseLongbydays: 50,
     quantity: 0,
-    image: "/assets/course-5.jpg",
+    image: "/website/courses/react-course.jpg",
   },
   {
     id: 7,
@@ -1038,7 +1050,7 @@ export const courses = [
     rating: 4.4,
     courseLongbydays: 38,
     quantity: 0,
-    image: "/assets/course-6.jpg",
+    image: "/website/courses/react-native-course.jpg",
   },
   {
     id: 8,
@@ -1049,7 +1061,7 @@ export const courses = [
     rating: 4.2,
     courseLongbydays: 20,
     quantity: 0,
-    image: "/assets/course-1.jpg",
+    image: "/website/courses/grapic-design.jpg",
   },
   {
     id: 9,
@@ -1060,7 +1072,7 @@ export const courses = [
     rating: 4.7,
     courseLongbydays: 60,
     quantity: 0,
-    image: "/assets/course-2.jpg",
+    image: "/website/courses/data-analyse.jpg",
   },
   {
     id: 10,
@@ -1071,7 +1083,7 @@ export const courses = [
     rating: 4.5,
     courseLongbydays: 25,
     quantity: 0,
-    image: "/assets/course-3.jpg",
+    image: "/website/courses/css+html-course.webp",
   },
   {
     id: 11,
@@ -1082,7 +1094,7 @@ export const courses = [
     rating: 4.6,
     courseLongbydays: 42,
     quantity: 0,
-    image: "/assets/course-4.jpg",
+    image: "/website/courses/ai-course.jpg",
   },
   {
     id: 12,
@@ -1093,7 +1105,7 @@ export const courses = [
     rating: 4.8,
     courseLongbydays: 48,
     quantity: 0,
-    image: "/assets/course-5.jpg",
+    image: "/website/courses/laravel-api-course.png",
   },
   {
     id: 13,
@@ -1104,7 +1116,7 @@ export const courses = [
     rating: 4.3,
     courseLongbydays: 30,
     quantity: 0,
-    image: "/assets/course-6.jpg",
+    image: "/website/courses/ui-ux-course.jpg",
   },
   {
     id: 14,
@@ -1115,7 +1127,7 @@ export const courses = [
     rating: 4.7,
     courseLongbydays: 36,
     quantity: 0,
-    image: "/assets/course-3.jpg",
+    image: "/website/courses/seo-course.webp",
   },
   {
     id: 15,
@@ -1126,7 +1138,7 @@ export const courses = [
     rating: 4.9,
     courseLongbydays: 55,
     quantity: 0,
-    image: "/assets/course-4.jpg",
+    image: "/website/courses/Game Development with Unity-course.jpg",
   },
 ];
 
@@ -1197,91 +1209,130 @@ export const articles = [
       name: "أحمد علي",
       image: "/defaults/default-male.png",
     },
-    title: "أهمية تطوير الواجهات الأمامية في 2025",
+    title: {
+      ar: "أهمية تطوير الواجهات الأمامية في 2025",
+      en: "The Importance of Frontend Development in 2025",
+    },
     commentsNumber: 4,
     publishedDate: "2025-03-10",
-    image: "/assets/article-1.jpg",
+    image: "/website/blog/blog-1.webp",
   },
   {
     author: {
       name: "نور محمد",
       image: "",
     },
-    title: "أفضل الممارسات في تحسين تجربة المستخدم",
+    title: {
+      ar: "أفضل الممارسات في تحسين تجربة المستخدم",
+      en: "Best Practices for Enhancing User Experience",
+    },
     commentsNumber: 7,
     publishedDate: "2025-02-25",
+    image: "/website/blog/blog-2.webp",
   },
   {
     author: {
       name: "خالد حسن",
       image: "",
     },
-    title: "لماذا يعتبر React.js الخيار الأول للمطورين؟",
+    title: {
+      ar: "لماذا يعتبر React.js الخيار الأول للمطورين؟",
+      en: "Why is React.js the First Choice for Developers?",
+    },
     commentsNumber: 12,
     publishedDate: "2025-01-18",
+    image: "/website/blog/blog-3.webp",
   },
   {
     author: {
       name: "ليلى عبد الرحمن",
       image: "",
     },
-    title: "كيف تبني API باستخدام Laravel بكفاءة؟",
+    title: {
+      ar: "كيف تبني API باستخدام Laravel بكفاءة؟",
+      en: "How to Build Efficient APIs with Laravel?",
+    },
     commentsNumber: 9,
     publishedDate: "2025-03-02",
+    image: "/website/blog/blog-4.webp",
   },
   {
     author: {
       name: "يوسف إبراهيم",
       image: "",
     },
-    title: "دليل شامل لاستخدام Tailwind CSS في المشاريع الحديثة",
+    title: {
+      ar: "دليل شامل لاستخدام Tailwind CSS في المشاريع الحديثة",
+      en: "A Comprehensive Guide to Using Tailwind CSS in Modern Projects",
+    },
     commentsNumber: 5,
     publishedDate: "2025-02-12",
+    image: "/website/blog/blog-5.webp",
   },
   {
     author: {
       name: "سارة محمود",
       image: "",
     },
-    title: "ما هو الفرق بين Next.js و Nuxt.js؟",
+    title: {
+      ar: "ما هو الفرق بين Next.js و Nuxt.js؟",
+      en: "What is the Difference Between Next.js and Nuxt.js?",
+    },
     commentsNumber: 3,
     publishedDate: "2025-01-30",
+    image: "/website/blog/blog-6.webp",
   },
   {
     author: {
       name: "عمر سعيد",
       image: "",
     },
-    title: "أحدث الاتجاهات في الذكاء الاصطناعي وتعلم الآلة",
+    title: {
+      ar: "أحدث الاتجاهات في الذكاء الاصطناعي وتعلم الآلة",
+      en: "Latest Trends in AI and Machine Learning",
+    },
     commentsNumber: 15,
     publishedDate: "2025-03-08",
+    image: "/website/blog/blog-7.webp",
   },
   {
     author: {
       name: "هند جمال",
       image: "",
     },
-    title: "كيف تحسن أداء موقعك باستخدام تحسينات SEO؟",
+    title: {
+      ar: "كيف تحسن أداء موقعك باستخدام تحسينات SEO؟",
+      en: "How to Improve Your Website Performance with SEO Enhancements?",
+    },
     commentsNumber: 6,
     publishedDate: "2025-02-20",
+    image: "/website/blog/blog-8.webp",
   },
   {
     author: {
       name: "ماجد ناصر",
       image: "",
     },
-    title: "بناء تطبيقات الموبايل باستخدام React Native",
+    title: {
+      ar: "بناء تطبيقات الموبايل باستخدام React Native",
+      en: "Building Mobile Apps with React Native",
+    },
     commentsNumber: 8,
     publishedDate: "2025-01-15",
+    image: "/website/blog/blog-4.webp",
   },
   {
     author: {
       name: "ريم صالح",
       image: "",
     },
-    title: "أهمية العمل الحر للمطورين وكيف تبدأ فيه؟",
+    title: {
+      ar: "أهمية العمل الحر للمطورين وكيف تبدأ فيه؟",
+      en: "The Importance of Freelancing for Developers and How to Start",
+    },
     commentsNumber: 10,
     publishedDate: "2025-03-05",
+    image: "/website/blog/blog-1.webp",
   },
 ];
 

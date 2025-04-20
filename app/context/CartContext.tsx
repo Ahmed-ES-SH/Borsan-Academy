@@ -1,43 +1,12 @@
 "use client";
-
 import {
   useState,
   createContext,
   useContext,
   useEffect,
   ReactNode,
-  Dispatch,
-  SetStateAction,
 } from "react";
-
-interface cardType {
-  id: number;
-  price: number;
-  title: string;
-  lessons: number;
-  students: number;
-  rating: number;
-  courseLongbydays: number;
-  image: string;
-  quantity: number;
-}
-
-type CartContextType = {
-  cartitems: cardType[];
-  quantity: number;
-  getitemquanity: (currentitem: cardType) => number;
-  decreasequantity: (currentitem: cardType) => void;
-  increasequantity: (currentitem: cardType) => void;
-  removefromcard: (currentitem: cardType) => void;
-  addToCart: (currentitem: cardType) => void;
-  open_close: () => void;
-  setcartitems: Dispatch<SetStateAction<cardType[]>>;
-  isopen: boolean;
-  showSuccessAlart: boolean;
-  setShowSuccessAlart: Dispatch<SetStateAction<boolean>>;
-  setShowErrorAlart: Dispatch<SetStateAction<boolean>>;
-  showErrorAlart: boolean;
-};
+import { cardType, CartContextType } from "../types/_website/ContextTypes";
 
 const Cart_context = createContext<CartContextType | undefined>(undefined);
 
@@ -46,6 +15,7 @@ type CartProviderProps = {
 };
 
 const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
+  const [wishListItems, setWishListItems] = useState<cardType[]>([]);
   const [cartitems, setcartitems] = useState<cardType[]>([]);
   const [isInitialized, setIsInitialized] = useState(false);
   const [showSuccessAlart, setShowSuccessAlart] = useState(false);
@@ -56,33 +26,25 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedCartItems = localStorage.getItem("cartitems");
+      const wishlistItems = localStorage.getItem("wishlistitems");
       if (storedCartItems) {
         setcartitems(JSON.parse(storedCartItems));
+      }
+
+      if (wishlistItems) {
+        setWishListItems(JSON.parse(wishlistItems));
       }
       setIsInitialized(true); // التأكيد أن التهيئة تمت
     }
   }, []);
 
-  //   useEffect(() => {
-  //     const getdata = async () => {
-  //       try {
-  //         const response = await instance.get("/currentuser");
-  //         if (response.status == 200) {
-  //           setCurrentUser(response.data.data);
-  //         }
-  //       } catch (error: any) {
-  //         throw error;
-  //       }
-  //     };
-  //     getdata();
-  //   }, []);
-
   // تحديث localStorage فقط بعد اكتمال التهيئة
   useEffect(() => {
     if (isInitialized) {
       localStorage.setItem("cartitems", JSON.stringify(cartitems));
+      localStorage.setItem("wishlistitems", JSON.stringify(wishListItems));
     }
-  }, [cartitems, isInitialized]);
+  }, [cartitems, wishListItems, isInitialized]);
 
   const [isopen, setisopen] = useState(false);
 
@@ -134,6 +96,12 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   };
 
   const addToCart = (currentitem: cardType) => {
+    // أولاً: نحذف العنصر من قائمة الأمنيات إن وجد
+    setWishListItems((prev) =>
+      prev.filter((item) => item.id !== currentitem.id)
+    );
+
+    // ثانياً: نضيفه إلى السلة إن لم يكن موجوداً
     setcartitems((items) => {
       const existingItem = items.find((item) => item.id === currentitem.id);
       if (!existingItem) {
@@ -144,6 +112,27 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
         return items;
       }
     });
+  };
+
+  // wishList Function lines
+
+  const addToWishlist = (currentitem: cardType) => {
+    setWishListItems((items) => {
+      const existingItem = items.find((item) => item.id === currentitem.id);
+      if (!existingItem) {
+        setShowSuccessAlart(true);
+        return [...items, { ...currentitem, quantity: 1 }];
+      } else {
+        setShowErrorAlart(true);
+        return items;
+      }
+    });
+  };
+
+  const removefromwishList = (currentitem: cardType): void => {
+    setWishListItems((items) =>
+      items.filter((item) => item.id != currentitem.id)
+    );
   };
 
   return (
@@ -163,6 +152,10 @@ const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
         setShowSuccessAlart,
         setShowErrorAlart,
         showErrorAlart,
+        wishListItems,
+        setWishListItems,
+        addToWishlist,
+        removefromwishList,
       }}
     >
       {children}

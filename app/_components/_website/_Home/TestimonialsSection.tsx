@@ -23,10 +23,10 @@ export default function TestimonialsSection() {
         <div className="w-[95%] max-xl:w-full mx-auto flex max-xl:flex-col items-center justify-between ">
           <div className="content w-[30%] max-xl:w-full flex flex-col gap-4">
             <h1 className="text-xl text-secondery-green">{texts.title}</h1>
-            <h2 className=" font-bold font-mono text-[55px] max-md:text-[35px] text-sec-text">
+            <h2 className=" font-bold font-mono text-2xl 2xl:text-[55px] max-md:text-[35px] text-sec-text">
               {texts.heading}
             </h2>
-            <p className="text-[15px] max-md:text-[20px] text-light_text w-1/2 max-md:w-full">
+            <p className="text-[15px] max-md:text-[20px] text-light_text 2xl:w-1/2 xl:w-3/4 max-md:w-full">
               {texts.description}
             </p>
           </div>
@@ -67,7 +67,11 @@ export default function TestimonialsSection() {
                     </div>
                     <div className="contnet flex flex-col gap-6">
                       <Stars size={25} goldStars={5} grayStars={0} />
-                      <p style={{ overflowWrap: "anywhere" }} className="">
+                      <p
+                        dir="rtl"
+                        style={{ overflowWrap: "anywhere" }}
+                        className=""
+                      >
                         {testimonial.comment}
                       </p>
                       <div className="flex items-center gap-2">

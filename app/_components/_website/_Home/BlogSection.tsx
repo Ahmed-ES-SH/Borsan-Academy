@@ -24,7 +24,7 @@ export default function BlogSection() {
             {texts.heading}
           </h2>
         </div>
-        <div className="w-[90%] mx-auto grid grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1  gap-x-8 gap-y-32 mt-6">
+        <div className="w-[90%] mx-auto grid grid-cols-4 max-2xl:grid-cols-3 max-xl:grid-cols-2 max-md:grid-cols-1  gap-x-8 gap-y-32 mt-6">
           {articles.slice(0, 8).map((article, index) => (
             <div
               key={index}
@@ -47,8 +47,8 @@ export default function BlogSection() {
                     <p className="text-[14px]">{article.commentsNumber}</p>
                   </div>
                 </div>
-                <h1 className="my-3 text-2xl max-2xl:text-xl font-bold px-3">
-                  {article.title}
+                <h1 className="my-3  2xl:text-xl text-lg font-semibold px-3">
+                  {article.title[locale]}
                 </h1>
                 <div className="pt-5 border-t border-gray-300 w-full px-3 pb-2 cursor-pointer group/arrow">
                   <div className="flex items-center justify-between w-full duration-300 group-hover/arrow:text-secondery-green">

@@ -2,21 +2,35 @@
 import { UseVariables } from "@/app/context/VariablesContext";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
-import React from "react";
+import React, { useRef } from "react";
 import { BsCartX } from "react-icons/bs";
 import CartItem from "./CartItem";
-import { Cartcontext } from "@/app/context/CartContent";
+import { Cartcontext } from "@/app/context/CartContext";
 import { GiTireIronCross } from "react-icons/gi";
 import { getTranslations } from "@/app/_helpers/helpers";
 import { directionMap } from "@/app/constants/_website/data";
 import LocaleLink from "../localeLink";
+import { loadStripe } from "@stripe/stripe-js";
+import useClickOutside from "@/app/_helpers/useClickOutside";
 
 export default function SideCart() {
-  const { showSideCart, toggleCart, locale } = UseVariables();
+  const cartRef = useRef<HTMLDivElement>(null);
+  const {
+    showSideCart,
+    toggleCart,
+    setShowSideCart,
+    setShowDropWishList,
+    locale,
+  } = UseVariables();
   const { cartitems } = Cartcontext();
   const { sideCart } = getTranslations(locale);
   const pathname = usePathname();
   const router = useRouter();
+
+  useClickOutside(cartRef, () => {
+    setShowSideCart(false);
+    setShowDropWishList(false);
+  });
 
   const dashboard = pathname.split("/")[1];
 
@@ -27,6 +41,44 @@ export default function SideCart() {
     0
   );
 
+  const formatFirstTwoCharFromEveryCourse = () => {
+    if (cartitems && cartitems.length > 0) {
+      const courseShortTitles = cartitems.map((course) => {
+        return course.title.slice(0, 2).toUpperCase(); // أخذ أول حرفين من اسم الكورس
+      });
+      return courseShortTitles.join(" "); // دمج الأحرف مع فاصل بينهما
+    }
+    return ""; // إرجاع نص فارغ إذا كانت cartitems غير موجودة
+  };
+
+  const CoursesText = formatFirstTwoCharFromEveryCourse();
+
+  const productDetails = {
+    productName: CoursesText,
+    amount: subtotal, // المبلغ بالدولار
+    currency: "usd",
+    quantity: cartitems && cartitems.length,
+    locale: locale,
+  };
+
+  const handleCheckout = async () => {
+    const res = await fetch("/api/create-checkout-session", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(productDetails),
+    });
+    const data = await res.json();
+
+    if (data.sessionId) {
+      const stripe = await loadStripe(
+        process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+      );
+      await stripe?.redirectToCheckout({ sessionId: data.sessionId });
+    }
+  };
+
   const handleGO = async () => {
     toggleCart();
     router.push(`/${locale}/cart`);
@@ -36,6 +88,7 @@ export default function SideCart() {
     <AnimatePresence>
       {showSideCart && (
         <motion.div
+          ref={cartRef}
           dir={directionMap[locale]}
           initial={{ x: "-100%" }}
           animate={{ x: "0" }}
@@ -145,12 +198,15 @@ export default function SideCart() {
             >
               {sideCart.viewCart}
             </button>
-            <button
-              className="w-full hover:bg-secondery-green hover:text-white duration-300 py-4 flex items-center justify-center text-sky-400 border border-gray-200 rounded-md  bg-white"
-              id="Checkout"
-            >
-              {sideCart.checkout}
-            </button>
+            {cartitems.length > 0 && (
+              <button
+                onClick={handleCheckout}
+                className="w-full hover:bg-secondery-green hover:text-white duration-300 py-4 flex items-center justify-center text-sky-400 border border-gray-200 rounded-md  bg-white"
+                id="Checkout"
+              >
+                {sideCart.checkout}
+              </button>
+            )}
           </div>
         </motion.div>
       )}
