@@ -4,7 +4,8 @@ import React from "react";
 import Img from "../../Img";
 import { FaArrowRight, FaComments, FaUser } from "react-icons/fa";
 import { UseVariables } from "@/app/context/VariablesContext";
-import { getTranslations } from "@/app/_helpers/helpers";
+import { formatTitle, getTranslations } from "@/app/_helpers/helpers";
+import LocaleLink from "../../localeLink";
 
 export default function BlogSection() {
   const { locale } = UseVariables();
@@ -51,10 +52,13 @@ export default function BlogSection() {
                   {article.title[locale]}
                 </h1>
                 <div className="pt-5 border-t border-gray-300 w-full px-3 pb-2 cursor-pointer group/arrow">
-                  <div className="flex items-center justify-between w-full duration-300 group-hover/arrow:text-secondery-green">
+                  <LocaleLink
+                    href={`/blog/${formatTitle(article.title[locale])}`}
+                    className="flex items-center justify-between w-full duration-300 group-hover/arrow:text-secondery-green"
+                  >
                     <p>{texts.readMore}</p>
                     <FaArrowRight className="text-sec-text size-4 group-hover/arrow:translate-x-2 duration-300" />
-                  </div>
+                  </LocaleLink>
                 </div>
               </div>
             </div>

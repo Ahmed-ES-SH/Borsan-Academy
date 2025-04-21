@@ -33,10 +33,10 @@ export async function POST(request: Request) {
           quantity: quantity, // كمية المنتج
         },
       ],
-      success_url: `http://localhost:3000/${locale}/success?payment_status=success&product=${encodeURIComponent(
+      success_url: `https://borsan-frontend.vercel.app/${locale}/success?payment_status=success&product=${encodeURIComponent(
         productName
       )}&amount=${amount}`,
-      cancel_url: `http://localhost:3000/${locale}/cancel`,
+      cancel_url: `https://borsan-frontend.vercel.app/${locale}/cancel`,
     });
 
     // إرجاع session ID في الرد

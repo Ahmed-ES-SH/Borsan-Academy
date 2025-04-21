@@ -74,7 +74,7 @@ export default function AboutSectionTwo() {
           </div>
           <div className="w-full h-full relative">
             <Img
-              src="/assets/course-2.jpg"
+              src="/website/blog/blog-2.webp"
               className="w-full h-full object-cover"
             />
             <div className="flex max-lg:flex-col max-lg:gap-8 absolute items-center gap-4 z-[10] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">

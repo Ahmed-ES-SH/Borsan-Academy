@@ -36,7 +36,7 @@ export default function NavLinksSidebar() {
           animate={{ y: 40, opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className=" h-screen w-full   rounded-md py-6 fixed  -top-9 right-0 bg-black/50 backdrop-blur-md"
+          className=" h-screen w-full  z-[999999] rounded-md py-6 fixed  -top-9 right-0 bg-black/50 backdrop-blur-md"
         >
           <motion.div
             initial={{ right: "-100%" }}

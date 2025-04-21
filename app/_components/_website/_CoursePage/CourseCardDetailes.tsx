@@ -26,6 +26,7 @@ export default function CourseCardDetailes() {
   const { locale } = UseVariables();
   const {
     addToCart,
+    addToWishlist,
     showErrorAlart,
     showSuccessAlart,
     setShowErrorAlart,
@@ -151,18 +152,21 @@ export default function CourseCardDetailes() {
           ))}
         </div>
         <div className="btns mt-4 flex items-center justify-between w-[90%] max-md:w-full max-md:p-1 max-md:flex-col gap-3 mx-auto">
-          <div className="flex-1 max-md:w-full p-1 cursor-pointer py-4 bg-blue-500 hover:bg-blue-600 duration-200 rounded-sm border border-transparent flex items-center justify-center">
-            <div
-              onClick={() => addToCart(courses[2])}
-              className="flex items-center gap-2 text-white"
-            >
+          <div
+            onClick={() => addToCart(courses[2])}
+            className="flex-1 max-md:w-full p-1 cursor-pointer py-4 bg-blue-500 hover:bg-blue-600 duration-200 rounded-sm border border-transparent flex items-center justify-center"
+          >
+            <div className="flex items-center gap-2 text-white">
               <FaCartShopping className="size-5" />
               <p className="whitespace-nowrap">
                 {CourseCardDetailes.add_to_cart}
               </p>
             </div>
           </div>
-          <div className="flex-1 max-md:w-full p-1 cursor-pointer bg-gray-50 hover:text-white hover:bg-blue-500 duration-300 py-4   border border-gray-200 rounded-sm flex items-center justify-center">
+          <div
+            onClick={() => addToWishlist(courses[2])}
+            className="flex-1 max-md:w-full p-1 cursor-pointer bg-gray-50 hover:text-white hover:bg-blue-500 duration-300 py-4   border border-gray-200 rounded-sm flex items-center justify-center"
+          >
             <div className="flex items-center gap-2 ">
               <CiHeart className="size-5" />
               <p className="whitespace-nowrap">

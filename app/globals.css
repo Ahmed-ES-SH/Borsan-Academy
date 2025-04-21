@@ -220,7 +220,8 @@ button {
   );
 }
 
-.relative:focus-within .special-label {
+.relative:focus-within .special-label,
+.relative.not-empty .special-label {
   top: 0;
   background: white;
   padding: 0 4px;
@@ -241,5 +242,21 @@ button {
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+/* شاشة متوسطة فأعلى */
+@media (min-width: 640px) {
+  .cl-userButtonAvatarBox {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* شاشة كبيرة */
+@media (min-width: 768px) {
+  .cl-userButtonAvatarBox {
+    width: 37px;
+    height: 37px;
   }
 }

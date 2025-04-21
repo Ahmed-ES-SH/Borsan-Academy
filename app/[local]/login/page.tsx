@@ -5,9 +5,9 @@ import { getSharedMetadata, getTranslations } from "@/app/_helpers/helpers";
 
 export async function generateMetadata({ params }) {
   const { local } = params;
-  const translations = getTranslations(local);
+  const translations = await getTranslations(local);
   const login = translations.login;
-  const sharedMetadata = getSharedMetadata(local, translations);
+  const sharedMetadata = await getSharedMetadata(local, translations);
   return {
     title: `Borsan Academy | ${login.metaTitle}`,
     describtion: `Borsan Academy | ${login.metaDescription}`,

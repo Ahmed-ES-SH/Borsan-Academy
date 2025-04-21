@@ -343,8 +343,21 @@
     "backToHome": "العودة إلى الصفحة الرئيسية"
   },
 
+  "emailVerification": {
+    "title": "تحقق من بريدك الإلكتروني",
+    "subtitle": "لقد أرسلنا رمز التحقق إلى بريدك الإلكتروني",
+    "verificationLabel": "رمز التحقق",
+    "verificationPlaceholder": "أدخل رمز التحقق",
+    "errorMessage": "رمز التحقق غير صحيح",
+    "submitButton": "تأكيد",
+    "submitting": "جاري التحقق...",
+    "resendPrompt": "لم تستلم الرمز؟",
+    "resendButton": "إعادة إرسال"
+  },
+
   "operationFailure": "فشل العملية",
   "closeWord": "إغلاق",
   "success": "نجاح",
-  "forbidden": "مازلنا في مرحلة التطوير"
+  "forbidden": "مازلنا في مرحلة التطوير",
+  "checkAccount": "تم انشاء الحساب بنجاح برجاء مؤاجعة البريد الالكترونى لتفعيل الحساب وتسجيل الدخول فى اى وقت "
 }

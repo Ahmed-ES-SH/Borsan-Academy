@@ -14,6 +14,8 @@ import Logo from "../Logo";
 export default function Footer() {
   const { locale } = UseVariables();
   const translations = getTranslations(locale);
+
+  if (!locale) return null;
   return (
     <>
       <div

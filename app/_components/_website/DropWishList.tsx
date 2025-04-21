@@ -36,11 +36,13 @@ export default function DropWishlist() {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -500, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="h-[40vh] overflow-y-auto hidden-scrollbar w-[500px] max-lg:w-[98%] max-lg:left-1/2 max-lg:-translate-x-1/2 border border-gray-300 bg-white shadow-lg rounded-lg p-2 absolute mt-2 right-24 max-lg:right-0 "
+          className="h-[40vh] max-lg:h-[60vh] overflow-y-auto hidden-scrollbar w-[500px] max-lg:w-[98%] max-lg:left-1/2 max-lg:-translate-x-1/2 border border-gray-300 bg-white shadow-lg rounded-lg p-2 absolute mt-2 right-24 max-lg:right-0 "
         >
           <MdClose
             onClick={() => setShowDropWishList(false)}
-            className="size-6 text-red-300 absolute top-2 left-2 cursor-pointer hover:text-red-500 "
+            className={`size-6 text-red-300 mt-2 ${
+              locale == "ar" ? "mr-auto" : "ml-auto"
+            } cursor-pointer hover:text-red-500 `}
           />
           <div className="w-full">
             {wishListItems && wishListItems.length > 0 ? (
@@ -70,7 +72,7 @@ export default function DropWishlist() {
               </>
             ) : (
               <motion.div
-                className="w-full h-[35vh] flex items-center justify-center"
+                className="w-full h-[40vh] flex items-center justify-center"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{

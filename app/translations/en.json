@@ -342,8 +342,22 @@
     "backToHome": "Back to Home"
   },
 
+  "emailVerification": {
+    "title": "Verify Your Email",
+    "subtitle": "We’ve sent a verification code to your email",
+    "verificationLabel": "Verification Code",
+    "verificationPlaceholder": "Enter the verification code",
+    "errorMessage": "Invalid verification code",
+    "submitButton": "Confirm",
+    "submitting": "Verifying...",
+    "resendPrompt": "Didn't receive the code?",
+    "resendButton": "Resend"
+  },
+
   "operationFailure": "Operation failure",
   "closeWord": "Close",
   "success": "Success",
-  "forbidden": "We are still in the development stage"
+  "forbidden": "We are still in the development stage",
+
+  "checkAccount": "The account has been created successfully. Please check your email to activate the account and log in at any time."
 }

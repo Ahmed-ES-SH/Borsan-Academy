@@ -30,13 +30,13 @@ export default function LanguagesDrop() {
   };
 
   return (
-    <div className="relative">
+    <div className="relative z-[9999]">
       {/* زر تبديل القائمة */}
       <div
         onClick={toggleDropdown}
         className="flex items-center cursor-pointer group"
       >
-        <HiMiniLanguage className="text-white size-6" />
+        <HiMiniLanguage className="text-white size-6 max-md:size-5" />
         <FaChevronDown className="text-white size-2 group-hover:rotate-180 duration-500" />
       </div>
 

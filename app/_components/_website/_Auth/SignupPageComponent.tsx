@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { PiUserCircleDashedThin } from "react-icons/pi";
 import { MdDriveFileRenameOutline, MdPassword, MdPhone } from "react-icons/md";
 import { TfiEmail } from "react-icons/tfi";
@@ -8,21 +8,76 @@ import Img from "@/app/_components/Img";
 import countries from "@/app/constants/_website/countries";
 import { UseVariables } from "@/app/context/VariablesContext";
 import { getTranslations } from "@/app/_helpers/helpers";
+import { useSignUp, useUser } from "@clerk/nextjs";
+import Loading from "../../Loading";
+import ErrorAlart from "../../_popups/ErrorAlart";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import SuccessAlart from "../../_popups/SuccessAlart";
+import EmailVerificationStep from "./EmailVerificationStep";
+import { useRouter } from "next/navigation";
 
 export default function SignupPageComponent() {
+  const { user } = useUser();
   const { locale } = UseVariables();
+  const { isLoaded, signUp } = useSignUp();
+  const router = useRouter();
   const translations = getTranslations(locale);
   const imageRef = useRef<HTMLInputElement | null>(null);
   const iconStyle = "absolute  right-2 top-1/2  -translate-y-1/2";
 
+  useEffect(() => {
+    if (user) {
+      router.push(`/${locale}`);
+    }
+  }, [user, router, locale]);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value, type, files } = e.target as HTMLInputElement; // استخدم destructuring
+    if (type === "file" && files) {
+      setForm((prevForm) => ({ ...prevForm, [name]: files[0] })); // حفظ أول ملف فقط
+    } else {
+      setForm((prevForm) => ({ ...prevForm, [name]: value }));
+    }
+  };
+
+  const handleChangePasswordFildType = () => {
+    setPasswordFildType((prev) => !prev);
+  };
+
   const renderInput = (type, name, label, icon) => {
+    const isNotEmpty = form[name] && form[name].trim() !== "";
     return (
-      <div className="relative w-full">
-        <input type={type} name={name} className="input-style" />
-        <label className="special-label absolute top-1/2 px-2   -translate-y-1/2 left-2 text-lg text-light_text opacity-50 -z-10">
+      <div className={`relative w-full ${isNotEmpty ? "not-empty" : ""}`}>
+        <input
+          onChange={handleChange}
+          type={
+            name == "password" ? (passwordFildType ? "text" : "password") : type
+          }
+          name={name}
+          value={form[name] || ""}
+          className="input-style"
+        />
+        <label className="special-label absolute top-1/2 px-2 -translate-y-1/2 left-2 text-lg text-light_text opacity-50 -z-10 transition-all duration-300">
           {label}
         </label>
-        {icon}
+        {name == "password" ? (
+          <div className="flex items-center gap-1 absolute text-primary right-2 top-1/2 -translate-y-1/2">
+            {form.password.length > 0 && (
+              <div onClick={handleChangePasswordFildType} className="">
+                {passwordFildType ? (
+                  <FaEyeSlash className="size-5 text-gray-400 cursor-pointer" />
+                ) : (
+                  <FaEye className="size-5 text-gray-400 cursor-pointer" />
+                )}
+              </div>
+            )}
+            <MdPassword />
+          </div>
+        ) : (
+          <div className="">{icon}</div>
+        )}
       </div>
     );
   };
@@ -67,25 +122,51 @@ export default function SignupPageComponent() {
     phone_number: "",
     image: null as File | null,
   });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { name, value, type, files } = e.target as HTMLInputElement; // استخدم destructuring
-    if (type === "file" && files) {
-      setForm((prevForm) => ({ ...prevForm, [name]: files[0] })); // حفظ أول ملف فقط
-    } else {
-      setForm((prevForm) => ({ ...prevForm, [name]: value }));
-    }
-  };
+  const [error, setError] = useState("");
+  const [showEmailVerification, setShowEmailVerification] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [passwordFildType, setPasswordFildType] = useState(false);
+  const [successMessgae, setSuccessMessgae] = useState("");
+  const [showSuccessMessgae, setShowSuccessMessgae] = useState(false);
 
   const handleSelectGender = (gender: string) => {
     setForm({ ...form, gender: gender });
   };
 
-  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // تحقق أولاً من تحميل Clerk
+    if (!isLoaded || !signUp) {
+      console.warn("Clerk signUp object not ready");
+      return;
+    }
+    try {
+      // إنشاء الحساب بالبريد وكلمة المرور
+      await signUp.create({
+        emailAddress: form.email,
+        password: form.password,
+      });
+      // إرسال رمز التحقق إلى البريد
+      await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
+      setShowSuccessMessgae(true);
+      setShowEmailVerification(true);
+      setSuccessMessgae(translations.checkAccount);
+      setForm({
+        country: "",
+        gender: "",
+        name: "",
+        email: "",
+        password: "",
+        phone_number: "",
+        image: null as File | null,
+      });
+    } catch (error: any) {
+      setShowError(true);
+      setError(error.errors?.[0]?.message || "حدث خطأ ما");
+    }
   };
+
+  if (!isLoaded) return <Loading />;
 
   return (
     <>
@@ -185,6 +266,20 @@ export default function SignupPageComponent() {
           </form>
         </div>
       </div>
+      <ErrorAlart
+        Message={error}
+        showAlart={showError}
+        onClose={() => setShowError(false)}
+      />
+      <SuccessAlart
+        Message={successMessgae}
+        showAlart={showSuccessMessgae}
+        onClose={() => setShowSuccessMessgae(false)}
+      />
+      <EmailVerificationStep
+        show={showEmailVerification}
+        setShow={setShowEmailVerification}
+      />
     </>
   );
 }

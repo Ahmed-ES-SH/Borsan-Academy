@@ -42,6 +42,8 @@ export default function Navbar() {
     setShowNavLinksDrop((prev) => !prev);
   };
 
+  if (!locale) return null;
+
   return (
     <>
       <div className="w-full bg-thired_dash fixed z-[99999]  top-0 left-0">
@@ -66,7 +68,7 @@ export default function Navbar() {
               </LocaleLink>
             ))}
           </div>
-          <div className="btns flex items-center justify-between gap-6 max-md:gap-3 ">
+          <div className="btns flex items-center justify-between gap-3 max-md:gap-3 ">
             {!user && (
               <div className="flex items-center gap-2 max-lg:hidden">
                 <LocaleLink
@@ -92,14 +94,10 @@ export default function Navbar() {
                 afterSignOutUrl="/en"
                 appearance={{
                   elements: {
-                    userButtonAvatarBox: {
-                      width: "37px",
-                      height: "37px",
-                    },
-
                     userButtonPopoverCard: {
                       zIndex: "999999",
                       marginTop: "15px",
+                      marginLeft: "auto",
                     },
                   },
                 }}
@@ -113,7 +111,7 @@ export default function Navbar() {
                   className="cart relative cursor-pointer group"
                 >
                   {CartItemsLenght > 0 && (
-                    <span className="w-5 h-5 max-md:w-4 max-md:h-4 max-md:text-[12px] text-[14px] bg-primary flex items-center justify-center text-white absolute max-md:-top-2 max-md:-right-2 -top-3 -right-3 rounded-full">
+                    <span className="w-5 h-5 max-md:w-4 max-md:h-4 max-md:text-[10px] text-[14px] bg-primary flex items-center justify-center text-white absolute max-md:-top-2 max-md:-right-2 -top-3 -right-3 rounded-full">
                       {CartItemsLenght}
                     </span>
                   )}
@@ -124,12 +122,14 @@ export default function Navbar() {
                   className="cart relative cursor-pointer group"
                 >
                   {wishListLenght > 0 && (
-                    <span className="w-5 h-5 max-md:w-4 max-md:h-4 max-md:text-[12px] text-[14px] bg-red-400 flex items-center justify-center text-white absolute max-md:-top-2 max-md:-right-2 -top-2 -right-3 rounded-full">
+                    <span className="w-5 h-5 max-md:w-4 max-md:h-4 max-md:text-[10px] text-[14px] bg-red-400 flex items-center justify-center text-white absolute max-md:-top-2 max-md:-right-2 -top-2 -right-3 rounded-full">
                       {wishListLenght}
                     </span>
                   )}
                   <IoMdHeartEmpty
-                    className={`text-white group-hover:text-red-400 duration-300 size-7 max-md:size-6  `}
+                    className={` group-hover:text-red-400 duration-300 size-7 max-md:size-5 ${
+                      wishListLenght > 0 ? "text-red-300" : "text-white"
+                    }  `}
                   />
                 </div>
               </div>
@@ -141,7 +141,7 @@ export default function Navbar() {
         {!showNavLinksDrop && (
           <div
             onClick={toggleDropdown}
-            className=" absolute rounded-b-md right-3 -bottom-9 w-9 h-9 bg-thired_dash flex items-center justify-center  cursor-pointer lg:hidden z-[9999]"
+            className=" absolute rounded-b-md right-3 -bottom-9 w-9 h-9 bg-thired_dash flex items-center justify-center  cursor-pointer lg:hidden "
           >
             <HiMiniBars3CenterLeft className="text-white size-6 rotate-180 " />
           </div>

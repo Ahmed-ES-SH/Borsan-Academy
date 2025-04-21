@@ -103,12 +103,11 @@ export default function SideCart() {
             <h2 className="font-mono font-bold text-xl pb-3 border-b border-secondery-green ">
               {sideCart.shoppingCart}
             </h2>
-            <div
+
+            <GiTireIronCross
               onClick={toggleCart}
-              className="w-8 h-8 hover:bg-red-300 hover:text-white duration-300 cursor-pointer text-primary bg-gray-100 rounded-md flex items-center justify-center shadow-sm"
-            >
-              <GiTireIronCross className="size-5" />
-            </div>
+              className="size-6 max-md:size-5 font-bold cursor-pointer text-red-300 hover:text-red-500"
+            />
           </div>
           <div
             id="items"
@@ -116,7 +115,7 @@ export default function SideCart() {
           >
             {cartitems && cartitems.length > 0 ? (
               <motion.ul
-                className="w-full flex flex-col gap-4"
+                className="w-full flex flex-col gap-4 min-h-[35vh]"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}

@@ -20,7 +20,7 @@ export default function Logo() {
         </LocaleLink>
         <div
           style={{ direction: "ltr" }}
-          className="text-logo  flex items-center"
+          className="text-logo  flex items-center max-md:hidden"
         >
           <span className="text-secondery-green text-3xl max-md:text-xl font-serif">
             B-
