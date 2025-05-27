@@ -1,16 +1,14 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import HeroImages from "./_HeroSection/HeroImages";
 import Img from "../../Img";
 import HeroContent from "./_HeroSection/HeroContent";
 import { motion } from "framer-motion";
 import { directionMap } from "@/app/constants/_website/data";
 import { UseVariables } from "@/app/context/VariablesContext";
-import Loading from "../../Loading";
+
 export default function HeroSection() {
   const { locale } = UseVariables();
-
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -20,14 +18,11 @@ export default function HeroSection() {
     // إعادة التمرير بعد 3 ثوانٍ
     const timer = setTimeout(() => {
       document.body.style.overflow = "auto";
-      setLoading(false);
     }, 3000); // 3000 مللي ثانية = 3 ثواني
 
     // تنظيف المؤقت عندما يغادر المستخدم الصفحة
     return () => clearTimeout(timer);
   }, []);
-
-  if (loading) return <Loading />;
 
   return (
     <>

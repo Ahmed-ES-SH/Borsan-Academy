@@ -6,7 +6,10 @@ import { motion } from "framer-motion";
 export default function Loading() {
   return (
     <>
-      <div className="w-full h-screen fixed top-0 left-0 z-[9999999] bg-white flex items-center justify-center">
+      <div
+        id="global-loader"
+        className="w-full h-screen fixed top-0 left-0 z-[9999999] bg-white flex items-center justify-center"
+      >
         <div className="flex flex-col items-center gap-12">
           <motion.div
             animate={{ rotate: 360 }}
