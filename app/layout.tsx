@@ -42,7 +42,7 @@ export default function RootLayout({ params, children }: Props) {
           <ClientLayout>
             <CartProvider>
               <Navbar />
-              <div className="w-full mt-16">{children}</div>
+              <div className="w-full mt-16 min-h-screen">{children}</div>
               <Footer />
               <SideCart />
             </CartProvider>
