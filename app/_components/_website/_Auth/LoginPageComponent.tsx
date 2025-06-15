@@ -9,7 +9,6 @@ import { useSignIn, useUser } from "@clerk/nextjs";
 import { OAuthStrategy } from "@clerk/types";
 import { useRouter } from "next/navigation";
 import ErrorAlart from "../../_popups/ErrorAlart";
-import Loading from "../../Loading";
 import { VscLoading } from "react-icons/vsc";
 import { motion } from "framer-motion";
 
@@ -87,8 +86,6 @@ export default function LoginPageComponent() {
 
   const isEmailNotEmpty = form["email"] && form["email"].trim() !== "";
   const isPasswordNotEmpty = form["password"] && form["password"].trim() !== "";
-
-  if (!isLoaded) return <Loading />;
 
   return (
     <>

@@ -6,13 +6,12 @@ export async function generateMetadata({ params }) {
   const locale = params.locale || "en"; // اللغة الافتراضية هي الإنجليزية
   const translations = getTranslations(locale);
 
-  // استخدام البيانات المشتركة
   const sharedMetadata = getSharedMetadata(locale, translations);
 
   return {
     title: translations.courses.title,
     description: translations.courses.description,
-    ...sharedMetadata, // إضافة البيانات المشتركة هنا
+    ...sharedMetadata,
   };
 }
 

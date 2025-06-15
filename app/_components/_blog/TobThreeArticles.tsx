@@ -5,8 +5,6 @@ import { TopThreeArticles } from "@/app/constants/_website/data";
 export default function TobThreeArticles() {
   return (
     <>
-      {/* The Main Article */}
-
       <div className="w-full p-6 max-md:p-2 max-lg:p-4 flex items-center gap-3 min-h-[60vh] mt-16 max-xl:flex-col">
         {TopThreeArticles.map((article, index) => {
           const isLarge = article.size === "large";

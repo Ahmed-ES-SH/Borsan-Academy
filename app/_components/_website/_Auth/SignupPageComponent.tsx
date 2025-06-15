@@ -9,7 +9,6 @@ import countries from "@/app/constants/_website/countries";
 import { UseVariables } from "@/app/context/VariablesContext";
 import { getTranslations } from "@/app/_helpers/helpers";
 import { useSignUp, useUser } from "@clerk/nextjs";
-import Loading from "../../Loading";
 import ErrorAlart from "../../_popups/ErrorAlart";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import SuccessAlart from "../../_popups/SuccessAlart";
@@ -165,8 +164,6 @@ export default function SignupPageComponent() {
       setError(error.errors?.[0]?.message || "حدث خطأ ما");
     }
   };
-
-  if (!isLoaded) return <Loading />;
 
   return (
     <>

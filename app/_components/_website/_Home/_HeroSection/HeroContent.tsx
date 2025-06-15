@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { getTranslations } from "@/app/_helpers/helpers";
 import { UseVariables } from "@/app/context/VariablesContext";
+import LocaleLink from "@/app/_components/localeLink";
 
 export default function HeroContent() {
   const { locale } = UseVariables();
@@ -37,15 +38,18 @@ export default function HeroContent() {
             <span className="text-secondery-green">B</span>-Academy
           </span>
         </h1>
-        <div className="text-light_text text-[18px]  leading-[30px] max-md:w-3/4 select-none">
+        <div className="text-light_text text-[18px]  leading-[30px] max-md:w-full select-none">
           {translations.hero.trainingText}
         </div>
-        <button className=" relative group/btn z-[50] block overflow-hidden px-16 py-4 my-4 bg-black/80 text-white group text-center rounded-full shadow-md">
+        <LocaleLink
+          href="/courses"
+          className="relative w-fit group/btn z-[50] block overflow-hidden px-16 py-4 my-4 bg-black/80 text-white group text-center rounded-full shadow-md"
+        >
           <p className=" block relative z-[2]">
             {translations.hero.findCourse}
           </p>
           <span className="block w-10 h-10 rounded-full top-1/2 left-full group-hover/btn:w-[350px] group-hover/btn:h-[200px] bg-secondery-green absolute -translate-x-1/2 -translate-y-1/2 group-hover/btn:left-0 group-hover/btn:top-0 duration-700"></span>
-        </button>
+        </LocaleLink>
       </motion.div>
     </>
   );

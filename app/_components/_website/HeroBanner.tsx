@@ -1,11 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { PiGreaterThan } from "react-icons/pi";
 import LocaleLink from "../localeLink";
 import { UseVariables } from "@/app/context/VariablesContext";
 import { directionMap } from "@/app/constants/_website/data";
 import Img from "../Img";
-import Loading from "../Loading";
 
 interface linkType {
   [key: string]: string;
@@ -27,24 +26,17 @@ export default function HeroBanner({
   imagesrc,
 }: props) {
   const { locale, pathName } = UseVariables();
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // إيقاف التمرير عند تحميل الصفحة
     document.body.style.overflow = "hidden";
-
-    // إعادة التمرير بعد 3 ثوانٍ
     const timer = setTimeout(() => {
       document.body.style.overflow = "auto";
-      setLoading(false);
-    }, 2000); // 3000 مللي ثانية = 3 ثواني
+    }, 2000);
 
-    // تنظيف المؤقت عندما يغادر المستخدم الصفحة
     return () => clearTimeout(timer);
   }, []);
 
-  if (loading) return <Loading />;
   return (
     <>
       <div
@@ -58,11 +50,7 @@ export default function HeroBanner({
           style={{ rotate: pathName == "/ar/cart" ? "180deg" : "0deg" }}
           className="w-full h-full absolute top-0 left-0  object-cover"
         >
-          <Img
-            src={imagesrc}
-            loading="eager"
-            className="w-full h-full object-cover"
-          />
+          <Img src={imagesrc} className="w-full h-full object-cover" />
         </div>
         <div
           className={`w-2/3 max-lg:p-3 max-md:w-full h-full absolute top-0 right-0 flex items-center justify-center  opacity-95 bg-[#192335] mask-right rtl:right-0 ltr:left-0 ${

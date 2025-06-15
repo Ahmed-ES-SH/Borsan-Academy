@@ -13,10 +13,10 @@ export default function CertificateBanner() {
     <>
       <div
         dir={directionMap[locale]}
-        className="w-full 2xl:mt-20 xl:mt-36 max-md:mt-20 min-h-[55vh] max-lg:h-fit max-xl:h-[80vh]  relative bg-purble"
+        className="w-full 2xl:mt-20 xl:mt-36 max-xl:mt-32 min-h-[55vh] max-xl:h-fit relative bg-purble"
       >
         <div className="w-[80%] max-md:w-full max-md:p-3 h-full mx-auto ">
-          <div className="content max-lg:h-[50vh] max-lg:flex max-lg:items-center justify-center z-[30] relative ">
+          <div className="content max-xl:h-[50vh] max-xl:flex max-xl:items-center justify-center z-[30] relative ">
             <div className="">
               <p className="text-[70px] max-md:text-[40px] pt-6 font-Reey text-yellow-400">
                 {translations.certificateBanner.heading1}
@@ -42,7 +42,7 @@ export default function CertificateBanner() {
         <div
           className={`${
             locale == "ar" ? "left-0 rotate-180" : "right-0"
-          } w-[45%] h-full rounded-l-full max-md:w-[1200px]  mask-bottom bg-black/20 max-lg:hidden absolute top-0`}
+          } w-[45%] h-full rounded-l-full max-md:w-[1200px]  mask-bottom bg-black/20 max-xl:hidden absolute top-0`}
         ></div>
         <div
           className={`flex items-center justify-between flex-col h-full  absolute ${

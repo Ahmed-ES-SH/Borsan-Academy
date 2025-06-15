@@ -11,7 +11,7 @@ import { Cartcontext } from "@/app/context/CartContext";
 import { UseVariables } from "@/app/context/VariablesContext";
 import LocaleLink from "../../localeLink";
 import { directionMap } from "@/app/constants/_website/data";
-
+import { motion } from "framer-motion";
 interface CourseType {
   id: number;
   price: number;
@@ -26,9 +26,10 @@ interface CourseType {
 
 interface props {
   course: CourseType;
+  index: number;
 }
 
-export default function CourseCard({ course }: props) {
+export default function CourseCard({ course, index }: props) {
   const { addToCart, cartitems, addToWishlist, wishListItems } = Cartcontext();
   const { locale } = UseVariables();
   const translations = getTranslations(locale);
@@ -50,7 +51,13 @@ export default function CourseCard({ course }: props) {
 
   return (
     <>
-      <div dir={directionMap[locale]} className="flip-card">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.2 }}
+        dir={directionMap[locale]}
+        className="flip-card"
+      >
         <div className="flip-card-inner">
           <div className="flip-card-front">
             <div className="price">{course.price}.00 $</div>
@@ -154,7 +161,7 @@ export default function CourseCard({ course }: props) {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

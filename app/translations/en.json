@@ -20,6 +20,11 @@
     "description": "Join Borsan Academy and explore a wide range of high-quality courses. Gain new skills in programming, design, marketing, and more!"
   },
 
+  "cartMeta": {
+    "title": "Borsan Academy | Cart",
+    "description": "Review and manage the courses you've added to your cart before checkout at Borsan Academy."
+  },
+
   "_comment-1": "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////",
 
   "checkout": {
@@ -176,7 +181,9 @@
   "courses_page": {
     "discover_knowledge": "Discover the world of knowledge",
     "learning_journey": "Embark on an endless learning journey with our premium courses designed just for you.",
-    "search_button": "Search"
+    "search_button": "Search",
+    "search_placeholder": "Search For Course ...",
+    "no_results": "No Courses Found"
   },
 
   "categories": "Categories",
@@ -197,7 +204,8 @@
     "search_title": "Search for Articles",
     "search_description": "Use the search bar to find articles that interest you quickly and easily.",
     "search_placeholder": "Enter the article title",
-    "search_button": "Search"
+    "search_button": "Search",
+    "no_results": "No Articles Found"
   },
 
   "ArticlePage": {

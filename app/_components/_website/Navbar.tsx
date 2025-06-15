@@ -141,7 +141,7 @@ export default function Navbar() {
         {!showNavLinksDrop && (
           <div
             onClick={toggleDropdown}
-            className=" absolute rounded-b-md right-3 -bottom-9 w-9 h-9 bg-thired_dash flex items-center justify-center  cursor-pointer lg:hidden "
+            className=" absolute rounded-b-md right-3 -bottom-9 w-9 h-9 bg-thired_dash flex items-center justify-center  cursor-pointer xl:hidden "
           >
             <HiMiniBars3CenterLeft className="text-white size-6 rotate-180 " />
           </div>

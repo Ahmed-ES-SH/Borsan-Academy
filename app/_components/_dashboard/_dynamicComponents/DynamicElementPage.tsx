@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import useFetchItem from "@/app/_helpers/FetchItemData";
 import React, { useEffect, useRef, useState } from "react";

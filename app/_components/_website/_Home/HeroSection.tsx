@@ -12,15 +12,12 @@ export default function HeroSection() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // إيقاف التمرير عند تحميل الصفحة
     document.body.style.overflow = "hidden";
 
-    // إعادة التمرير بعد 3 ثوانٍ
     const timer = setTimeout(() => {
       document.body.style.overflow = "auto";
-    }, 3000); // 3000 مللي ثانية = 3 ثواني
+    }, 3000);
 
-    // تنظيف المؤقت عندما يغادر المستخدم الصفحة
     return () => clearTimeout(timer);
   }, []);
 
