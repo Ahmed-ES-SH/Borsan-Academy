@@ -100,7 +100,7 @@ export default function CoursesSlider() {
                   className="w-full h-full rounded-t-md bg-transparent"
                   key={index}
                 >
-                  <CourseCard course={course} />
+                  <CourseCard index={index} course={course} />
                 </SwiperSlide>
               ))}
             </Swiper>

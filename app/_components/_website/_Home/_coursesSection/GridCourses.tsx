@@ -42,7 +42,7 @@ export default function GridCourses() {
 
         <div className="grid grid-cols-4 max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 gap-4 mt-6 ">
           {courses.slice(0, 8).map((course, index) => (
-            <CourseCard course={course} key={index} />
+            <CourseCard index={index} course={course} key={index} />
           ))}
         </div>
         <CoursesButton />
